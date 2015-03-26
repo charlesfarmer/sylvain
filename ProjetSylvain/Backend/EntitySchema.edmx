@@ -1,0 +1,942 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Model1StoreContainer">
+    <EntitySet Name="EtudiantSet" EntityType="Model1.Store.EtudiantSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="LoginSet" EntityType="Model1.Store.LoginSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="PaiementSet" EntityType="Model1.Store.PaiementSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="InscriptionSet" EntityType="Model1.Store.InscriptionSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="ProfesseurSet" EntityType="Model1.Store.ProfesseurSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="SujetSet" EntityType="Model1.Store.SujetSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CoursSet" EntityType="Model1.Store.CoursSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CoordonneesSet" EntityType="Model1.Store.CoordonneesSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="ProfesseurHoraireSet" EntityType="Model1.Store.ProfesseurHoraireSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="CoursHoraireSet" EntityType="Model1.Store.CoursHoraireSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="HeureSet" EntityType="Model1.Store.HeureSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="JourSet" EntityType="Model1.Store.JourSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <EntitySet Name="ProfesseurSujet" EntityType="Model1.Store.ProfesseurSujet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+    <AssociationSet Name="EtudiantCoordonnees" Association="Model1.Store.EtudiantCoordonnees">
+      <End Role="Etudiant" EntitySet="EtudiantSet" />
+      <End Role="Coordonnees" EntitySet="CoordonneesSet" />
+    </AssociationSet>
+    <AssociationSet Name="LoginEtudiant" Association="Model1.Store.LoginEtudiant">
+      <End Role="Login" EntitySet="LoginSet" />
+      <End Role="Etudiant" EntitySet="EtudiantSet" />
+    </AssociationSet>
+    <AssociationSet Name="InscriptionEtudiant" Association="Model1.Store.InscriptionEtudiant">
+      <End Role="Inscription" EntitySet="InscriptionSet" />
+      <End Role="Etudiant" EntitySet="EtudiantSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursProfesseur" Association="Model1.Store.CoursProfesseur">
+      <End Role="Cours" EntitySet="CoursSet" />
+      <End Role="Professeur" EntitySet="ProfesseurSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursSujet" Association="Model1.Store.CoursSujet">
+      <End Role="Cours" EntitySet="CoursSet" />
+      <End Role="Sujet" EntitySet="SujetSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoordonneesProfesseur" Association="Model1.Store.CoordonneesProfesseur">
+      <End Role="Coordonnees" EntitySet="CoordonneesSet" />
+      <End Role="Professeur" EntitySet="ProfesseurSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfesseurSujet_Professeur" Association="Model1.Store.FK_ProfesseurSujet_Professeur">
+      <End Role="Professeur" EntitySet="ProfesseurSet" />
+      <End Role="ProfesseurSujet" EntitySet="ProfesseurSujet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfesseurSujet_Sujet" Association="Model1.Store.FK_ProfesseurSujet_Sujet">
+      <End Role="Sujet" EntitySet="SujetSet" />
+      <End Role="ProfesseurSujet" EntitySet="ProfesseurSujet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursCoursHoraire" Association="Model1.Store.CoursCoursHoraire">
+      <End Role="Cours" EntitySet="CoursSet" />
+      <End Role="CoursHoraire" EntitySet="CoursHoraireSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurProfesseurHoraire" Association="Model1.Store.ProfesseurProfesseurHoraire">
+      <End Role="Professeur" EntitySet="ProfesseurSet" />
+      <End Role="ProfesseurHoraire" EntitySet="ProfesseurHoraireSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursHoraireJour" Association="Model1.Store.CoursHoraireJour">
+      <End Role="CoursHoraire" EntitySet="CoursHoraireSet" />
+      <End Role="Jour" EntitySet="JourSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursHoraireHeure" Association="Model1.Store.CoursHoraireHeure">
+      <End Role="CoursHoraire" EntitySet="CoursHoraireSet" />
+      <End Role="Heure" EntitySet="HeureSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurHoraireHeure" Association="Model1.Store.ProfesseurHoraireHeure">
+      <End Role="ProfesseurHoraire" EntitySet="ProfesseurHoraireSet" />
+      <End Role="Heure" EntitySet="HeureSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurHoraireJour" Association="Model1.Store.ProfesseurHoraireJour">
+      <End Role="ProfesseurHoraire" EntitySet="ProfesseurHoraireSet" />
+      <End Role="Jour" EntitySet="JourSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursInscription" Association="Model1.Store.CoursInscription">
+      <End Role="Inscription" EntitySet="InscriptionSet" />
+      <End Role="Cours" EntitySet="CoursSet" />
+    </AssociationSet>
+    <AssociationSet Name="PaiementInscription" Association="Model1.Store.PaiementInscription">
+      <End Role="Paiement" EntitySet="PaiementSet" />
+      <End Role="Inscription" EntitySet="InscriptionSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="EtudiantSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Coordonnees_Id" Type="int" Nullable="false" />
+    <Property Name="Login_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoginSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mot_de_Passe" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsAdmin" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaiementSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Montant" Type="decimal" Nullable="false" />
+    <Property Name="Rembourse" Type="bit" Nullable="false" />
+    <Property Name="Inscription_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InscriptionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Annule" Type="bit" Nullable="false" />
+    <Property Name="Etudiant_Id" Type="int" Nullable="false" />
+    <Property Name="Cours_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfesseurSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aciennete" Type="int" Nullable="false" />
+    <Property Name="Cours_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SujetSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CoursSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ouvert" Type="bit" Nullable="false" />
+    <Property Name="Cout" Type="decimal" Nullable="false" />
+    <Property Name="DateLimite" Type="datetime" Nullable="false" />
+    <Property Name="Sujet_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CoordonneesSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prenom" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telephone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adresse" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Professeur_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfesseurHoraireSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Actif" Type="bit" Nullable="false" />
+    <Property Name="Professeur_Id" Type="int" Nullable="false" />
+    <Property Name="Heure_Id" Type="int" Nullable="false" />
+    <Property Name="Jour_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CoursHoraireSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Actif" Type="bit" Nullable="false" />
+    <Property Name="Cours_Id" Type="int" Nullable="false" />
+    <Property Name="Jour_Id" Type="int" Nullable="false" />
+    <Property Name="Heure_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HeureSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Num" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JourSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Num" Type="int" Nullable="false" />
+    <Property Name="NomLong" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NomCourt" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfesseurSujet">
+    <Key>
+      <PropertyRef Name="Professeur_Id" />
+      <PropertyRef Name="Sujet_Id" />
+    </Key>
+    <Property Name="Professeur_Id" Type="int" Nullable="false" />
+    <Property Name="Sujet_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="EtudiantCoordonnees">
+    <End Role="Etudiant" Type="Model1.Store.EtudiantSet" Multiplicity="*" />
+    <End Role="Coordonnees" Type="Model1.Store.CoordonneesSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Coordonnees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Etudiant">
+        <PropertyRef Name="Coordonnees_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LoginEtudiant">
+    <End Role="Login" Type="Model1.Store.LoginSet" Multiplicity="1" />
+    <End Role="Etudiant" Type="Model1.Store.EtudiantSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Etudiant">
+        <PropertyRef Name="Login_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InscriptionEtudiant">
+    <End Role="Inscription" Type="Model1.Store.InscriptionSet" Multiplicity="*" />
+    <End Role="Etudiant" Type="Model1.Store.EtudiantSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Etudiant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Inscription">
+        <PropertyRef Name="Etudiant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursProfesseur">
+    <End Role="Cours" Type="Model1.Store.CoursSet" Multiplicity="1" />
+    <End Role="Professeur" Type="Model1.Store.ProfesseurSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Professeur">
+        <PropertyRef Name="Cours_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursSujet">
+    <End Role="Cours" Type="Model1.Store.CoursSet" Multiplicity="*" />
+    <End Role="Sujet" Type="Model1.Store.SujetSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Sujet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="Sujet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoordonneesProfesseur">
+    <End Role="Coordonnees" Type="Model1.Store.CoordonneesSet" Multiplicity="*" />
+    <End Role="Professeur" Type="Model1.Store.ProfesseurSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Professeur">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Coordonnees">
+        <PropertyRef Name="Professeur_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursCoursHoraire">
+    <End Role="Cours" Type="Model1.Store.CoursSet" Multiplicity="1" />
+    <End Role="CoursHoraire" Type="Model1.Store.CoursHoraireSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CoursHoraire">
+        <PropertyRef Name="Cours_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfesseurProfesseurHoraire">
+    <End Role="Professeur" Type="Model1.Store.ProfesseurSet" Multiplicity="1" />
+    <End Role="ProfesseurHoraire" Type="Model1.Store.ProfesseurHoraireSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professeur">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProfesseurHoraire">
+        <PropertyRef Name="Professeur_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursHoraireJour">
+    <End Role="CoursHoraire" Type="Model1.Store.CoursHoraireSet" Multiplicity="*" />
+    <End Role="Jour" Type="Model1.Store.JourSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Jour">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CoursHoraire">
+        <PropertyRef Name="Jour_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursHoraireHeure">
+    <End Role="CoursHoraire" Type="Model1.Store.CoursHoraireSet" Multiplicity="*" />
+    <End Role="Heure" Type="Model1.Store.HeureSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Heure">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CoursHoraire">
+        <PropertyRef Name="Heure_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfesseurHoraireHeure">
+    <End Role="ProfesseurHoraire" Type="Model1.Store.ProfesseurHoraireSet" Multiplicity="*" />
+    <End Role="Heure" Type="Model1.Store.HeureSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Heure">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProfesseurHoraire">
+        <PropertyRef Name="Heure_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfesseurHoraireJour">
+    <End Role="ProfesseurHoraire" Type="Model1.Store.ProfesseurHoraireSet" Multiplicity="*" />
+    <End Role="Jour" Type="Model1.Store.JourSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Jour">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProfesseurHoraire">
+        <PropertyRef Name="Jour_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursInscription">
+    <End Role="Inscription" Type="Model1.Store.InscriptionSet" Multiplicity="*" />
+    <End Role="Cours" Type="Model1.Store.CoursSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Inscription">
+        <PropertyRef Name="Cours_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PaiementInscription">
+    <End Role="Paiement" Type="Model1.Store.PaiementSet" Multiplicity="*" />
+    <End Role="Inscription" Type="Model1.Store.InscriptionSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Inscription">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paiement">
+        <PropertyRef Name="Inscription_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfesseurSujet_Professeur">
+    <End Role="Professeur" Type="Model1.Store.ProfesseurSet" Multiplicity="1" />
+    <End Role="ProfesseurSujet" Type="Model1.Store.ProfesseurSujet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professeur">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProfesseurSujet">
+        <PropertyRef Name="Professeur_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfesseurSujet_Sujet">
+    <End Role="ProfesseurSujet" Type="Model1.Store.ProfesseurSujet" Multiplicity="*" />
+    <End Role="Sujet" Type="Model1.Store.SujetSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Sujet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProfesseurSujet">
+        <PropertyRef Name="Sujet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model1" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="EtudiantSet" EntityType="Model1.Etudiant" />
+          <EntitySet Name="LoginSet" EntityType="Model1.Login" />
+          <EntitySet Name="PaiementSet" EntityType="Model1.Paiement" />
+          <EntitySet Name="InscriptionSet" EntityType="Model1.Inscription" />
+          <EntitySet Name="ProfesseurSet" EntityType="Model1.Professeur" />
+          <EntitySet Name="SujetSet" EntityType="Model1.Sujet" />
+          <EntitySet Name="CoursSet" EntityType="Model1.Cours" />
+          <EntitySet Name="CoordonneesSet" EntityType="Model1.Coordonnees" />
+          <EntitySet Name="ProfesseurHoraireSet" EntityType="Model1.ProfesseurHoraire" />
+          <EntitySet Name="CoursHoraireSet" EntityType="Model1.CoursHoraire" />
+          <EntitySet Name="HeureSet" EntityType="Model1.Heure" />
+          <EntitySet Name="JourSet" EntityType="Model1.Jour" />
+          <AssociationSet Name="EtudiantCoordonnees" Association="Model1.EtudiantCoordonnees">
+            <End Role="Etudiant" EntitySet="EtudiantSet" />
+            <End Role="Coordonnees" EntitySet="CoordonneesSet" />
+          </AssociationSet>
+          <AssociationSet Name="LoginEtudiant" Association="Model1.LoginEtudiant">
+            <End Role="Login" EntitySet="LoginSet" />
+            <End Role="Etudiant" EntitySet="EtudiantSet" />
+          </AssociationSet>
+          <AssociationSet Name="InscriptionEtudiant" Association="Model1.InscriptionEtudiant">
+            <End Role="Inscription" EntitySet="InscriptionSet" />
+            <End Role="Etudiant" EntitySet="EtudiantSet" />
+          </AssociationSet>
+          <AssociationSet Name="CoursProfesseur" Association="Model1.CoursProfesseur">
+            <End Role="Cours" EntitySet="CoursSet" />
+            <End Role="Professeur" EntitySet="ProfesseurSet" />
+          </AssociationSet>
+          <AssociationSet Name="CoursSujet" Association="Model1.CoursSujet">
+            <End Role="Cours" EntitySet="CoursSet" />
+            <End Role="Sujet" EntitySet="SujetSet" />
+          </AssociationSet>
+          <AssociationSet Name="CoordonneesProfesseur" Association="Model1.CoordonneesProfesseur">
+            <End Role="Coordonnees" EntitySet="CoordonneesSet" />
+            <End Role="Professeur" EntitySet="ProfesseurSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesseurSujet" Association="Model1.ProfesseurSujet">
+            <End Role="Professeur" EntitySet="ProfesseurSet" />
+            <End Role="Sujet" EntitySet="SujetSet" />
+          </AssociationSet>
+          <AssociationSet Name="CoursCoursHoraire" Association="Model1.CoursCoursHoraire">
+            <End Role="Cours" EntitySet="CoursSet" />
+            <End Role="CoursHoraire" EntitySet="CoursHoraireSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesseurProfesseurHoraire" Association="Model1.ProfesseurProfesseurHoraire">
+            <End Role="Professeur" EntitySet="ProfesseurSet" />
+            <End Role="ProfesseurHoraire" EntitySet="ProfesseurHoraireSet" />
+          </AssociationSet>
+          <AssociationSet Name="CoursHoraireJour" Association="Model1.CoursHoraireJour">
+            <End Role="CoursHoraire" EntitySet="CoursHoraireSet" />
+            <End Role="Jour" EntitySet="JourSet" />
+          </AssociationSet>
+          <AssociationSet Name="CoursHoraireHeure" Association="Model1.CoursHoraireHeure">
+            <End Role="CoursHoraire" EntitySet="CoursHoraireSet" />
+            <End Role="Heure" EntitySet="HeureSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesseurHoraireHeure" Association="Model1.ProfesseurHoraireHeure">
+            <End Role="ProfesseurHoraire" EntitySet="ProfesseurHoraireSet" />
+            <End Role="Heure" EntitySet="HeureSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProfesseurHoraireJour" Association="Model1.ProfesseurHoraireJour">
+            <End Role="ProfesseurHoraire" EntitySet="ProfesseurHoraireSet" />
+            <End Role="Jour" EntitySet="JourSet" />
+          </AssociationSet>
+          <AssociationSet Name="CoursInscription" Association="Model1.CoursInscription">
+            <End Role="Inscription" EntitySet="InscriptionSet" />
+            <End Role="Cours" EntitySet="CoursSet" />
+          </AssociationSet>
+          <AssociationSet Name="PaiementInscription" Association="Model1.PaiementInscription">
+            <End Role="Paiement" EntitySet="PaiementSet" />
+            <End Role="Inscription" EntitySet="InscriptionSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Etudiant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <NavigationProperty Name="Coordonnees" Relationship="Model1.EtudiantCoordonnees" FromRole="Etudiant" ToRole="Coordonnees" />
+          <NavigationProperty Name="Login" Relationship="Model1.LoginEtudiant" FromRole="Etudiant" ToRole="Login" />
+          <NavigationProperty Name="Inscription" Relationship="Model1.InscriptionEtudiant" FromRole="Etudiant" ToRole="Inscription" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Code" Type="String" Nullable="false" />
+          <Property Name="Mot_de_Passe" Type="String" Nullable="false" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Etudiant" Relationship="Model1.LoginEtudiant" FromRole="Login" ToRole="Etudiant" />
+        </EntityType>
+        <EntityType Name="Paiement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="TimeStamp" Type="DateTime" Nullable="false" />
+          <Property Name="Montant" Type="Decimal" Nullable="false" />
+          <Property Name="Rembourse" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Inscription" Relationship="Model1.PaiementInscription" FromRole="Paiement" ToRole="Inscription" />
+        </EntityType>
+        <EntityType Name="Inscription">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <NavigationProperty Name="Etudiant" Relationship="Model1.InscriptionEtudiant" FromRole="Inscription" ToRole="Etudiant" />
+          <NavigationProperty Name="Cours" Relationship="Model1.CoursInscription" FromRole="Inscription" ToRole="Cours" />
+          <Property Name="Annule" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Paiement" Relationship="Model1.PaiementInscription" FromRole="Inscription" ToRole="Paiement" />
+        </EntityType>
+        <EntityType Name="Professeur">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Aciennete" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cours" Relationship="Model1.CoursProfesseur" FromRole="Professeur" ToRole="Cours" />
+          <NavigationProperty Name="Coordonnees" Relationship="Model1.CoordonneesProfesseur" FromRole="Professeur" ToRole="Coordonnees" />
+          <NavigationProperty Name="Sujet" Relationship="Model1.ProfesseurSujet" FromRole="Professeur" ToRole="Sujet" />
+          <NavigationProperty Name="Horaire" Relationship="Model1.ProfesseurProfesseurHoraire" FromRole="Professeur" ToRole="ProfesseurHoraire" />
+        </EntityType>
+        <EntityType Name="Sujet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Nom" Type="String" Nullable="false" />
+          <NavigationProperty Name="Cours" Relationship="Model1.CoursSujet" FromRole="Sujet" ToRole="Cours" />
+          <NavigationProperty Name="Professeur" Relationship="Model1.ProfesseurSujet" FromRole="Sujet" ToRole="Professeur" />
+        </EntityType>
+        <EntityType Name="Cours">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Ouvert" Type="Boolean" Nullable="false" />
+          <Property Name="Cout" Type="Decimal" Nullable="false" />
+          <Property Name="DateLimite" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="Professeur" Relationship="Model1.CoursProfesseur" FromRole="Cours" ToRole="Professeur" />
+          <NavigationProperty Name="Sujet" Relationship="Model1.CoursSujet" FromRole="Cours" ToRole="Sujet" />
+          <NavigationProperty Name="Horaire" Relationship="Model1.CoursCoursHoraire" FromRole="Cours" ToRole="CoursHoraire" />
+          <NavigationProperty Name="Inscription" Relationship="Model1.CoursInscription" FromRole="Cours" ToRole="Inscription" />
+        </EntityType>
+        <EntityType Name="Coordonnees">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Nom" Type="String" Nullable="false" />
+          <Property Name="Prenom" Type="String" Nullable="false" />
+          <Property Name="Telephone" Type="String" Nullable="false" />
+          <Property Name="Adresse" Type="String" Nullable="false" />
+          <NavigationProperty Name="Etudiant" Relationship="Model1.EtudiantCoordonnees" FromRole="Coordonnees" ToRole="Etudiant" />
+          <NavigationProperty Name="Professeur" Relationship="Model1.CoordonneesProfesseur" FromRole="Coordonnees" ToRole="Professeur" />
+        </EntityType>
+        <EntityType Name="ProfesseurHoraire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Actif" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Professeur" Relationship="Model1.ProfesseurProfesseurHoraire" FromRole="ProfesseurHoraire" ToRole="Professeur" />
+          <NavigationProperty Name="Heure" Relationship="Model1.ProfesseurHoraireHeure" FromRole="ProfesseurHoraire" ToRole="Heure" />
+          <NavigationProperty Name="Jour" Relationship="Model1.ProfesseurHoraireJour" FromRole="ProfesseurHoraire" ToRole="Jour" />
+        </EntityType>
+        <EntityType Name="CoursHoraire">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Actif" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cours" Relationship="Model1.CoursCoursHoraire" FromRole="CoursHoraire" ToRole="Cours" />
+          <NavigationProperty Name="Jour" Relationship="Model1.CoursHoraireJour" FromRole="CoursHoraire" ToRole="Jour" />
+          <NavigationProperty Name="Heure" Relationship="Model1.CoursHoraireHeure" FromRole="CoursHoraire" ToRole="Heure" />
+        </EntityType>
+        <EntityType Name="Heure">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Num" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CoursHoraire" Relationship="Model1.CoursHoraireHeure" FromRole="Heure" ToRole="CoursHoraire" />
+          <NavigationProperty Name="ProfesseurHoraire" Relationship="Model1.ProfesseurHoraireHeure" FromRole="Heure" ToRole="ProfesseurHoraire" />
+        </EntityType>
+        <EntityType Name="Jour">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Num" Type="Int32" Nullable="false" />
+          <Property Name="NomLong" Type="String" Nullable="false" />
+          <Property Name="NomCourt" Type="String" Nullable="false" />
+          <NavigationProperty Name="CoursHoraire" Relationship="Model1.CoursHoraireJour" FromRole="Jour" ToRole="CoursHoraire" />
+          <NavigationProperty Name="ProfesseurHoraire" Relationship="Model1.ProfesseurHoraireJour" FromRole="Jour" ToRole="ProfesseurHoraire" />
+        </EntityType>
+        <Association Name="EtudiantCoordonnees">
+          <End Type="Model1.Etudiant" Role="Etudiant" Multiplicity="1" />
+          <End Type="Model1.Coordonnees" Role="Coordonnees" Multiplicity="1" />
+        </Association>
+        <Association Name="LoginEtudiant">
+          <End Type="Model1.Login" Role="Login" Multiplicity="1" />
+          <End Type="Model1.Etudiant" Role="Etudiant" Multiplicity="0..1" />
+        </Association>
+        <Association Name="InscriptionEtudiant">
+          <End Type="Model1.Inscription" Role="Inscription" Multiplicity="*" />
+          <End Type="Model1.Etudiant" Role="Etudiant" Multiplicity="1" />
+        </Association>
+        <Association Name="CoursProfesseur">
+          <End Type="Model1.Cours" Role="Cours" Multiplicity="1" />
+          <End Type="Model1.Professeur" Role="Professeur" Multiplicity="0..1" />
+        </Association>
+        <Association Name="CoursSujet">
+          <End Type="Model1.Cours" Role="Cours" Multiplicity="*" />
+          <End Type="Model1.Sujet" Role="Sujet" Multiplicity="1" />
+        </Association>
+        <Association Name="CoordonneesProfesseur">
+          <End Type="Model1.Coordonnees" Role="Coordonnees" Multiplicity="1" />
+          <End Type="Model1.Professeur" Role="Professeur" Multiplicity="1" />
+        </Association>
+        <Association Name="ProfesseurSujet">
+          <End Type="Model1.Professeur" Role="Professeur" Multiplicity="*" />
+          <End Type="Model1.Sujet" Role="Sujet" Multiplicity="*" />
+        </Association>
+        <Association Name="CoursCoursHoraire">
+          <End Type="Model1.Cours" Role="Cours" Multiplicity="1" />
+          <End Type="Model1.CoursHoraire" Role="CoursHoraire" Multiplicity="*" />
+        </Association>
+        <Association Name="ProfesseurProfesseurHoraire">
+          <End Type="Model1.Professeur" Role="Professeur" Multiplicity="1" />
+          <End Type="Model1.ProfesseurHoraire" Role="ProfesseurHoraire" Multiplicity="*" />
+        </Association>
+        <Association Name="CoursHoraireJour">
+          <End Type="Model1.CoursHoraire" Role="CoursHoraire" Multiplicity="*" />
+          <End Type="Model1.Jour" Role="Jour" Multiplicity="1" />
+        </Association>
+        <Association Name="CoursHoraireHeure">
+          <End Type="Model1.CoursHoraire" Role="CoursHoraire" Multiplicity="*" />
+          <End Type="Model1.Heure" Role="Heure" Multiplicity="1" />
+        </Association>
+        <Association Name="ProfesseurHoraireHeure">
+          <End Type="Model1.ProfesseurHoraire" Role="ProfesseurHoraire" Multiplicity="*" />
+          <End Type="Model1.Heure" Role="Heure" Multiplicity="1" />
+        </Association>
+        <Association Name="ProfesseurHoraireJour">
+          <End Type="Model1.ProfesseurHoraire" Role="ProfesseurHoraire" Multiplicity="*" />
+          <End Type="Model1.Jour" Role="Jour" Multiplicity="1" />
+        </Association>
+        <Association Name="CoursInscription">
+          <End Type="Model1.Inscription" Role="Inscription" Multiplicity="*" />
+          <End Type="Model1.Cours" Role="Cours" Multiplicity="1" />
+        </Association>
+        <Association Name="PaiementInscription">
+          <End Type="Model1.Paiement" Role="Paiement" Multiplicity="*" />
+          <End Type="Model1.Inscription" Role="Inscription" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="EtudiantSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Etudiant)">
+        <MappingFragment StoreEntitySet="EtudiantSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Login)">
+        <MappingFragment StoreEntitySet="LoginSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Mot_de_Passe" ColumnName="Mot_de_Passe" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaiementSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Paiement)">
+        <MappingFragment StoreEntitySet="PaiementSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Montant" ColumnName="Montant" />
+          <ScalarProperty Name="Rembourse" ColumnName="Rembourse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InscriptionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Inscription)">
+        <MappingFragment StoreEntitySet="InscriptionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Annule" ColumnName="Annule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfesseurSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Professeur)">
+        <MappingFragment StoreEntitySet="ProfesseurSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Aciennete" ColumnName="Aciennete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SujetSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Sujet)">
+        <MappingFragment StoreEntitySet="SujetSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoursSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Cours)">
+        <MappingFragment StoreEntitySet="CoursSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ouvert" ColumnName="Ouvert" />
+          <ScalarProperty Name="Cout" ColumnName="Cout" />
+          <ScalarProperty Name="DateLimite" ColumnName="DateLimite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoordonneesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Coordonnees)">
+        <MappingFragment StoreEntitySet="CoordonneesSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfesseurHoraireSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.ProfesseurHoraire)">
+        <MappingFragment StoreEntitySet="ProfesseurHoraireSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Actif" ColumnName="Actif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoursHoraireSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.CoursHoraire)">
+        <MappingFragment StoreEntitySet="CoursHoraireSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Actif" ColumnName="Actif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeureSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Heure)">
+        <MappingFragment StoreEntitySet="HeureSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JourSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.Jour)">
+        <MappingFragment StoreEntitySet="JourSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+          <ScalarProperty Name="NomLong" ColumnName="NomLong" />
+          <ScalarProperty Name="NomCourt" ColumnName="NomCourt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EtudiantCoordonnees" TypeName="Model1.EtudiantCoordonnees" StoreEntitySet="EtudiantSet">
+      <EndProperty Name="Coordonnees">
+        <ScalarProperty Name="Id" ColumnName="Coordonnees_Id" />
+      </EndProperty>
+      <EndProperty Name="Etudiant">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LoginEtudiant" TypeName="Model1.LoginEtudiant" StoreEntitySet="EtudiantSet">
+      <EndProperty Name="Login">
+        <ScalarProperty Name="Id" ColumnName="Login_Id" />
+      </EndProperty>
+      <EndProperty Name="Etudiant">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="InscriptionEtudiant" TypeName="Model1.InscriptionEtudiant" StoreEntitySet="InscriptionSet">
+      <EndProperty Name="Etudiant">
+        <ScalarProperty Name="Id" ColumnName="Etudiant_Id" />
+      </EndProperty>
+      <EndProperty Name="Inscription">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoursProfesseur" TypeName="Model1.CoursProfesseur" StoreEntitySet="ProfesseurSet">
+      <EndProperty Name="Cours">
+        <ScalarProperty Name="Id" ColumnName="Cours_Id" />
+      </EndProperty>
+      <EndProperty Name="Professeur">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoursSujet" TypeName="Model1.CoursSujet" StoreEntitySet="CoursSet">
+      <EndProperty Name="Sujet">
+        <ScalarProperty Name="Id" ColumnName="Sujet_Id" />
+      </EndProperty>
+      <EndProperty Name="Cours">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoordonneesProfesseur" TypeName="Model1.CoordonneesProfesseur" StoreEntitySet="CoordonneesSet">
+      <EndProperty Name="Professeur">
+        <ScalarProperty Name="Id" ColumnName="Professeur_Id" />
+      </EndProperty>
+      <EndProperty Name="Coordonnees">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfesseurSujet" TypeName="Model1.ProfesseurSujet" StoreEntitySet="ProfesseurSujet">
+      <EndProperty Name="Professeur">
+        <ScalarProperty Name="Id" ColumnName="Professeur_Id" />
+      </EndProperty>
+      <EndProperty Name="Sujet">
+        <ScalarProperty Name="Id" ColumnName="Sujet_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoursCoursHoraire" TypeName="Model1.CoursCoursHoraire" StoreEntitySet="CoursHoraireSet">
+      <EndProperty Name="Cours">
+        <ScalarProperty Name="Id" ColumnName="Cours_Id" />
+      </EndProperty>
+      <EndProperty Name="CoursHoraire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfesseurProfesseurHoraire" TypeName="Model1.ProfesseurProfesseurHoraire" StoreEntitySet="ProfesseurHoraireSet">
+      <EndProperty Name="Professeur">
+        <ScalarProperty Name="Id" ColumnName="Professeur_Id" />
+      </EndProperty>
+      <EndProperty Name="ProfesseurHoraire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoursHoraireJour" TypeName="Model1.CoursHoraireJour" StoreEntitySet="CoursHoraireSet">
+      <EndProperty Name="Jour">
+        <ScalarProperty Name="Id" ColumnName="Jour_Id" />
+      </EndProperty>
+      <EndProperty Name="CoursHoraire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoursHoraireHeure" TypeName="Model1.CoursHoraireHeure" StoreEntitySet="CoursHoraireSet">
+      <EndProperty Name="Heure">
+        <ScalarProperty Name="Id" ColumnName="Heure_Id" />
+      </EndProperty>
+      <EndProperty Name="CoursHoraire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfesseurHoraireHeure" TypeName="Model1.ProfesseurHoraireHeure" StoreEntitySet="ProfesseurHoraireSet">
+      <EndProperty Name="Heure">
+        <ScalarProperty Name="Id" ColumnName="Heure_Id" />
+      </EndProperty>
+      <EndProperty Name="ProfesseurHoraire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfesseurHoraireJour" TypeName="Model1.ProfesseurHoraireJour" StoreEntitySet="ProfesseurHoraireSet">
+      <EndProperty Name="Jour">
+        <ScalarProperty Name="Id" ColumnName="Jour_Id" />
+      </EndProperty>
+      <EndProperty Name="ProfesseurHoraire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoursInscription" TypeName="Model1.CoursInscription" StoreEntitySet="InscriptionSet">
+      <EndProperty Name="Cours">
+        <ScalarProperty Name="Id" ColumnName="Cours_Id" />
+      </EndProperty>
+      <EndProperty Name="Inscription">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PaiementInscription" TypeName="Model1.PaiementInscription" StoreEntitySet="PaiementSet">
+      <EndProperty Name="Inscription">
+        <ScalarProperty Name="Id" ColumnName="Inscription_Id" />
+      </EndProperty>
+      <EndProperty Name="Paiement">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="False" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <edmx:Diagram DiagramId="73e7bd91989e4892ad6f7aeb1bb06309" Name="Diagram1">
+        <edmx:EntityTypeShape EntityType="Model1.Etudiant" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Login" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Paiement" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Inscription" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Professeur" Width="1.5" PointX="9.75" PointY="7.125" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Sujet" Width="1.5" PointX="12" PointY="7.25" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Cours" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Coordonnees" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.ProfesseurHoraire" Width="1.5" PointX="12" PointY="9.75" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.CoursHoraire" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Heure" Width="1.5" PointX="14.25" PointY="9.375" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Jour" Width="1.5" PointX="14.25" PointY="6.125" IsExpanded="true" />
+        <edmx:AssociationConnector Association="Model1.EtudiantCoordonnees" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.LoginEtudiant" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.InscriptionEtudiant" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.CoursProfesseur" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.CoursSujet" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.CoordonneesProfesseur" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.ProfesseurSujet" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.CoursCoursHoraire" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.ProfesseurProfesseurHoraire" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.CoursHoraireJour" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.CoursHoraireHeure" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.ProfesseurHoraireHeure" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.ProfesseurHoraireJour" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.CoursInscription" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.PaiementInscription" ManuallyRouted="false" />
+      </edmx:Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
