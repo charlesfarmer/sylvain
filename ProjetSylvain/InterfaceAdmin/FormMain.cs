@@ -14,6 +14,32 @@ namespace InterfaceAdmin
 		public FormMain()
 		{
 			InitializeComponent();
+
+		}
+
+		private void btnProfesseur_Click(object sender, EventArgs e)
+		{
+			this.tablessControl1.SelectTab("tabProfesseur");
+		}
+
+		private void btnEtudiant_Click(object sender, EventArgs e)
+		{
+			this.tablessControl1.SelectTab("tabEtudiant");
+		}
+
+		private void btnCours_Click(object sender, EventArgs e)
+		{
+			this.tablessControl1.SelectTab("tabCours");
+		}
+
+		private void btnAdministration_Click(object sender, EventArgs e)
+		{
+			this.tablessControl1.SelectTab("tabAdministration");
+		}
+
+		private void btnQuitter_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
 		}
 	}
 
