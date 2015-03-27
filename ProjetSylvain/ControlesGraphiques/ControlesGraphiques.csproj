@@ -7,8 +7,8 @@
     <ProjectGuid>{4C98FFB7-D0C6-4AE7-8518-D4428A1E997D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ControlCoordonées</RootNamespace>
-    <AssemblyName>ControlCoordonées</AssemblyName>
+    <RootNamespace>ControlesGraphiques</RootNamespace>
+    <AssemblyName>ControlesGraphiques</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

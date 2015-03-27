@@ -30,8 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -41,18 +46,126 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Coordonnees.cs">
+      <DependentUpon>EntitySchema.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cours.cs">
+      <DependentUpon>EntitySchema.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CoursHoraire.cs">
+      <DependentUpon>EntitySchema.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntitySchema.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntitySchema.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntitySchema.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntitySchema.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntitySchema.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EntitySchema.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Etudiant.cs">
+      <DependentUpon>EntitySchema.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Heure.cs">
+      <DependentUpon>EntitySchema.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription.cs">
+      <DependentUpon>EntitySchema.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Jour.cs">
+      <DependentUpon>EntitySchema.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <DependentUpon>EntitySchema.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Paiement.cs">
+      <DependentUpon>EntitySchema.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Partial Classes\Coordonnee.cs" />
+    <Compile Include="Partial Classes\Inscription.cs" />
+    <Compile Include="Partial Classes\Jour.cs" />
+    <Compile Include="Partial Classes\Login.cs" />
+    <Compile Include="Partial Classes\Paiement.cs" />
+    <Compile Include="Partial Classes\Professeur.cs" />
+    <Compile Include="Partial Classes\Sujet.cs" />
+    <Compile Include="Partial Classes\ProfesseurHoraire.cs" />
+    <Compile Include="Partial Classes\Heure.cs" />
+    <Compile Include="Partial Classes\Etudiant.cs" />
+    <Compile Include="Partial Classes\CoursHoraire.cs" />
+    <Compile Include="Partial Classes\Cours.cs" />
+    <Compile Include="Professeur.cs">
+      <DependentUpon>EntitySchema.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProfesseurHoraire.cs">
+      <DependentUpon>EntitySchema.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Implementations\Service.cs" />
+    <Compile Include="Services\Implementations\ServiceSujet.cs" />
+    <Compile Include="Services\Implementations\ServiceProfesseurHoraire.cs" />
+    <Compile Include="Services\Implementations\ServiceProfesseur.cs" />
+    <Compile Include="Services\Implementations\ServicePaiement.cs" />
+    <Compile Include="Services\Implementations\ServiceLogin.cs" />
+    <Compile Include="Services\Implementations\ServiceJour.cs" />
+    <Compile Include="Services\Implementations\ServiceInscription.cs" />
+    <Compile Include="Services\Implementations\ServiceHeure.cs" />
+    <Compile Include="Services\Implementations\ServiceEtudiant.cs" />
+    <Compile Include="Services\Implementations\ServiceCoursHoraire.cs" />
+    <Compile Include="Services\Implementations\ServiceCours.cs" />
+    <Compile Include="Services\Implementations\ServiceCoordonnees.cs" />
+    <Compile Include="Services\Interfaces\IServiceSujet.cs" />
+    <Compile Include="Services\Interfaces\IServiceProfesseurHoraire.cs" />
+    <Compile Include="Services\Interfaces\IServiceProfesseur.cs" />
+    <Compile Include="Services\Interfaces\IServicePaiement.cs" />
+    <Compile Include="Services\Interfaces\IServiceLogin.cs" />
+    <Compile Include="Services\Interfaces\IServiceJour.cs" />
+    <Compile Include="Services\Interfaces\IServiceInscription.cs" />
+    <Compile Include="Services\Interfaces\IServiceHeure.cs" />
+    <Compile Include="Services\Interfaces\IServiceEtudiant.cs" />
+    <Compile Include="Services\Interfaces\IServiceCoursHoraire.cs" />
+    <Compile Include="Services\Interfaces\IServiceCours.cs" />
+    <Compile Include="Services\Interfaces\IServiceCoordonnees.cs" />
+    <Compile Include="Services\Interfaces\IService.cs" />
+    <Compile Include="Sujet.cs">
+      <DependentUpon>EntitySchema.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="EntitySchema.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EntitySchema.Designer.cs</LastGenOutput>
     </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="EntitySchema.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntitySchema.Context.cs</LastGenOutput>
+      <DependentUpon>EntitySchema.edmx</DependentUpon>
+    </None>
+    <None Include="EntitySchema.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntitySchema.cs</LastGenOutput>
+      <DependentUpon>EntitySchema.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EntitySchema.edmx.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\Implementations\" />
+    <Folder Include="Interfaces\Interfaces\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -32,8 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ControlCoordonées">
-      <HintPath>..\ControlCoordonées\bin\Debug\ControlCoordonées.dll</HintPath>
+    <Reference Include="Backend, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Backend\bin\Debug\Backend.dll</HintPath>
+    </Reference>
+    <Reference Include="ControlesGraphiques, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ControlesGraphiques\bin\Debug\ControlesGraphiques.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceAdmin", "Interface
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterfaceClient", "InterfaceClient\InterfaceClient.csproj", "{66C2E415-57F7-4066-B06A-33B0829FFDF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlesGraphiques", "ControlCoordonées\ControlesGraphiques.csproj", "{4C98FFB7-D0C6-4AE7-8518-D4428A1E997D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlesGraphiques", "ControlesGraphiques\ControlesGraphiques.csproj", "{4C98FFB7-D0C6-4AE7-8518-D4428A1E997D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
