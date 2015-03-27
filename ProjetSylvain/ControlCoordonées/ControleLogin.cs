@@ -46,7 +46,7 @@ namespace ControlCoordonées
     }
 
     public class EventConnexion : EventArgs
-    {
+    {//bobe
         public string Identifiant { get; private set; }
         public string Password { get; private set; }
         public EventConnexion(string identifiant, string password)
