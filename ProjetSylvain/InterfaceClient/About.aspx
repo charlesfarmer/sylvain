@@ -1,34 +1,31 @@
-﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="InterfaceClient.About" %>
+﻿<%@ Page Title="Paiement" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="InterfaceClient.About" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
         <h1><%: Title %>.</h1>
-        <h2>Your app description page.</h2>
+        <h2>Payez pour le cours.</h2>
     </hgroup>
 
     <article>
         <p>        
-            Use this area to provide additional information.
+            Montant à payer:
         </p>
 
         <p>        
-            Use this area to provide additional information.
+            21.90$
         </p>
 
         <p>        
-            Use this area to provide additional information.
+            Numéro de carte de crédit:&nbsp;
+            <asp:TextBox runat="server"></asp:TextBox>
         </p>
     </article>
 
     <aside>
-        <h3>Aside Title</h3>
+        <h3>Confirmation</h3>
         <p>        
-            Use this area to provide additional information.
+            Vous vous apprêtez à payer 21.90$. Cliquez 'Confirmer' pour confirmer.
         </p>
-        <ul>
-            <li><a runat="server" href="~/">Home</a></li>
-            <li><a runat="server" href="~/About">About</a></li>
-            <li><a runat="server" href="~/Contact">Contact</a></li>
-        </ul>
+        <asp:Button runat="server" Text="Confirmer" />
     </aside>
 </asp:Content>

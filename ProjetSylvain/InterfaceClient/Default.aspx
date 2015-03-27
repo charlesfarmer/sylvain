@@ -1,39 +1,66 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="InterfaceClient._Default" %>
+﻿<%@ Page Title="Liste des cours" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="InterfaceClient._Default" %>
 
 <asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
                 <h1><%: Title %>.</h1>
-                <h2>Modify this template to jump-start your ASP.NET application.</h2>
+                <h2></h2>
             </hgroup>
             <p>
-                To learn more about ASP.NET, visit <a href="http://asp.net" title="ASP.NET Website">http://asp.net</a>.
-                The page features <mark>videos, tutorials, and samples</mark> to help you get the most from ASP.NET.
-                If you have any questions about ASP.NET visit
-                <a href="http://forums.asp.net/18.aspx" title="ASP.NET Forum">our forums</a>.
+                Inscrivez-vous aux cours qui sont disponibles.
             </p>
         </div>
     </section>
 </asp:Content>
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h3>We suggest the following:</h3>
-    <ol class="round">
-        <li class="one">
-            <h5>Getting Started</h5>
-            ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            <a href="http://go.microsoft.com/fwlink/?LinkId=245146">Learn more…</a>
-        </li>
-        <li class="two">
-            <h5>Add NuGet packages and jump-start your coding</h5>
-            NuGet makes it easy to install and update free libraries and tools.
-            <a href="http://go.microsoft.com/fwlink/?LinkId=245147">Learn more…</a>
-        </li>
-        <li class="three">
-            <h5>Find Web Hosting</h5>
-            You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            <a href="http://go.microsoft.com/fwlink/?LinkId=245143">Learn more…</a>
-        </li>
-    </ol>
+    <table>
+        <tbody>
+            <tr>
+                <td style="vertical-align:top">
+                    <h3>Cours disponibles:</h3>
+                    <ol class="round">
+                        <li>
+                            <h5>Natation sous-marine</h5>
+                            Horaire: Mardi, 21h-23h
+                            <br />
+                            Date limite d'inscription: 3 Avril 2015
+                            <br />
+                            <a>S'inscrire…</a>
+                        </li>
+                        <li>
+                            <h5>Histoire de l'Estonie</h5>
+                            Horaire: Samedi, 14h-16h
+                            <br />
+                            Date limite d'inscription: 14 Avril 2015
+                            <br />
+                            <a>S'inscrire…</a>
+                        </li>
+                        <li>
+                            <h5>Développement... de photos!</h5>
+                            Horaire: Dimanche, 9h-12h
+                            <br />
+                            Date limite d'inscription: 8 Mai 2015
+                            <br />
+                            <a>S'inscrire…</a>
+                        </li>
+                    </ol>
+                </td>
+                <td style="vertical-align:top">
+                    <h3>Cours auxquels vous êtes inscrit:</h3>
+                    <ol class="round">
+                        <li>
+                            <h5>Physique quantique avancée</h5>
+                            Horaire: Jeudi, 18h-22h
+                            <br />
+                            Solde à payer: 560.99$
+                            <br />
+                            <a>Annuler l'inscription…</a>
+                        </li>
+                    </ol>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
 </asp:Content>
