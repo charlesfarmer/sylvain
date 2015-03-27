@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
       
-    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="Model1StoreContainer">
     <EntitySet Name="EtudiantSet" EntityType="Model1.Store.EtudiantSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
     <EntitySet Name="LoginSet" EntityType="Model1.Store.LoginSet" store:Type="Tables" Schema="dbo" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
@@ -396,8 +396,8 @@
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model1" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+      <Schema Namespace="Model1" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="EtudiantSet" EntityType="Model1.Etudiant" />
           <EntitySet Name="LoginSet" EntityType="Model1.Login" />
           <EntitySet Name="PaiementSet" EntityType="Model1.Paiement" />
@@ -475,7 +475,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Coordonnees" Relationship="Model1.EtudiantCoordonnees" FromRole="Etudiant" ToRole="Coordonnees" />
           <NavigationProperty Name="Login" Relationship="Model1.LoginEtudiant" FromRole="Etudiant" ToRole="Login" />
           <NavigationProperty Name="Inscription" Relationship="Model1.InscriptionEtudiant" FromRole="Etudiant" ToRole="Inscription" />
@@ -484,7 +484,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Code" Type="String" Nullable="false" />
           <Property Name="Mot_de_Passe" Type="String" Nullable="false" />
           <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
@@ -494,7 +494,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TimeStamp" Type="DateTime" Nullable="false" />
           <Property Name="Montant" Type="Decimal" Nullable="false" />
           <Property Name="Rembourse" Type="Boolean" Nullable="false" />
@@ -504,7 +504,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Etudiant" Relationship="Model1.InscriptionEtudiant" FromRole="Inscription" ToRole="Etudiant" />
           <NavigationProperty Name="Cours" Relationship="Model1.CoursInscription" FromRole="Inscription" ToRole="Cours" />
           <Property Name="Annule" Type="Boolean" Nullable="false" />
@@ -514,7 +514,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Aciennete" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cours" Relationship="Model1.CoursProfesseur" FromRole="Professeur" ToRole="Cours" />
           <NavigationProperty Name="Coordonnees" Relationship="Model1.CoordonneesProfesseur" FromRole="Professeur" ToRole="Coordonnees" />
@@ -525,7 +525,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom" Type="String" Nullable="false" />
           <NavigationProperty Name="Cours" Relationship="Model1.CoursSujet" FromRole="Sujet" ToRole="Cours" />
           <NavigationProperty Name="Professeur" Relationship="Model1.ProfesseurSujet" FromRole="Sujet" ToRole="Professeur" />
@@ -534,7 +534,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ouvert" Type="Boolean" Nullable="false" />
           <Property Name="Cout" Type="Decimal" Nullable="false" />
           <Property Name="DateLimite" Type="DateTime" Nullable="false" />
@@ -547,7 +547,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nom" Type="String" Nullable="false" />
           <Property Name="Prenom" Type="String" Nullable="false" />
           <Property Name="Telephone" Type="String" Nullable="false" />
@@ -559,7 +559,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Actif" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Professeur" Relationship="Model1.ProfesseurProfesseurHoraire" FromRole="ProfesseurHoraire" ToRole="Professeur" />
           <NavigationProperty Name="Heure" Relationship="Model1.ProfesseurHoraireHeure" FromRole="ProfesseurHoraire" ToRole="Heure" />
@@ -569,7 +569,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Actif" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Cours" Relationship="Model1.CoursCoursHoraire" FromRole="CoursHoraire" ToRole="Cours" />
           <NavigationProperty Name="Jour" Relationship="Model1.CoursHoraireJour" FromRole="CoursHoraire" ToRole="Jour" />
@@ -579,7 +579,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Num" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CoursHoraire" Relationship="Model1.CoursHoraireHeure" FromRole="Heure" ToRole="CoursHoraire" />
           <NavigationProperty Name="ProfesseurHoraire" Relationship="Model1.ProfesseurHoraireHeure" FromRole="Heure" ToRole="ProfesseurHoraire" />
@@ -588,7 +588,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Num" Type="Int32" Nullable="false" />
           <Property Name="NomLong" Type="String" Nullable="false" />
           <Property Name="NomCourt" Type="String" Nullable="false" />
@@ -660,7 +660,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       
-    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
     <EntitySetMapping Name="EtudiantSet">
       <EntityTypeMapping TypeName="IsTypeOf(Model1.Etudiant)">
@@ -909,27 +909,27 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <edmx:Diagram DiagramId="73e7bd91989e4892ad6f7aeb1bb06309" Name="Diagram1">
-        <edmx:EntityTypeShape EntityType="Model1.Etudiant" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="Model1.Login" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="Model1.Paiement" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="Model1.Inscription" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="Model1.Professeur" Width="1.5" PointX="9.75" PointY="7.125" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="Model1.Sujet" Width="1.5" PointX="12" PointY="7.25" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="Model1.Cours" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="Model1.Coordonnees" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="Model1.ProfesseurHoraire" Width="1.5" PointX="12" PointY="9.75" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="Model1.CoursHoraire" Width="1.5" PointX="7.5" PointY="8.75" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="Model1.Heure" Width="1.5" PointX="14.25" PointY="9.375" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="Model1.Jour" Width="1.5" PointX="14.25" PointY="6.125" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Etudiant" Width="1.5" PointX="4.25" PointY="6.5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Login" Width="1.5" PointX="2" PointY="6.5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Paiement" Width="1.5" PointX="6.625" PointY="9.125" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Inscription" Width="1.5" PointX="6.5" PointY="6.5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Professeur" Width="1.5" PointX="12.25" PointY="3.5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Sujet" Width="1.5" PointX="8" PointY="3.875" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Cours" Width="1.5" PointX="8.875" PointY="6.25" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Coordonnees" Width="1.5" PointX="18.875" PointY="11.5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.ProfesseurHoraire" Width="1.5" PointX="16.375" PointY="5.75" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.CoursHoraire" Width="1.5" PointX="11.25" PointY="6.625" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Heure" Width="1.5" PointX="13.75" PointY="9" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="Model1.Jour" Width="1.5" PointX="13.75" PointY="6.625" IsExpanded="true" />
         <edmx:AssociationConnector Association="Model1.EtudiantCoordonnees" ManuallyRouted="false" />
         <edmx:AssociationConnector Association="Model1.LoginEtudiant" ManuallyRouted="false" />
         <edmx:AssociationConnector Association="Model1.InscriptionEtudiant" ManuallyRouted="false" />
         <edmx:AssociationConnector Association="Model1.CoursProfesseur" ManuallyRouted="false" />
         <edmx:AssociationConnector Association="Model1.CoursSujet" ManuallyRouted="false" />
-        <edmx:AssociationConnector Association="Model1.CoordonneesProfesseur" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.CoordonneesProfesseur" ManuallyRouted="false" ></edmx:AssociationConnector>
         <edmx:AssociationConnector Association="Model1.ProfesseurSujet" ManuallyRouted="false" />
         <edmx:AssociationConnector Association="Model1.CoursCoursHoraire" ManuallyRouted="false" />
-        <edmx:AssociationConnector Association="Model1.ProfesseurProfesseurHoraire" ManuallyRouted="false" />
+        <edmx:AssociationConnector Association="Model1.ProfesseurProfesseurHoraire" ManuallyRouted="false" ></edmx:AssociationConnector>
         <edmx:AssociationConnector Association="Model1.CoursHoraireJour" ManuallyRouted="false" />
         <edmx:AssociationConnector Association="Model1.CoursHoraireHeure" ManuallyRouted="false" />
         <edmx:AssociationConnector Association="Model1.ProfesseurHoraireHeure" ManuallyRouted="false" />
