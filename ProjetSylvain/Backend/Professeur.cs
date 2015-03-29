@@ -16,6 +16,7 @@ namespace Backend
     {
         public Professeur()
         {
+            this.Cours = new HashSet<Cours>();
             this.Sujet = new HashSet<Sujet>();
             this.Horaire = new HashSet<ProfesseurHoraire>();
         }
@@ -23,7 +24,7 @@ namespace Backend
         public int Id { get; set; }
         public int Anciennete { get; set; }
     
-        public virtual Cours Cours { get; set; }
+        public virtual ICollection<Cours> Cours { get; set; }
         public virtual Coordonnees Coordonnees { get; set; }
         public virtual ICollection<Sujet> Sujet { get; set; }
         public virtual ICollection<ProfesseurHoraire> Horaire { get; set; }

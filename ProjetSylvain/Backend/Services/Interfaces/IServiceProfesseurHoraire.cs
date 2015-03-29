@@ -7,5 +7,9 @@ namespace Backend.Services.Interfaces
 {
     interface IServiceProfesseurHoraire : IService
     {
+        ProfesseurHoraire Get(int id);
+        ProfesseurHoraire Add(ProfesseurHoraire professeurHoraire);
+        void Update(ProfesseurHoraire professeurHoraire);
+        void Delete(ProfesseurHoraire professeurHoraire);
     }
 }

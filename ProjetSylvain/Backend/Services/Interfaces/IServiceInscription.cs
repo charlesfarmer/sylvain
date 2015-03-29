@@ -7,5 +7,9 @@ namespace Backend.Services.Interfaces
 {
     interface IServiceInscription : IService
     {
+        Inscription Get(int id);
+        Inscription Add(Inscription inscription);
+        void Update(Inscription inscription);
+        void Delete(Inscription inscription);
     }
 }

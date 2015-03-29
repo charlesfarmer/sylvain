@@ -7,5 +7,9 @@ namespace Backend.Services.Interfaces
 {
     interface IServiceCours : IService
     {
+        Cours Get(int id);
+        Cours Add(Cours cours);
+        void Update(Cours cours);
+        void Delete(Cours cours);
     }
 }

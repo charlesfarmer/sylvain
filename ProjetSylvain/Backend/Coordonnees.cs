@@ -20,7 +20,7 @@ namespace Backend
         public string Telephone { get; set; }
         public string Adresse { get; set; }
     
-        public virtual Sujet Etudiant { get; set; }
+        public virtual Etudiant Etudiant { get; set; }
         public virtual Professeur Professeur { get; set; }
     }
 }

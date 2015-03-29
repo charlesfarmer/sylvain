@@ -36,14 +36,14 @@
             this.txtPrenom = new System.Windows.Forms.TextBox();
             this.txtAdresse = new System.Windows.Forms.TextBox();
             this.txtTelephone = new System.Windows.Forms.TextBox();
-            this.lblId = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.lblId = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.Location = new System.Drawing.Point(3, 11);
+            this.lblNom.Location = new System.Drawing.Point(3, 45);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(29, 13);
             this.lblNom.TabIndex = 0;
@@ -52,7 +52,7 @@
             // lblPrenom
             // 
             this.lblPrenom.AutoSize = true;
-            this.lblPrenom.Location = new System.Drawing.Point(3, 43);
+            this.lblPrenom.Location = new System.Drawing.Point(3, 77);
             this.lblPrenom.Name = "lblPrenom";
             this.lblPrenom.Size = new System.Drawing.Size(43, 13);
             this.lblPrenom.TabIndex = 1;
@@ -61,7 +61,7 @@
             // lblAdresse
             // 
             this.lblAdresse.AutoSize = true;
-            this.lblAdresse.Location = new System.Drawing.Point(3, 76);
+            this.lblAdresse.Location = new System.Drawing.Point(3, 110);
             this.lblAdresse.Name = "lblAdresse";
             this.lblAdresse.Size = new System.Drawing.Size(45, 13);
             this.lblAdresse.TabIndex = 3;
@@ -70,7 +70,7 @@
             // lblTelephone
             // 
             this.lblTelephone.AutoSize = true;
-            this.lblTelephone.Location = new System.Drawing.Point(3, 108);
+            this.lblTelephone.Location = new System.Drawing.Point(3, 142);
             this.lblTelephone.Name = "lblTelephone";
             this.lblTelephone.Size = new System.Drawing.Size(58, 13);
             this.lblTelephone.TabIndex = 2;
@@ -78,50 +78,50 @@
             // 
             // txtNom
             // 
-            this.txtNom.Location = new System.Drawing.Point(101, 11);
+            this.txtNom.Location = new System.Drawing.Point(101, 45);
             this.txtNom.Name = "txtNom";
             this.txtNom.Size = new System.Drawing.Size(199, 20);
             this.txtNom.TabIndex = 4;
             // 
             // txtPrenom
             // 
-            this.txtPrenom.Location = new System.Drawing.Point(101, 43);
+            this.txtPrenom.Location = new System.Drawing.Point(101, 77);
             this.txtPrenom.Name = "txtPrenom";
             this.txtPrenom.Size = new System.Drawing.Size(199, 20);
             this.txtPrenom.TabIndex = 5;
             // 
             // txtAdresse
             // 
-            this.txtAdresse.Location = new System.Drawing.Point(101, 76);
+            this.txtAdresse.Location = new System.Drawing.Point(101, 110);
             this.txtAdresse.Name = "txtAdresse";
             this.txtAdresse.Size = new System.Drawing.Size(199, 20);
             this.txtAdresse.TabIndex = 6;
             // 
             // txtTelephone
             // 
-            this.txtTelephone.Location = new System.Drawing.Point(101, 108);
+            this.txtTelephone.Location = new System.Drawing.Point(101, 142);
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.Size = new System.Drawing.Size(199, 20);
             this.txtTelephone.TabIndex = 7;
             // 
-            // lblId
-            // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(3, 139);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(18, 13);
-            this.lblId.TabIndex = 8;
-            this.lblId.Text = "ID";
-            // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(101, 139);
+            this.txtId.Location = new System.Drawing.Point(101, 13);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(111, 20);
-            this.txtId.TabIndex = 9;
+            this.txtId.TabIndex = 11;
             // 
-            // UserControl1
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(3, 13);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(18, 13);
+            this.lblId.TabIndex = 10;
+            this.lblId.Text = "ID";
+            // 
+            // ControleCoordonees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -135,7 +135,7 @@
             this.Controls.Add(this.lblTelephone);
             this.Controls.Add(this.lblPrenom);
             this.Controls.Add(this.lblNom);
-            this.Name = "UserControl1";
+            this.Name = "ControleCoordonees";
             this.Size = new System.Drawing.Size(323, 174);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -152,7 +152,7 @@
         private System.Windows.Forms.TextBox txtPrenom;
         private System.Windows.Forms.TextBox txtAdresse;
         private System.Windows.Forms.TextBox txtTelephone;
-        private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label lblId;
     }
 }

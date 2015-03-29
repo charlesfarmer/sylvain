@@ -19,6 +19,6 @@ namespace Backend
         public string Mot_de_Passe { get; set; }
         public bool IsAdmin { get; set; }
     
-        public virtual Sujet Etudiant { get; set; }
+        public virtual Etudiant Etudiant { get; set; }
     }
 }

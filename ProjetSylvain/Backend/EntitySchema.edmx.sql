@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/27/2015 17:08:14
+-- Date Created: 03/28/2015 22:46:46
 -- Generated from EDMX file: H:\session6_H2015\420-114 - Adaptation technologique\sylvain\ProjetSylvain\Backend\EntitySchema.edmx
 -- --------------------------------------------------
 
@@ -154,7 +154,7 @@ GO
 CREATE TABLE [dbo].[ProfesseurSet] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Anciennete] int  NOT NULL,
-    [Cours_Id] int  NOT NULL
+    [Coordonnees_Id] int  NOT NULL
 );
 GO
 
@@ -171,6 +171,7 @@ CREATE TABLE [dbo].[CoursSet] (
     [Ouvert] bit  NOT NULL,
     [Cout] decimal(18,6)  NOT NULL,
     [DateLimite] datetime  NOT NULL,
+    [Professeur_Id] int  NOT NULL,
     [Sujet_Id] int  NOT NULL
 );
 GO
@@ -181,8 +182,7 @@ CREATE TABLE [dbo].[CoordonneesSet] (
     [Nom] nvarchar(max)  NOT NULL,
     [Prenom] nvarchar(max)  NOT NULL,
     [Telephone] nvarchar(max)  NOT NULL,
-    [Adresse] nvarchar(max)  NOT NULL,
-    [Professeur_Id] int  NOT NULL
+    [Adresse] nvarchar(max)  NOT NULL
 );
 GO
 
@@ -360,19 +360,19 @@ ON [dbo].[InscriptionSet]
     ([Etudiant_Id]);
 GO
 
--- Creating foreign key on [Cours_Id] in table 'ProfesseurSet'
-ALTER TABLE [dbo].[ProfesseurSet]
+-- Creating foreign key on [Professeur_Id] in table 'CoursSet'
+ALTER TABLE [dbo].[CoursSet]
 ADD CONSTRAINT [FK_CoursProfesseur]
-    FOREIGN KEY ([Cours_Id])
-    REFERENCES [dbo].[CoursSet]
+    FOREIGN KEY ([Professeur_Id])
+    REFERENCES [dbo].[ProfesseurSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CoursProfesseur'
 CREATE INDEX [IX_FK_CoursProfesseur]
-ON [dbo].[ProfesseurSet]
-    ([Cours_Id]);
+ON [dbo].[CoursSet]
+    ([Professeur_Id]);
 GO
 
 -- Creating foreign key on [Sujet_Id] in table 'CoursSet'
@@ -390,19 +390,19 @@ ON [dbo].[CoursSet]
     ([Sujet_Id]);
 GO
 
--- Creating foreign key on [Professeur_Id] in table 'CoordonneesSet'
-ALTER TABLE [dbo].[CoordonneesSet]
+-- Creating foreign key on [Coordonnees_Id] in table 'ProfesseurSet'
+ALTER TABLE [dbo].[ProfesseurSet]
 ADD CONSTRAINT [FK_CoordonneesProfesseur]
-    FOREIGN KEY ([Professeur_Id])
-    REFERENCES [dbo].[ProfesseurSet]
+    FOREIGN KEY ([Coordonnees_Id])
+    REFERENCES [dbo].[CoordonneesSet]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CoordonneesProfesseur'
 CREATE INDEX [IX_FK_CoordonneesProfesseur]
-ON [dbo].[CoordonneesSet]
-    ([Professeur_Id]);
+ON [dbo].[ProfesseurSet]
+    ([Coordonnees_Id]);
 GO
 
 -- Creating foreign key on [Professeur_Id] in table 'ProfesseurSujet'

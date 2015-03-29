@@ -16,14 +16,14 @@ namespace Backend
     {
         public Heure()
         {
-            this.CoursHoraire = new HashSet<Sujet>();
+            this.CoursHoraire = new HashSet<CoursHoraire>();
             this.ProfesseurHoraire = new HashSet<ProfesseurHoraire>();
         }
     
         public int Id { get; set; }
         public int Num { get; set; }
     
-        public virtual ICollection<Sujet> CoursHoraire { get; set; }
+        public virtual ICollection<CoursHoraire> CoursHoraire { get; set; }
         public virtual ICollection<ProfesseurHoraire> ProfesseurHoraire { get; set; }
     }
 }

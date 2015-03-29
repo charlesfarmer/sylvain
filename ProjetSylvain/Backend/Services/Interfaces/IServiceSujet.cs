@@ -7,5 +7,9 @@ namespace Backend.Services.Interfaces
 {
     interface IServiceSujet : IService
     {
+        Sujet Get(int id);
+        Sujet Add(Sujet sujet);
+        void Update(Sujet sujet);
+        void Delete(Sujet sujet);
     }
 }

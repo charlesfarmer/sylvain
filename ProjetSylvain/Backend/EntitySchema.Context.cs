@@ -25,7 +25,7 @@ namespace Backend
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Sujet> EtudiantSet { get; set; }
+        public DbSet<Etudiant> EtudiantSet { get; set; }
         public DbSet<Login> LoginSet { get; set; }
         public DbSet<Paiement> PaiementSet { get; set; }
         public DbSet<Inscription> InscriptionSet { get; set; }
@@ -34,7 +34,7 @@ namespace Backend
         public DbSet<Cours> CoursSet { get; set; }
         public DbSet<Coordonnees> CoordonneesSet { get; set; }
         public DbSet<ProfesseurHoraire> ProfesseurHoraireSet { get; set; }
-        public DbSet<Sujet> CoursHoraireSet { get; set; }
+        public DbSet<CoursHoraire> CoursHoraireSet { get; set; }
         public DbSet<Heure> HeureSet { get; set; }
         public DbSet<Jour> JourSet { get; set; }
     }

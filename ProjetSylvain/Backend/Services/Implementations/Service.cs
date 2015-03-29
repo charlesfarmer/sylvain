@@ -6,7 +6,11 @@ using Backend.Services.Interfaces;
 
 namespace Backend.Services.Implementations
 {
-    class Service : IService
+    public class Service : IService
     {
+        public Service()
+        {
+            // constructeur
+        }
     }
 }

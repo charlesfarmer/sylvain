@@ -127,7 +127,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Anciennete" Type="int" Nullable="false" />
-    <Property Name="Cours_Id" Type="int" Nullable="false" />
+    <Property Name="Coordonnees_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="SujetSet">
     <Key>
@@ -144,6 +144,7 @@
     <Property Name="Ouvert" Type="bit" Nullable="false" />
     <Property Name="Cout" Type="decimal" Nullable="false" Precision="18" Scale="6" />
     <Property Name="DateLimite" Type="datetime" Nullable="false" />
+    <Property Name="Professeur_Id" Type="int" Nullable="false" />
     <Property Name="Sujet_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="CoordonneesSet">
@@ -155,7 +156,6 @@
     <Property Name="Prenom" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Telephone" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Adresse" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Professeur_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ProfesseurHoraireSet">
     <Key>
@@ -238,14 +238,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CoursProfesseur">
-    <End Role="Cours" Type="ProjetSylvain.Store.CoursSet" Multiplicity="1" />
-    <End Role="Professeur" Type="ProjetSylvain.Store.ProfesseurSet" Multiplicity="*" />
+    <End Role="Cours" Type="ProjetSylvain.Store.CoursSet" Multiplicity="*" />
+    <End Role="Professeur" Type="ProjetSylvain.Store.ProfesseurSet" Multiplicity="1" />
     <ReferentialConstraint>
-      <Principal Role="Cours">
+      <Principal Role="Professeur">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Professeur">
-        <PropertyRef Name="Cours_Id" />
+      <Dependent Role="Cours">
+        <PropertyRef Name="Professeur_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -262,14 +262,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="CoordonneesProfesseur">
-    <End Role="Coordonnees" Type="ProjetSylvain.Store.CoordonneesSet" Multiplicity="*" />
-    <End Role="Professeur" Type="ProjetSylvain.Store.ProfesseurSet" Multiplicity="1" />
+    <End Role="Coordonnees" Type="ProjetSylvain.Store.CoordonneesSet" Multiplicity="1" />
+    <End Role="Professeur" Type="ProjetSylvain.Store.ProfesseurSet" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Professeur">
+      <Principal Role="Coordonnees">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Coordonnees">
-        <PropertyRef Name="Professeur_Id" />
+      <Dependent Role="Professeur">
+        <PropertyRef Name="Coordonnees_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -596,7 +596,7 @@
           <NavigationProperty Name="ProfesseurHoraire" Relationship="ProjetSylvain.ProfesseurHoraireJour" FromRole="Jour" ToRole="ProfesseurHoraire" />
         </EntityType>
         <Association Name="EtudiantCoordonnees">
-          <End Type="ProjetSylvain.Etudiant" Role="Etudiant" Multiplicity="1" />
+          <End Type="ProjetSylvain.Etudiant" Role="Etudiant" Multiplicity="0..1" />
           <End Type="ProjetSylvain.Coordonnees" Role="Coordonnees" Multiplicity="1" />
         </Association>
         <Association Name="LoginEtudiant">
@@ -608,8 +608,8 @@
           <End Type="ProjetSylvain.Etudiant" Role="Etudiant" Multiplicity="1" />
         </Association>
         <Association Name="CoursProfesseur">
-          <End Type="ProjetSylvain.Cours" Role="Cours" Multiplicity="1" />
-          <End Type="ProjetSylvain.Professeur" Role="Professeur" Multiplicity="0..1" />
+          <End Type="ProjetSylvain.Cours" Role="Cours" Multiplicity="*" />
+          <End Type="ProjetSylvain.Professeur" Role="Professeur" Multiplicity="1" />
         </Association>
         <Association Name="CoursSujet">
           <End Type="ProjetSylvain.Cours" Role="Cours" Multiplicity="*" />
@@ -617,7 +617,7 @@
         </Association>
         <Association Name="CoordonneesProfesseur">
           <End Type="ProjetSylvain.Coordonnees" Role="Coordonnees" Multiplicity="1" />
-          <End Type="ProjetSylvain.Professeur" Role="Professeur" Multiplicity="1" />
+          <End Type="ProjetSylvain.Professeur" Role="Professeur" Multiplicity="0..1" />
         </Association>
         <Association Name="ProfesseurSujet">
           <End Type="ProjetSylvain.Professeur" Role="Professeur" Multiplicity="*" />
@@ -792,11 +792,11 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="CoursProfesseur" TypeName="ProjetSylvain.CoursProfesseur" StoreEntitySet="ProfesseurSet">
-      <EndProperty Name="Cours">
-        <ScalarProperty Name="Id" ColumnName="Cours_Id" />
-      </EndProperty>
+    <AssociationSetMapping Name="CoursProfesseur" TypeName="ProjetSylvain.CoursProfesseur" StoreEntitySet="CoursSet">
       <EndProperty Name="Professeur">
+        <ScalarProperty Name="Id" ColumnName="Professeur_Id" />
+      </EndProperty>
+      <EndProperty Name="Cours">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
@@ -808,11 +808,11 @@
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
-    <AssociationSetMapping Name="CoordonneesProfesseur" TypeName="ProjetSylvain.CoordonneesProfesseur" StoreEntitySet="CoordonneesSet">
-      <EndProperty Name="Professeur">
-        <ScalarProperty Name="Id" ColumnName="Professeur_Id" />
-      </EndProperty>
+    <AssociationSetMapping Name="CoordonneesProfesseur" TypeName="ProjetSylvain.CoordonneesProfesseur" StoreEntitySet="ProfesseurSet">
       <EndProperty Name="Coordonnees">
+        <ScalarProperty Name="Id" ColumnName="Coordonnees_Id" />
+      </EndProperty>
+      <EndProperty Name="Professeur">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
@@ -908,19 +908,19 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <edmx:Diagram DiagramId="73e7bd91989e4892ad6f7aeb1bb06309" Name="Diagram1" ZoomLevel="152">
-        <edmx:EntityTypeShape EntityType="ProjetSylvain.Etudiant" Width="1.5" PointX="4.25" PointY="6.5" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="ProjetSylvain.Login" Width="1.5" PointX="2" PointY="6.5" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="ProjetSylvain.Paiement" Width="1.5" PointX="6.625" PointY="9.125" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="ProjetSylvain.Inscription" Width="1.5" PointX="6.5" PointY="6.5" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="ProjetSylvain.Professeur" Width="1.5" PointX="12.25" PointY="3.5" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="ProjetSylvain.Sujet" Width="1.5" PointX="8" PointY="3.875" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="ProjetSylvain.Cours" Width="1.5" PointX="8.875" PointY="6.25" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="ProjetSylvain.Coordonnees" Width="1.5" PointX="18.875" PointY="11.5" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="ProjetSylvain.ProfesseurHoraire" Width="1.5" PointX="16.375" PointY="5.75" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="ProjetSylvain.CoursHoraire" Width="1.5" PointX="11.25" PointY="6.625" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="ProjetSylvain.Heure" Width="1.5" PointX="13.75" PointY="9" IsExpanded="true" />
-        <edmx:EntityTypeShape EntityType="ProjetSylvain.Jour" Width="1.5" PointX="13.75" PointY="6.625" IsExpanded="true" />
+      <edmx:Diagram DiagramId="73e7bd91989e4892ad6f7aeb1bb06309" Name="Diagram1" ZoomLevel="44">
+        <edmx:EntityTypeShape EntityType="ProjetSylvain.Etudiant" Width="1.5" PointX="2.75" PointY="5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="ProjetSylvain.Login" Width="1.5" PointX="0.5" PointY="5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="ProjetSylvain.Paiement" Width="1.5" PointX="5.125" PointY="7.625" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="ProjetSylvain.Inscription" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="ProjetSylvain.Professeur" Width="1.5" PointX="10.75" PointY="2" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="ProjetSylvain.Sujet" Width="1.5" PointX="6.5" PointY="2.375" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="ProjetSylvain.Cours" Width="1.5" PointX="7.375" PointY="4.75" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="ProjetSylvain.Coordonnees" Width="1.5" PointX="2.625" PointY="0.5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="ProjetSylvain.ProfesseurHoraire" Width="1.5" PointX="14.875" PointY="4.25" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="ProjetSylvain.CoursHoraire" Width="1.5" PointX="9.75" PointY="5.125" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="ProjetSylvain.Heure" Width="1.5" PointX="12.25" PointY="7.5" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="ProjetSylvain.Jour" Width="1.5" PointX="12.25" PointY="5.125" IsExpanded="true" />
         <edmx:AssociationConnector Association="ProjetSylvain.EtudiantCoordonnees" ManuallyRouted="false" />
         <edmx:AssociationConnector Association="ProjetSylvain.LoginEtudiant" ManuallyRouted="false" />
         <edmx:AssociationConnector Association="ProjetSylvain.InscriptionEtudiant" ManuallyRouted="false" />

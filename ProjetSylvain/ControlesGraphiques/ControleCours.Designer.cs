@@ -28,130 +28,154 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.label1 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.SuspendLayout();
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(5, 20);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(34, 13);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Sujet ";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(5, 56);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(28, 13);
-			this.label2.TabIndex = 1;
-			this.label2.Text = "Titre";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(5, 92);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(57, 13);
-			this.label3.TabIndex = 2;
-			this.label3.Text = "Professeur";
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(5, 132);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(29, 13);
-			this.label4.TabIndex = 3;
-			this.label4.Text = "Cout";
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(5, 174);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(60, 13);
-			this.label5.TabIndex = 4;
-			this.label5.Text = "Date Limite";
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(85, 17);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(153, 20);
-			this.textBox1.TabIndex = 5;
-			// 
-			// textBox2
-			// 
-			this.textBox2.Location = new System.Drawing.Point(85, 56);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(153, 20);
-			this.textBox2.TabIndex = 6;
-			// 
-			// textBox3
-			// 
-			this.textBox3.Location = new System.Drawing.Point(85, 95);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(153, 20);
-			this.textBox3.TabIndex = 7;
-			// 
-			// textBox4
-			// 
-			this.textBox4.Location = new System.Drawing.Point(85, 129);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(153, 20);
-			this.textBox4.TabIndex = 8;
-			// 
-			// textBox5
-			// 
-			this.textBox5.Location = new System.Drawing.Point(85, 167);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(153, 20);
-			this.textBox5.TabIndex = 9;
-			// 
-			// ControleCours
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.textBox5);
-			this.Controls.Add(this.textBox4);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.label5);
-			this.Controls.Add(this.label4);
-			this.Controls.Add(this.label3);
-			this.Controls.Add(this.label2);
-			this.Controls.Add(this.label1);
-			this.Name = "ControleCours";
-			this.Size = new System.Drawing.Size(259, 203);
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.lblSujet = new System.Windows.Forms.Label();
+            this.lblTitre = new System.Windows.Forms.Label();
+            this.lblProfesseur = new System.Windows.Forms.Label();
+            this.lblCout = new System.Windows.Forms.Label();
+            this.lblDateLimite = new System.Windows.Forms.Label();
+            this.txtSujet = new System.Windows.Forms.TextBox();
+            this.txtTitre = new System.Windows.Forms.TextBox();
+            this.txtCout = new System.Windows.Forms.TextBox();
+            this.dtpDateLimite = new System.Windows.Forms.DateTimePicker();
+            this.cbProfesseur = new System.Windows.Forms.ComboBox();
+            this.lblId = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.SuspendLayout();
+            // 
+            // lblSujet
+            // 
+            this.lblSujet.AutoSize = true;
+            this.lblSujet.Location = new System.Drawing.Point(7, 44);
+            this.lblSujet.Name = "lblSujet";
+            this.lblSujet.Size = new System.Drawing.Size(34, 13);
+            this.lblSujet.TabIndex = 0;
+            this.lblSujet.Text = "Sujet ";
+            // 
+            // lblTitre
+            // 
+            this.lblTitre.AutoSize = true;
+            this.lblTitre.Location = new System.Drawing.Point(7, 76);
+            this.lblTitre.Name = "lblTitre";
+            this.lblTitre.Size = new System.Drawing.Size(28, 13);
+            this.lblTitre.TabIndex = 1;
+            this.lblTitre.Text = "Titre";
+            // 
+            // lblProfesseur
+            // 
+            this.lblProfesseur.AutoSize = true;
+            this.lblProfesseur.Location = new System.Drawing.Point(7, 141);
+            this.lblProfesseur.Name = "lblProfesseur";
+            this.lblProfesseur.Size = new System.Drawing.Size(57, 13);
+            this.lblProfesseur.TabIndex = 2;
+            this.lblProfesseur.Text = "Professeur";
+            // 
+            // lblCout
+            // 
+            this.lblCout.AutoSize = true;
+            this.lblCout.Location = new System.Drawing.Point(7, 108);
+            this.lblCout.Name = "lblCout";
+            this.lblCout.Size = new System.Drawing.Size(29, 13);
+            this.lblCout.TabIndex = 3;
+            this.lblCout.Text = "Cout";
+            // 
+            // lblDateLimite
+            // 
+            this.lblDateLimite.AutoSize = true;
+            this.lblDateLimite.Location = new System.Drawing.Point(7, 172);
+            this.lblDateLimite.Name = "lblDateLimite";
+            this.lblDateLimite.Size = new System.Drawing.Size(60, 13);
+            this.lblDateLimite.TabIndex = 4;
+            this.lblDateLimite.Text = "Date Limite";
+            // 
+            // txtSujet
+            // 
+            this.txtSujet.Location = new System.Drawing.Point(87, 44);
+            this.txtSujet.Name = "txtSujet";
+            this.txtSujet.Size = new System.Drawing.Size(225, 20);
+            this.txtSujet.TabIndex = 5;
+            // 
+            // txtTitre
+            // 
+            this.txtTitre.Location = new System.Drawing.Point(87, 76);
+            this.txtTitre.Name = "txtTitre";
+            this.txtTitre.Size = new System.Drawing.Size(225, 20);
+            this.txtTitre.TabIndex = 6;
+            // 
+            // txtCout
+            // 
+            this.txtCout.Location = new System.Drawing.Point(87, 108);
+            this.txtCout.Name = "txtCout";
+            this.txtCout.Size = new System.Drawing.Size(225, 20);
+            this.txtCout.TabIndex = 8;
+            // 
+            // dtpDateLimite
+            // 
+            this.dtpDateLimite.Location = new System.Drawing.Point(87, 172);
+            this.dtpDateLimite.Name = "dtpDateLimite";
+            this.dtpDateLimite.Size = new System.Drawing.Size(200, 20);
+            this.dtpDateLimite.TabIndex = 9;
+            // 
+            // cbProfesseur
+            // 
+            this.cbProfesseur.FormattingEnabled = true;
+            this.cbProfesseur.Location = new System.Drawing.Point(87, 141);
+            this.cbProfesseur.Name = "cbProfesseur";
+            this.cbProfesseur.Size = new System.Drawing.Size(121, 21);
+            this.cbProfesseur.TabIndex = 10;
+            // 
+            // lblId
+            // 
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(7, 11);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(18, 13);
+            this.lblId.TabIndex = 11;
+            this.lblId.Text = "ID";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(87, 11);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(121, 20);
+            this.textBox4.TabIndex = 12;
+            // 
+            // ControleCours
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.lblId);
+            this.Controls.Add(this.cbProfesseur);
+            this.Controls.Add(this.dtpDateLimite);
+            this.Controls.Add(this.txtCout);
+            this.Controls.Add(this.txtTitre);
+            this.Controls.Add(this.txtSujet);
+            this.Controls.Add(this.lblDateLimite);
+            this.Controls.Add(this.lblCout);
+            this.Controls.Add(this.lblProfesseur);
+            this.Controls.Add(this.lblTitre);
+            this.Controls.Add(this.lblSujet);
+            this.Name = "ControleCours";
+            this.Size = new System.Drawing.Size(327, 210);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Label label5;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.TextBox textBox4;
-		private System.Windows.Forms.TextBox textBox5;
+		private System.Windows.Forms.Label lblSujet;
+		private System.Windows.Forms.Label lblTitre;
+		private System.Windows.Forms.Label lblProfesseur;
+		private System.Windows.Forms.Label lblCout;
+		private System.Windows.Forms.Label lblDateLimite;
+		private System.Windows.Forms.TextBox txtSujet;
+        private System.Windows.Forms.TextBox txtTitre;
+        private System.Windows.Forms.TextBox txtCout;
+        private System.Windows.Forms.DateTimePicker dtpDateLimite;
+        private System.Windows.Forms.ComboBox cbProfesseur;
+        private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.TextBox textBox4;
 	}
 }

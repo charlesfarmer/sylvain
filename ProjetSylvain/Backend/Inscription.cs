@@ -22,7 +22,7 @@ namespace Backend
         public int Id { get; set; }
         public bool Annule { get; set; }
     
-        public virtual Sujet Etudiant { get; set; }
+        public virtual Etudiant Etudiant { get; set; }
         public virtual Cours Cours { get; set; }
         public virtual ICollection<Paiement> Paiement { get; set; }
     }
