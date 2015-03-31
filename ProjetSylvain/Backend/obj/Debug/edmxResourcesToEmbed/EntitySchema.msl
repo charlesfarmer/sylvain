@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProjetSylvainStoreContainer" CdmEntityContainer="EntityContainer">
+    <EntitySetMapping Name="EtudiantSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjetSylvain.Etudiant)">
+        <MappingFragment StoreEntitySet="EtudiantSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjetSylvain.Login)">
+        <MappingFragment StoreEntitySet="LoginSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Mot_de_Passe" ColumnName="Mot_de_Passe" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaiementSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjetSylvain.Paiement)">
+        <MappingFragment StoreEntitySet="PaiementSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="Montant" ColumnName="Montant" />
+          <ScalarProperty Name="Rembourse" ColumnName="Rembourse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InscriptionSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjetSylvain.Inscription)">
+        <MappingFragment StoreEntitySet="InscriptionSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Annule" ColumnName="Annule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfesseurSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjetSylvain.Professeur)">
+        <MappingFragment StoreEntitySet="ProfesseurSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Anciennete" ColumnName="Anciennete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SujetSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjetSylvain.Sujet)">
+        <MappingFragment StoreEntitySet="SujetSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoursSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjetSylvain.Cours)">
+        <MappingFragment StoreEntitySet="CoursSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ouvert" ColumnName="Ouvert" />
+          <ScalarProperty Name="Cout" ColumnName="Cout" />
+          <ScalarProperty Name="DateLimite" ColumnName="DateLimite" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoordonneesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjetSylvain.Coordonnees)">
+        <MappingFragment StoreEntitySet="CoordonneesSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProfesseurHoraireSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjetSylvain.ProfesseurHoraire)">
+        <MappingFragment StoreEntitySet="ProfesseurHoraireSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Actif" ColumnName="Actif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoursHoraireSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjetSylvain.CoursHoraire)">
+        <MappingFragment StoreEntitySet="CoursHoraireSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Actif" ColumnName="Actif" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HeureSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjetSylvain.Heure)">
+        <MappingFragment StoreEntitySet="HeureSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JourSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ProjetSylvain.Jour)">
+        <MappingFragment StoreEntitySet="JourSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Num" ColumnName="Num" />
+          <ScalarProperty Name="NomLong" ColumnName="NomLong" />
+          <ScalarProperty Name="NomCourt" ColumnName="NomCourt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EtudiantCoordonnees" TypeName="ProjetSylvain.EtudiantCoordonnees" StoreEntitySet="EtudiantSet">
+      <EndProperty Name="Coordonnees">
+        <ScalarProperty Name="Id" ColumnName="Coordonnees_Id" />
+      </EndProperty>
+      <EndProperty Name="Etudiant">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LoginEtudiant" TypeName="ProjetSylvain.LoginEtudiant" StoreEntitySet="EtudiantSet">
+      <EndProperty Name="Login">
+        <ScalarProperty Name="Id" ColumnName="Login_Id" />
+      </EndProperty>
+      <EndProperty Name="Etudiant">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="InscriptionEtudiant" TypeName="ProjetSylvain.InscriptionEtudiant" StoreEntitySet="InscriptionSet">
+      <EndProperty Name="Etudiant">
+        <ScalarProperty Name="Id" ColumnName="Etudiant_Id" />
+      </EndProperty>
+      <EndProperty Name="Inscription">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoursProfesseur" TypeName="ProjetSylvain.CoursProfesseur" StoreEntitySet="CoursSet">
+      <EndProperty Name="Professeur">
+        <ScalarProperty Name="Id" ColumnName="Professeur_Id" />
+      </EndProperty>
+      <EndProperty Name="Cours">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoursSujet" TypeName="ProjetSylvain.CoursSujet" StoreEntitySet="CoursSet">
+      <EndProperty Name="Sujet">
+        <ScalarProperty Name="Id" ColumnName="Sujet_Id" />
+      </EndProperty>
+      <EndProperty Name="Cours">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoordonneesProfesseur" TypeName="ProjetSylvain.CoordonneesProfesseur" StoreEntitySet="ProfesseurSet">
+      <EndProperty Name="Coordonnees">
+        <ScalarProperty Name="Id" ColumnName="Coordonnees_Id" />
+      </EndProperty>
+      <EndProperty Name="Professeur">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfesseurSujet" TypeName="ProjetSylvain.ProfesseurSujet" StoreEntitySet="ProfesseurSujet">
+      <EndProperty Name="Professeur">
+        <ScalarProperty Name="Id" ColumnName="Professeur_Id" />
+      </EndProperty>
+      <EndProperty Name="Sujet">
+        <ScalarProperty Name="Id" ColumnName="Sujet_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoursCoursHoraire" TypeName="ProjetSylvain.CoursCoursHoraire" StoreEntitySet="CoursHoraireSet">
+      <EndProperty Name="Cours">
+        <ScalarProperty Name="Id" ColumnName="Cours_Id" />
+      </EndProperty>
+      <EndProperty Name="CoursHoraire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfesseurProfesseurHoraire" TypeName="ProjetSylvain.ProfesseurProfesseurHoraire" StoreEntitySet="ProfesseurHoraireSet">
+      <EndProperty Name="Professeur">
+        <ScalarProperty Name="Id" ColumnName="Professeur_Id" />
+      </EndProperty>
+      <EndProperty Name="ProfesseurHoraire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoursHoraireJour" TypeName="ProjetSylvain.CoursHoraireJour" StoreEntitySet="CoursHoraireSet">
+      <EndProperty Name="Jour">
+        <ScalarProperty Name="Id" ColumnName="Jour_Id" />
+      </EndProperty>
+      <EndProperty Name="CoursHoraire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoursHoraireHeure" TypeName="ProjetSylvain.CoursHoraireHeure" StoreEntitySet="CoursHoraireSet">
+      <EndProperty Name="Heure">
+        <ScalarProperty Name="Id" ColumnName="Heure_Id" />
+      </EndProperty>
+      <EndProperty Name="CoursHoraire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfesseurHoraireHeure" TypeName="ProjetSylvain.ProfesseurHoraireHeure" StoreEntitySet="ProfesseurHoraireSet">
+      <EndProperty Name="Heure">
+        <ScalarProperty Name="Id" ColumnName="Heure_Id" />
+      </EndProperty>
+      <EndProperty Name="ProfesseurHoraire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProfesseurHoraireJour" TypeName="ProjetSylvain.ProfesseurHoraireJour" StoreEntitySet="ProfesseurHoraireSet">
+      <EndProperty Name="Jour">
+        <ScalarProperty Name="Id" ColumnName="Jour_Id" />
+      </EndProperty>
+      <EndProperty Name="ProfesseurHoraire">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CoursInscription" TypeName="ProjetSylvain.CoursInscription" StoreEntitySet="InscriptionSet">
+      <EndProperty Name="Cours">
+        <ScalarProperty Name="Id" ColumnName="Cours_Id" />
+      </EndProperty>
+      <EndProperty Name="Inscription">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="PaiementInscription" TypeName="ProjetSylvain.PaiementInscription" StoreEntitySet="PaiementSet">
+      <EndProperty Name="Inscription">
+        <ScalarProperty Name="Id" ColumnName="Inscription_Id" />
+      </EndProperty>
+      <EndProperty Name="Paiement">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

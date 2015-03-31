@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjetSylvain" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="EntityContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EtudiantSet" EntityType="ProjetSylvain.Etudiant" />
+    <EntitySet Name="LoginSet" EntityType="ProjetSylvain.Login" />
+    <EntitySet Name="PaiementSet" EntityType="ProjetSylvain.Paiement" />
+    <EntitySet Name="InscriptionSet" EntityType="ProjetSylvain.Inscription" />
+    <EntitySet Name="ProfesseurSet" EntityType="ProjetSylvain.Professeur" />
+    <EntitySet Name="SujetSet" EntityType="ProjetSylvain.Sujet" />
+    <EntitySet Name="CoursSet" EntityType="ProjetSylvain.Cours" />
+    <EntitySet Name="CoordonneesSet" EntityType="ProjetSylvain.Coordonnees" />
+    <EntitySet Name="ProfesseurHoraireSet" EntityType="ProjetSylvain.ProfesseurHoraire" />
+    <EntitySet Name="CoursHoraireSet" EntityType="ProjetSylvain.CoursHoraire" />
+    <EntitySet Name="HeureSet" EntityType="ProjetSylvain.Heure" />
+    <EntitySet Name="JourSet" EntityType="ProjetSylvain.Jour" />
+    <AssociationSet Name="EtudiantCoordonnees" Association="ProjetSylvain.EtudiantCoordonnees">
+      <End Role="Etudiant" EntitySet="EtudiantSet" />
+      <End Role="Coordonnees" EntitySet="CoordonneesSet" />
+    </AssociationSet>
+    <AssociationSet Name="LoginEtudiant" Association="ProjetSylvain.LoginEtudiant">
+      <End Role="Login" EntitySet="LoginSet" />
+      <End Role="Etudiant" EntitySet="EtudiantSet" />
+    </AssociationSet>
+    <AssociationSet Name="InscriptionEtudiant" Association="ProjetSylvain.InscriptionEtudiant">
+      <End Role="Inscription" EntitySet="InscriptionSet" />
+      <End Role="Etudiant" EntitySet="EtudiantSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursProfesseur" Association="ProjetSylvain.CoursProfesseur">
+      <End Role="Cours" EntitySet="CoursSet" />
+      <End Role="Professeur" EntitySet="ProfesseurSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursSujet" Association="ProjetSylvain.CoursSujet">
+      <End Role="Cours" EntitySet="CoursSet" />
+      <End Role="Sujet" EntitySet="SujetSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoordonneesProfesseur" Association="ProjetSylvain.CoordonneesProfesseur">
+      <End Role="Coordonnees" EntitySet="CoordonneesSet" />
+      <End Role="Professeur" EntitySet="ProfesseurSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurSujet" Association="ProjetSylvain.ProfesseurSujet">
+      <End Role="Professeur" EntitySet="ProfesseurSet" />
+      <End Role="Sujet" EntitySet="SujetSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursCoursHoraire" Association="ProjetSylvain.CoursCoursHoraire">
+      <End Role="Cours" EntitySet="CoursSet" />
+      <End Role="CoursHoraire" EntitySet="CoursHoraireSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurProfesseurHoraire" Association="ProjetSylvain.ProfesseurProfesseurHoraire">
+      <End Role="Professeur" EntitySet="ProfesseurSet" />
+      <End Role="ProfesseurHoraire" EntitySet="ProfesseurHoraireSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursHoraireJour" Association="ProjetSylvain.CoursHoraireJour">
+      <End Role="CoursHoraire" EntitySet="CoursHoraireSet" />
+      <End Role="Jour" EntitySet="JourSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursHoraireHeure" Association="ProjetSylvain.CoursHoraireHeure">
+      <End Role="CoursHoraire" EntitySet="CoursHoraireSet" />
+      <End Role="Heure" EntitySet="HeureSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurHoraireHeure" Association="ProjetSylvain.ProfesseurHoraireHeure">
+      <End Role="ProfesseurHoraire" EntitySet="ProfesseurHoraireSet" />
+      <End Role="Heure" EntitySet="HeureSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurHoraireJour" Association="ProjetSylvain.ProfesseurHoraireJour">
+      <End Role="ProfesseurHoraire" EntitySet="ProfesseurHoraireSet" />
+      <End Role="Jour" EntitySet="JourSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursInscription" Association="ProjetSylvain.CoursInscription">
+      <End Role="Inscription" EntitySet="InscriptionSet" />
+      <End Role="Cours" EntitySet="CoursSet" />
+    </AssociationSet>
+    <AssociationSet Name="PaiementInscription" Association="ProjetSylvain.PaiementInscription">
+      <End Role="Paiement" EntitySet="PaiementSet" />
+      <End Role="Inscription" EntitySet="InscriptionSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Etudiant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Coordonnees" Relationship="ProjetSylvain.EtudiantCoordonnees" FromRole="Etudiant" ToRole="Coordonnees" />
+    <NavigationProperty Name="Login" Relationship="ProjetSylvain.LoginEtudiant" FromRole="Etudiant" ToRole="Login" />
+    <NavigationProperty Name="Inscription" Relationship="ProjetSylvain.InscriptionEtudiant" FromRole="Etudiant" ToRole="Inscription" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" Nullable="false" />
+    <Property Name="Mot_de_Passe" Type="String" Nullable="false" />
+    <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Etudiant" Relationship="ProjetSylvain.LoginEtudiant" FromRole="Login" ToRole="Etudiant" />
+  </EntityType>
+  <EntityType Name="Paiement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TimeStamp" Type="DateTime" Nullable="false" />
+    <Property Name="Montant" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
+    <Property Name="Rembourse" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Inscription" Relationship="ProjetSylvain.PaiementInscription" FromRole="Paiement" ToRole="Inscription" />
+  </EntityType>
+  <EntityType Name="Inscription">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Etudiant" Relationship="ProjetSylvain.InscriptionEtudiant" FromRole="Inscription" ToRole="Etudiant" />
+    <NavigationProperty Name="Cours" Relationship="ProjetSylvain.CoursInscription" FromRole="Inscription" ToRole="Cours" />
+    <Property Name="Annule" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Paiement" Relationship="ProjetSylvain.PaiementInscription" FromRole="Inscription" ToRole="Paiement" />
+  </EntityType>
+  <EntityType Name="Professeur">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Anciennete" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cours" Relationship="ProjetSylvain.CoursProfesseur" FromRole="Professeur" ToRole="Cours" />
+    <NavigationProperty Name="Coordonnees" Relationship="ProjetSylvain.CoordonneesProfesseur" FromRole="Professeur" ToRole="Coordonnees" />
+    <NavigationProperty Name="Sujet" Relationship="ProjetSylvain.ProfesseurSujet" FromRole="Professeur" ToRole="Sujet" />
+    <NavigationProperty Name="Horaire" Relationship="ProjetSylvain.ProfesseurProfesseurHoraire" FromRole="Professeur" ToRole="ProfesseurHoraire" />
+  </EntityType>
+  <EntityType Name="Sujet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" Nullable="false" />
+    <NavigationProperty Name="Cours" Relationship="ProjetSylvain.CoursSujet" FromRole="Sujet" ToRole="Cours" />
+    <NavigationProperty Name="Professeur" Relationship="ProjetSylvain.ProfesseurSujet" FromRole="Sujet" ToRole="Professeur" />
+  </EntityType>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ouvert" Type="Boolean" Nullable="false" />
+    <Property Name="Cout" Type="Decimal" Nullable="false" Scale="6" Precision="18" />
+    <Property Name="DateLimite" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Professeur" Relationship="ProjetSylvain.CoursProfesseur" FromRole="Cours" ToRole="Professeur" />
+    <NavigationProperty Name="Sujet" Relationship="ProjetSylvain.CoursSujet" FromRole="Cours" ToRole="Sujet" />
+    <NavigationProperty Name="Horaire" Relationship="ProjetSylvain.CoursCoursHoraire" FromRole="Cours" ToRole="CoursHoraire" />
+    <NavigationProperty Name="Inscription" Relationship="ProjetSylvain.CoursInscription" FromRole="Cours" ToRole="Inscription" />
+  </EntityType>
+  <EntityType Name="Coordonnees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" Nullable="false" />
+    <Property Name="Prenom" Type="String" Nullable="false" />
+    <Property Name="Telephone" Type="String" Nullable="false" />
+    <Property Name="Adresse" Type="String" Nullable="false" />
+    <NavigationProperty Name="Etudiant" Relationship="ProjetSylvain.EtudiantCoordonnees" FromRole="Coordonnees" ToRole="Etudiant" />
+    <NavigationProperty Name="Professeur" Relationship="ProjetSylvain.CoordonneesProfesseur" FromRole="Coordonnees" ToRole="Professeur" />
+  </EntityType>
+  <EntityType Name="ProfesseurHoraire">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Actif" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Professeur" Relationship="ProjetSylvain.ProfesseurProfesseurHoraire" FromRole="ProfesseurHoraire" ToRole="Professeur" />
+    <NavigationProperty Name="Heure" Relationship="ProjetSylvain.ProfesseurHoraireHeure" FromRole="ProfesseurHoraire" ToRole="Heure" />
+    <NavigationProperty Name="Jour" Relationship="ProjetSylvain.ProfesseurHoraireJour" FromRole="ProfesseurHoraire" ToRole="Jour" />
+  </EntityType>
+  <EntityType Name="CoursHoraire">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Actif" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cours" Relationship="ProjetSylvain.CoursCoursHoraire" FromRole="CoursHoraire" ToRole="Cours" />
+    <NavigationProperty Name="Jour" Relationship="ProjetSylvain.CoursHoraireJour" FromRole="CoursHoraire" ToRole="Jour" />
+    <NavigationProperty Name="Heure" Relationship="ProjetSylvain.CoursHoraireHeure" FromRole="CoursHoraire" ToRole="Heure" />
+  </EntityType>
+  <EntityType Name="Heure">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Num" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CoursHoraire" Relationship="ProjetSylvain.CoursHoraireHeure" FromRole="Heure" ToRole="CoursHoraire" />
+    <NavigationProperty Name="ProfesseurHoraire" Relationship="ProjetSylvain.ProfesseurHoraireHeure" FromRole="Heure" ToRole="ProfesseurHoraire" />
+  </EntityType>
+  <EntityType Name="Jour">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Num" Type="Int32" Nullable="false" />
+    <Property Name="NomLong" Type="String" Nullable="false" />
+    <Property Name="NomCourt" Type="String" Nullable="false" />
+    <NavigationProperty Name="CoursHoraire" Relationship="ProjetSylvain.CoursHoraireJour" FromRole="Jour" ToRole="CoursHoraire" />
+    <NavigationProperty Name="ProfesseurHoraire" Relationship="ProjetSylvain.ProfesseurHoraireJour" FromRole="Jour" ToRole="ProfesseurHoraire" />
+  </EntityType>
+  <Association Name="EtudiantCoordonnees">
+    <End Type="ProjetSylvain.Etudiant" Role="Etudiant" Multiplicity="0..1" />
+    <End Type="ProjetSylvain.Coordonnees" Role="Coordonnees" Multiplicity="1" />
+  </Association>
+  <Association Name="LoginEtudiant">
+    <End Type="ProjetSylvain.Login" Role="Login" Multiplicity="1" />
+    <End Type="ProjetSylvain.Etudiant" Role="Etudiant" Multiplicity="0..1" />
+  </Association>
+  <Association Name="InscriptionEtudiant">
+    <End Type="ProjetSylvain.Inscription" Role="Inscription" Multiplicity="*" />
+    <End Type="ProjetSylvain.Etudiant" Role="Etudiant" Multiplicity="1" />
+  </Association>
+  <Association Name="CoursProfesseur">
+    <End Type="ProjetSylvain.Cours" Role="Cours" Multiplicity="*" />
+    <End Type="ProjetSylvain.Professeur" Role="Professeur" Multiplicity="1" />
+  </Association>
+  <Association Name="CoursSujet">
+    <End Type="ProjetSylvain.Cours" Role="Cours" Multiplicity="*" />
+    <End Type="ProjetSylvain.Sujet" Role="Sujet" Multiplicity="1" />
+  </Association>
+  <Association Name="CoordonneesProfesseur">
+    <End Type="ProjetSylvain.Coordonnees" Role="Coordonnees" Multiplicity="1" />
+    <End Type="ProjetSylvain.Professeur" Role="Professeur" Multiplicity="0..1" />
+  </Association>
+  <Association Name="ProfesseurSujet">
+    <End Type="ProjetSylvain.Professeur" Role="Professeur" Multiplicity="*" />
+    <End Type="ProjetSylvain.Sujet" Role="Sujet" Multiplicity="*" />
+  </Association>
+  <Association Name="CoursCoursHoraire">
+    <End Type="ProjetSylvain.Cours" Role="Cours" Multiplicity="1" />
+    <End Type="ProjetSylvain.CoursHoraire" Role="CoursHoraire" Multiplicity="*" />
+  </Association>
+  <Association Name="ProfesseurProfesseurHoraire">
+    <End Type="ProjetSylvain.Professeur" Role="Professeur" Multiplicity="1" />
+    <End Type="ProjetSylvain.ProfesseurHoraire" Role="ProfesseurHoraire" Multiplicity="*" />
+  </Association>
+  <Association Name="CoursHoraireJour">
+    <End Type="ProjetSylvain.CoursHoraire" Role="CoursHoraire" Multiplicity="*" />
+    <End Type="ProjetSylvain.Jour" Role="Jour" Multiplicity="1" />
+  </Association>
+  <Association Name="CoursHoraireHeure">
+    <End Type="ProjetSylvain.CoursHoraire" Role="CoursHoraire" Multiplicity="*" />
+    <End Type="ProjetSylvain.Heure" Role="Heure" Multiplicity="1" />
+  </Association>
+  <Association Name="ProfesseurHoraireHeure">
+    <End Type="ProjetSylvain.ProfesseurHoraire" Role="ProfesseurHoraire" Multiplicity="*" />
+    <End Type="ProjetSylvain.Heure" Role="Heure" Multiplicity="1" />
+  </Association>
+  <Association Name="ProfesseurHoraireJour">
+    <End Type="ProjetSylvain.ProfesseurHoraire" Role="ProfesseurHoraire" Multiplicity="*" />
+    <End Type="ProjetSylvain.Jour" Role="Jour" Multiplicity="1" />
+  </Association>
+  <Association Name="CoursInscription">
+    <End Type="ProjetSylvain.Inscription" Role="Inscription" Multiplicity="*" />
+    <End Type="ProjetSylvain.Cours" Role="Cours" Multiplicity="1" />
+  </Association>
+  <Association Name="PaiementInscription">
+    <End Type="ProjetSylvain.Paiement" Role="Paiement" Multiplicity="*" />
+    <End Type="ProjetSylvain.Inscription" Role="Inscription" Multiplicity="1" />
+  </Association>
+</Schema>

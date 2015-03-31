@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProjetSylvain.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ProjetSylvainStoreContainer">
+    <EntitySet Name="EtudiantSet" EntityType="ProjetSylvain.Store.EtudiantSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LoginSet" EntityType="ProjetSylvain.Store.LoginSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PaiementSet" EntityType="ProjetSylvain.Store.PaiementSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InscriptionSet" EntityType="ProjetSylvain.Store.InscriptionSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfesseurSet" EntityType="ProjetSylvain.Store.ProfesseurSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SujetSet" EntityType="ProjetSylvain.Store.SujetSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CoursSet" EntityType="ProjetSylvain.Store.CoursSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CoordonneesSet" EntityType="ProjetSylvain.Store.CoordonneesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfesseurHoraireSet" EntityType="ProjetSylvain.Store.ProfesseurHoraireSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CoursHoraireSet" EntityType="ProjetSylvain.Store.CoursHoraireSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="HeureSet" EntityType="ProjetSylvain.Store.HeureSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JourSet" EntityType="ProjetSylvain.Store.JourSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProfesseurSujet" EntityType="ProjetSylvain.Store.ProfesseurSujet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="EtudiantCoordonnees" Association="ProjetSylvain.Store.EtudiantCoordonnees">
+      <End Role="Etudiant" EntitySet="EtudiantSet" />
+      <End Role="Coordonnees" EntitySet="CoordonneesSet" />
+    </AssociationSet>
+    <AssociationSet Name="LoginEtudiant" Association="ProjetSylvain.Store.LoginEtudiant">
+      <End Role="Login" EntitySet="LoginSet" />
+      <End Role="Etudiant" EntitySet="EtudiantSet" />
+    </AssociationSet>
+    <AssociationSet Name="InscriptionEtudiant" Association="ProjetSylvain.Store.InscriptionEtudiant">
+      <End Role="Inscription" EntitySet="InscriptionSet" />
+      <End Role="Etudiant" EntitySet="EtudiantSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursProfesseur" Association="ProjetSylvain.Store.CoursProfesseur">
+      <End Role="Cours" EntitySet="CoursSet" />
+      <End Role="Professeur" EntitySet="ProfesseurSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursSujet" Association="ProjetSylvain.Store.CoursSujet">
+      <End Role="Cours" EntitySet="CoursSet" />
+      <End Role="Sujet" EntitySet="SujetSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoordonneesProfesseur" Association="ProjetSylvain.Store.CoordonneesProfesseur">
+      <End Role="Coordonnees" EntitySet="CoordonneesSet" />
+      <End Role="Professeur" EntitySet="ProfesseurSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfesseurSujet_Professeur" Association="ProjetSylvain.Store.FK_ProfesseurSujet_Professeur">
+      <End Role="Professeur" EntitySet="ProfesseurSet" />
+      <End Role="ProfesseurSujet" EntitySet="ProfesseurSujet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProfesseurSujet_Sujet" Association="ProjetSylvain.Store.FK_ProfesseurSujet_Sujet">
+      <End Role="Sujet" EntitySet="SujetSet" />
+      <End Role="ProfesseurSujet" EntitySet="ProfesseurSujet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursCoursHoraire" Association="ProjetSylvain.Store.CoursCoursHoraire">
+      <End Role="Cours" EntitySet="CoursSet" />
+      <End Role="CoursHoraire" EntitySet="CoursHoraireSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurProfesseurHoraire" Association="ProjetSylvain.Store.ProfesseurProfesseurHoraire">
+      <End Role="Professeur" EntitySet="ProfesseurSet" />
+      <End Role="ProfesseurHoraire" EntitySet="ProfesseurHoraireSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursHoraireJour" Association="ProjetSylvain.Store.CoursHoraireJour">
+      <End Role="CoursHoraire" EntitySet="CoursHoraireSet" />
+      <End Role="Jour" EntitySet="JourSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursHoraireHeure" Association="ProjetSylvain.Store.CoursHoraireHeure">
+      <End Role="CoursHoraire" EntitySet="CoursHoraireSet" />
+      <End Role="Heure" EntitySet="HeureSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurHoraireHeure" Association="ProjetSylvain.Store.ProfesseurHoraireHeure">
+      <End Role="ProfesseurHoraire" EntitySet="ProfesseurHoraireSet" />
+      <End Role="Heure" EntitySet="HeureSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProfesseurHoraireJour" Association="ProjetSylvain.Store.ProfesseurHoraireJour">
+      <End Role="ProfesseurHoraire" EntitySet="ProfesseurHoraireSet" />
+      <End Role="Jour" EntitySet="JourSet" />
+    </AssociationSet>
+    <AssociationSet Name="CoursInscription" Association="ProjetSylvain.Store.CoursInscription">
+      <End Role="Inscription" EntitySet="InscriptionSet" />
+      <End Role="Cours" EntitySet="CoursSet" />
+    </AssociationSet>
+    <AssociationSet Name="PaiementInscription" Association="ProjetSylvain.Store.PaiementInscription">
+      <End Role="Paiement" EntitySet="PaiementSet" />
+      <End Role="Inscription" EntitySet="InscriptionSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="EtudiantSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Coordonnees_Id" Type="int" Nullable="false" />
+    <Property Name="Login_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoginSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Mot_de_Passe" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsAdmin" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PaiementSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+    <Property Name="Montant" Type="decimal" Nullable="false" Precision="18" Scale="6" />
+    <Property Name="Rembourse" Type="bit" Nullable="false" />
+    <Property Name="Inscription_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InscriptionSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Annule" Type="bit" Nullable="false" />
+    <Property Name="Etudiant_Id" Type="int" Nullable="false" />
+    <Property Name="Cours_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfesseurSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Anciennete" Type="int" Nullable="false" />
+    <Property Name="Coordonnees_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SujetSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CoursSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ouvert" Type="bit" Nullable="false" />
+    <Property Name="Cout" Type="decimal" Nullable="false" Precision="18" Scale="6" />
+    <Property Name="DateLimite" Type="datetime" Nullable="false" />
+    <Property Name="Professeur_Id" Type="int" Nullable="false" />
+    <Property Name="Sujet_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CoordonneesSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prenom" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telephone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Adresse" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfesseurHoraireSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Actif" Type="bit" Nullable="false" />
+    <Property Name="Professeur_Id" Type="int" Nullable="false" />
+    <Property Name="Heure_Id" Type="int" Nullable="false" />
+    <Property Name="Jour_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CoursHoraireSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Actif" Type="bit" Nullable="false" />
+    <Property Name="Cours_Id" Type="int" Nullable="false" />
+    <Property Name="Jour_Id" Type="int" Nullable="false" />
+    <Property Name="Heure_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HeureSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Num" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JourSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Num" Type="int" Nullable="false" />
+    <Property Name="NomLong" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NomCourt" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProfesseurSujet">
+    <Key>
+      <PropertyRef Name="Professeur_Id" />
+      <PropertyRef Name="Sujet_Id" />
+    </Key>
+    <Property Name="Professeur_Id" Type="int" Nullable="false" />
+    <Property Name="Sujet_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="EtudiantCoordonnees">
+    <End Role="Etudiant" Type="ProjetSylvain.Store.EtudiantSet" Multiplicity="*" />
+    <End Role="Coordonnees" Type="ProjetSylvain.Store.CoordonneesSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Coordonnees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Etudiant">
+        <PropertyRef Name="Coordonnees_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LoginEtudiant">
+    <End Role="Login" Type="ProjetSylvain.Store.LoginSet" Multiplicity="1" />
+    <End Role="Etudiant" Type="ProjetSylvain.Store.EtudiantSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Etudiant">
+        <PropertyRef Name="Login_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="InscriptionEtudiant">
+    <End Role="Inscription" Type="ProjetSylvain.Store.InscriptionSet" Multiplicity="*" />
+    <End Role="Etudiant" Type="ProjetSylvain.Store.EtudiantSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Etudiant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Inscription">
+        <PropertyRef Name="Etudiant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursProfesseur">
+    <End Role="Cours" Type="ProjetSylvain.Store.CoursSet" Multiplicity="*" />
+    <End Role="Professeur" Type="ProjetSylvain.Store.ProfesseurSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Professeur">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="Professeur_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursSujet">
+    <End Role="Cours" Type="ProjetSylvain.Store.CoursSet" Multiplicity="*" />
+    <End Role="Sujet" Type="ProjetSylvain.Store.SujetSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Sujet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="Sujet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoordonneesProfesseur">
+    <End Role="Coordonnees" Type="ProjetSylvain.Store.CoordonneesSet" Multiplicity="1" />
+    <End Role="Professeur" Type="ProjetSylvain.Store.ProfesseurSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coordonnees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Professeur">
+        <PropertyRef Name="Coordonnees_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursCoursHoraire">
+    <End Role="Cours" Type="ProjetSylvain.Store.CoursSet" Multiplicity="1" />
+    <End Role="CoursHoraire" Type="ProjetSylvain.Store.CoursHoraireSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CoursHoraire">
+        <PropertyRef Name="Cours_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfesseurProfesseurHoraire">
+    <End Role="Professeur" Type="ProjetSylvain.Store.ProfesseurSet" Multiplicity="1" />
+    <End Role="ProfesseurHoraire" Type="ProjetSylvain.Store.ProfesseurHoraireSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professeur">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProfesseurHoraire">
+        <PropertyRef Name="Professeur_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursHoraireJour">
+    <End Role="CoursHoraire" Type="ProjetSylvain.Store.CoursHoraireSet" Multiplicity="*" />
+    <End Role="Jour" Type="ProjetSylvain.Store.JourSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Jour">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CoursHoraire">
+        <PropertyRef Name="Jour_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursHoraireHeure">
+    <End Role="CoursHoraire" Type="ProjetSylvain.Store.CoursHoraireSet" Multiplicity="*" />
+    <End Role="Heure" Type="ProjetSylvain.Store.HeureSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Heure">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CoursHoraire">
+        <PropertyRef Name="Heure_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfesseurHoraireHeure">
+    <End Role="ProfesseurHoraire" Type="ProjetSylvain.Store.ProfesseurHoraireSet" Multiplicity="*" />
+    <End Role="Heure" Type="ProjetSylvain.Store.HeureSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Heure">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProfesseurHoraire">
+        <PropertyRef Name="Heure_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProfesseurHoraireJour">
+    <End Role="ProfesseurHoraire" Type="ProjetSylvain.Store.ProfesseurHoraireSet" Multiplicity="*" />
+    <End Role="Jour" Type="ProjetSylvain.Store.JourSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Jour">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProfesseurHoraire">
+        <PropertyRef Name="Jour_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CoursInscription">
+    <End Role="Inscription" Type="ProjetSylvain.Store.InscriptionSet" Multiplicity="*" />
+    <End Role="Cours" Type="ProjetSylvain.Store.CoursSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Inscription">
+        <PropertyRef Name="Cours_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PaiementInscription">
+    <End Role="Paiement" Type="ProjetSylvain.Store.PaiementSet" Multiplicity="*" />
+    <End Role="Inscription" Type="ProjetSylvain.Store.InscriptionSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Inscription">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Paiement">
+        <PropertyRef Name="Inscription_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfesseurSujet_Professeur">
+    <End Role="Professeur" Type="ProjetSylvain.Store.ProfesseurSet" Multiplicity="1" />
+    <End Role="ProfesseurSujet" Type="ProjetSylvain.Store.ProfesseurSujet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Professeur">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProfesseurSujet">
+        <PropertyRef Name="Professeur_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProfesseurSujet_Sujet">
+    <End Role="ProfesseurSujet" Type="ProjetSylvain.Store.ProfesseurSujet" Multiplicity="*" />
+    <End Role="Sujet" Type="ProjetSylvain.Store.SujetSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Sujet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProfesseurSujet">
+        <PropertyRef Name="Sujet_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
