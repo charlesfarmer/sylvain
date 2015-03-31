@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'H:\session6_H2015\420-114 - Adaptation technologique\sylvain\ProjetSylvain\Backend\EntitySchema.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\jonathan\Desktop\Ecole\sylvaine\ProjetSylvain\Backend\EntitySchema.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
