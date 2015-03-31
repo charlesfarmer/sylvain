@@ -6,10 +6,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ControlesGraphiques;
 
 namespace ControlCoordonées
 {
-	public partial class ControleCours : UserControl
+	public partial class ControleCours : Controle
 	{
 		public ControleCours()
 		{

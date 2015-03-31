@@ -10,6 +10,6 @@ namespace Backend.Services.Interfaces
         Inscription Get(int id);
         Inscription Add(Inscription inscription);
         void Update(Inscription inscription);
-        void Delete(Inscription inscription);
+        void Delete(int id);
     }
 }

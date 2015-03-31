@@ -1,11 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestBackend.Services
+namespace TestBackend
 {
     [TestClass]
-    public class TService
+    class Test
     {
-        // for generic service testing?
+        //father of all test classes
     }
 }

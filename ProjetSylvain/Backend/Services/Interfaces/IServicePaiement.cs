@@ -10,6 +10,6 @@ namespace Backend.Services.Interfaces
         Paiement Get(int id);
         Paiement Add(Paiement paiement);
         void Update(Paiement paiement);
-        void Delete(Paiement paiement);
+        void Delete(int id);
     }
 }

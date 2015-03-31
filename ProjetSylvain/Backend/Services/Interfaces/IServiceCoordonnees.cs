@@ -10,6 +10,6 @@ namespace Backend.Services.Interfaces
         Coordonnees Get(int id);
         Coordonnees Add(Coordonnees coordonnees);
         void Update(Coordonnees coordonnees);
-        void Delete(Coordonnees coordonnees);
+        void Delete(int id);
     }
 }

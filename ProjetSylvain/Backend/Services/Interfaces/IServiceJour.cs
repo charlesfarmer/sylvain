@@ -10,6 +10,6 @@ namespace Backend.Services.Interfaces
         Jour Get(int id);
         Jour Add(Jour jour);
         void Update(Jour jour);
-        void Delete(Jour jour);
+        void Delete(int id);
     }
 }

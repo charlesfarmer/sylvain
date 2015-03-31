@@ -6,7 +6,7 @@ using Backend.Services.Interfaces;
 
 namespace Backend.Services.Implementations
 {
-    class ServiceJour : Service, IServiceJour
+    public class ServiceJour : Service, IServiceJour
     {
         public ServiceJour() : base()
         {

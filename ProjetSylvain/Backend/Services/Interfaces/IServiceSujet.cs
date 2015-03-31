@@ -10,6 +10,6 @@ namespace Backend.Services.Interfaces
         Sujet Get(int id);
         Sujet Add(Sujet sujet);
         void Update(Sujet sujet);
-        void Delete(Sujet sujet);
+        void Delete(int id);
     }
 }

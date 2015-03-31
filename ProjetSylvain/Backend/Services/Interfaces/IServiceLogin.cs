@@ -10,6 +10,9 @@ namespace Backend.Services.Interfaces
         Login Get(int id);
         Login Add(Login login);
         void Update(Login login);
-        void Delete(Login login);
+        void Delete(int id);
+
+        // Business logic
+        bool ValidateAdminLogin(Login login);
     }
 }

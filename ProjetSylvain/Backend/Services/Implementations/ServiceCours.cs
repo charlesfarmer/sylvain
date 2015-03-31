@@ -6,7 +6,7 @@ using Backend.Services.Interfaces;
 
 namespace Backend.Services.Implementations
 {
-    class ServiceCours : Service, IServiceCours
+    public class ServiceCours : Service, IServiceCours
     {
         public ServiceCours() : base()
         {

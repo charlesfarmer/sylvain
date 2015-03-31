@@ -14,7 +14,6 @@ namespace InterfaceAdmin
 		public FormMain()
 		{
 			InitializeComponent();
-
 		}
 
 		private void btnProfesseur_Click(object sender, EventArgs e)
@@ -43,6 +42,7 @@ namespace InterfaceAdmin
 		}
 	}
 
+    //HACK: Tabless TabControl http://stackoverflow.com/a/6954785
 	public class TablessControl : TabControl
 	{
 		protected override void WndProc(ref Message m)

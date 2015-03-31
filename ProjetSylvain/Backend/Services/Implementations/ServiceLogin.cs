@@ -6,7 +6,7 @@ using Backend.Services.Interfaces;
 
 namespace Backend.Services.Implementations
 {
-    class ServiceLogin : Service, IServiceLogin
+    public class ServiceLogin : Service, IServiceLogin
     {
         public ServiceLogin() : base()
         {
@@ -28,7 +28,15 @@ namespace Backend.Services.Implementations
         {
             using (var context = EntityContainer.getInstance())
             {
-                return context.LoginSet.First(x => x.Id == id);
+                try
+                {
+                    return context.LoginSet.First(x => x.Id == id);
+                }
+                catch (InvalidOperationException e)
+                {
+                    // something like Logger.log(e.StackTrace.ToString())
+                    return null;
+                }
             }
         }
 
@@ -48,6 +56,18 @@ namespace Backend.Services.Implementations
                 Login login = context.LoginSet.Find(id);
                 context.LoginSet.Remove(login);
                 context.SaveChanges();
+            }
+        }
+
+        public bool ValidateAdminLogin(Login l)
+        {
+            using (var context = EntityContainer.getInstance())
+            {
+                return context.LoginSet.Any(
+                    x => x.IsAdmin
+                      && l.Code.Equals(x.Code)
+                      && l.Mot_de_Passe.Equals(x.Mot_de_Passe)
+                );
             }
         }
     }

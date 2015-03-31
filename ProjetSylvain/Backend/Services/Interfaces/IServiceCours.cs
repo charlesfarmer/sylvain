@@ -10,6 +10,6 @@ namespace Backend.Services.Interfaces
         Cours Get(int id);
         Cours Add(Cours cours);
         void Update(Cours cours);
-        void Delete(Cours cours);
+        void Delete(int id);
     }
 }

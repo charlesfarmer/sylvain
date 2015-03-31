@@ -6,10 +6,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using ControlesGraphiques;
 
 namespace ControlCoordonées
 {
-    public partial class ControleCoordonees: UserControl
+    public partial class ControleCoordonees: Controle
     {
         #region constructor
         public ControleCoordonees()
@@ -17,31 +18,14 @@ namespace ControlCoordonées
             InitializeComponent();
         }
         #endregion
-        #region properties
-        public string TxtNom
+        #region function
+        public void SetCoordonnees(string nom, string prenom, string adresse, string telephone)
         {
-            get;
-            set;
+            txtNom.Text = nom;
+            txtPrenom.Text = prenom;
+            txtAdresse.Text = adresse;
+            txtTelephone.Text = telephone;
         }
-        public string TxtPrenom
-        {
-            get;
-            set;
-        }
-        public string TxtAdresse
-        {
-            get;
-            set;
-        }
-        public string TxtTelephone
-        {
-            get;
-            set;
-        }
-        #endregion
-        #region events
-        #endregion
-        #region event handlers
         #endregion
     }
 }

@@ -37,8 +37,6 @@
             this.controleLogin1.Name = "controleLogin1";
             this.controleLogin1.Size = new System.Drawing.Size(223, 80);
             this.controleLogin1.TabIndex = 0;
-            this.controleLogin1.TxtIdentifiant = null;
-            this.controleLogin1.TxtPassword = null;
             // 
             // FormLogin
             // 
@@ -46,10 +44,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 160);
             this.Controls.Add(this.controleLogin1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.Text = "Connexion au système SCHOOLADMIN3000";
             this.ResumeLayout(false);
-
         }
 
         #endregion

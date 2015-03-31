@@ -6,7 +6,7 @@ using Backend.Services.Interfaces;
 
 namespace Backend.Services.Implementations
 {
-    class ServicePaiement : Service, IServicePaiement
+    public class ServicePaiement : Service, IServicePaiement
     {
         public ServicePaiement() : base()
         {

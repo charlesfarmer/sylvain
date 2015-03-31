@@ -6,7 +6,7 @@ using Backend.Services.Interfaces;
 
 namespace Backend.Services.Implementations
 {
-    class ServiceInscription : Service, IServiceInscription
+    public class ServiceInscription : Service, IServiceInscription
     {
         public ServiceInscription() : base()
         {

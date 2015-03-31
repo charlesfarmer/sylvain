@@ -7,7 +7,7 @@ using System.Configuration;
 
 namespace Backend.Services.Implementations
 {
-    class ServiceCoordonnees : Service, IServiceCoordonnees
+    public class ServiceCoordonnees : Service, IServiceCoordonnees
     {
         public ServiceCoordonnees() : base()
         {

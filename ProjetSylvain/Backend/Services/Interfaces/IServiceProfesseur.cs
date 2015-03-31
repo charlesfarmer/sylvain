@@ -10,6 +10,6 @@ namespace Backend.Services.Interfaces
         Professeur Get(int id);
         Professeur Add(Professeur professeur);
         void Update(Professeur professeur);
-        void Delete(Professeur professeur);
+        void Delete(int id);
     }
 }

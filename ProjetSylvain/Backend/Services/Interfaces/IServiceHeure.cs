@@ -10,6 +10,6 @@ namespace Backend.Services.Interfaces
         Heure Get(int id);
         Heure Add(Heure heure);
         void Update(Heure heure);
-        void Delete(Heure heure);
+        void Delete(int id);
     }
 }

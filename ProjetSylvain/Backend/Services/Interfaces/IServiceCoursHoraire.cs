@@ -5,11 +5,11 @@ using System.Text;
 
 namespace Backend.Services.Interfaces
 {
-    interface IServiceCoursHoraireHoraire : IService
+    interface IServiceCoursHoraire : IService
     {
         CoursHoraire Get(int id);
         CoursHoraire Add(CoursHoraire coursHoraire);
         void Update(CoursHoraire coursHoraire);
-        void Delete(CoursHoraire coursHoraire);
+        void Delete(int id);
     }
 }

@@ -6,7 +6,7 @@ using Backend.Services.Interfaces;
 
 namespace Backend.Services.Implementations
 {
-    class ServiceHeure : Service, IServiceHeure
+    public class ServiceHeure : Service, IServiceHeure
     {
         public ServiceHeure() : base()
         {
