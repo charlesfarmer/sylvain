@@ -1,4 +1,5 @@
 ﻿using System;
+using Backend;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -48,6 +49,13 @@ namespace ControlCoordonées
             {
                 ClickBtnDelete(this, new EventAdmin(id, identifiant, password));
             }
+        }
+        #endregion
+        #region functions
+        public void Data(Login l)
+        {
+            this.txtId.Text = l.Id.ToString();
+            this.txtIdentifiant.Text = l.Code;
         }
         #endregion
     }
