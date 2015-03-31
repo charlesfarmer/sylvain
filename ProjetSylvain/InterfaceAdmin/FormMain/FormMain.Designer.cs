@@ -46,6 +46,13 @@
             this.EtudiantCoordonnees = new System.Windows.Forms.GroupBox();
             this.tabAdministration = new System.Windows.Forms.TabPage();
             this.AdminRecherche = new System.Windows.Forms.GroupBox();
+            this.btnAdminRechercher = new System.Windows.Forms.Button();
+            this.btnAdminNouveau = new System.Windows.Forms.Button();
+            this.lblTypeRecherche = new System.Windows.Forms.Label();
+            this.txtAdminRecherche = new System.Windows.Forms.TextBox();
+            this.cbAdminRecherche = new System.Windows.Forms.ComboBox();
+            this.AdminResultats = new System.Windows.Forms.GroupBox();
+            this.lbAdminResultats = new System.Windows.Forms.ListBox();
             this.AdminInfo = new System.Windows.Forms.GroupBox();
             this.controleAdmin1 = new ControlCoordonées.ControleAdmin();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -56,6 +63,8 @@
             this.tabProfesseur.SuspendLayout();
             this.tabEtudiant.SuspendLayout();
             this.tabAdministration.SuspendLayout();
+            this.AdminRecherche.SuspendLayout();
+            this.AdminResultats.SuspendLayout();
             this.AdminInfo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -158,7 +167,7 @@
             // 
             // ProfesseurHoraire
             // 
-            this.ProfesseurHoraire.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProfesseurHoraire.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfesseurHoraire.Location = new System.Drawing.Point(369, 272);
             this.ProfesseurHoraire.Name = "ProfesseurHoraire";
             this.ProfesseurHoraire.Size = new System.Drawing.Size(352, 275);
@@ -168,7 +177,7 @@
             // 
             // ProfesseurRecherche
             // 
-            this.ProfesseurRecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProfesseurRecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfesseurRecherche.Location = new System.Drawing.Point(7, 6);
             this.ProfesseurRecherche.Name = "ProfesseurRecherche";
             this.ProfesseurRecherche.Size = new System.Drawing.Size(712, 260);
@@ -178,7 +187,7 @@
             // 
             // ProfesseurCoordonnees
             // 
-            this.ProfesseurCoordonnees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProfesseurCoordonnees.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProfesseurCoordonnees.Location = new System.Drawing.Point(8, 272);
             this.ProfesseurCoordonnees.Name = "ProfesseurCoordonnees";
             this.ProfesseurCoordonnees.Size = new System.Drawing.Size(351, 275);
@@ -211,7 +220,7 @@
             // 
             // EtudiantHoraire
             // 
-            this.EtudiantHoraire.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EtudiantHoraire.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EtudiantHoraire.Location = new System.Drawing.Point(369, 272);
             this.EtudiantHoraire.Name = "EtudiantHoraire";
             this.EtudiantHoraire.Size = new System.Drawing.Size(352, 275);
@@ -221,7 +230,7 @@
             // 
             // EtudiantRecherche
             // 
-            this.EtudiantRecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EtudiantRecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EtudiantRecherche.Location = new System.Drawing.Point(7, 6);
             this.EtudiantRecherche.Name = "EtudiantRecherche";
             this.EtudiantRecherche.Size = new System.Drawing.Size(712, 260);
@@ -231,7 +240,7 @@
             // 
             // EtudiantCoordonnees
             // 
-            this.EtudiantCoordonnees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EtudiantCoordonnees.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EtudiantCoordonnees.Location = new System.Drawing.Point(8, 272);
             this.EtudiantCoordonnees.Name = "EtudiantCoordonnees";
             this.EtudiantCoordonnees.Size = new System.Drawing.Size(351, 275);
@@ -253,7 +262,13 @@
             // 
             // AdminRecherche
             // 
-            this.AdminRecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminRecherche.Controls.Add(this.btnAdminRechercher);
+            this.AdminRecherche.Controls.Add(this.btnAdminNouveau);
+            this.AdminRecherche.Controls.Add(this.lblTypeRecherche);
+            this.AdminRecherche.Controls.Add(this.txtAdminRecherche);
+            this.AdminRecherche.Controls.Add(this.cbAdminRecherche);
+            this.AdminRecherche.Controls.Add(this.AdminResultats);
+            this.AdminRecherche.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdminRecherche.Location = new System.Drawing.Point(7, 6);
             this.AdminRecherche.Name = "AdminRecherche";
             this.AdminRecherche.Size = new System.Drawing.Size(713, 260);
@@ -261,10 +276,72 @@
             this.AdminRecherche.TabStop = false;
             this.AdminRecherche.Text = "Recherche";
             // 
+            // btnAdminRechercher
+            // 
+            this.btnAdminRechercher.Location = new System.Drawing.Point(12, 178);
+            this.btnAdminRechercher.Name = "btnAdminRechercher";
+            this.btnAdminRechercher.Size = new System.Drawing.Size(82, 31);
+            this.btnAdminRechercher.TabIndex = 5;
+            this.btnAdminRechercher.Text = "Chercher";
+            this.btnAdminRechercher.UseVisualStyleBackColor = true;
+            this.btnAdminRechercher.Click += new System.EventHandler(this.btnAdminRechercher_Click);
+            // 
+            // btnAdminNouveau
+            // 
+            this.btnAdminNouveau.Location = new System.Drawing.Point(109, 178);
+            this.btnAdminNouveau.Name = "btnAdminNouveau";
+            this.btnAdminNouveau.Size = new System.Drawing.Size(82, 31);
+            this.btnAdminNouveau.TabIndex = 4;
+            this.btnAdminNouveau.Text = "Nouveau";
+            this.btnAdminNouveau.UseVisualStyleBackColor = true;
+            this.btnAdminNouveau.Click += new System.EventHandler(this.btnAdminNouveau_Click);
+            // 
+            // lblTypeRecherche
+            // 
+            this.lblTypeRecherche.AutoSize = true;
+            this.lblTypeRecherche.Location = new System.Drawing.Point(11, 60);
+            this.lblTypeRecherche.Name = "lblTypeRecherche";
+            this.lblTypeRecherche.Size = new System.Drawing.Size(23, 13);
+            this.lblTypeRecherche.TabIndex = 2;
+            this.lblTypeRecherche.Text = "Par";
+            // 
+            // txtAdminRecherche
+            // 
+            this.txtAdminRecherche.Location = new System.Drawing.Point(11, 116);
+            this.txtAdminRecherche.Name = "txtAdminRecherche";
+            this.txtAdminRecherche.Size = new System.Drawing.Size(201, 20);
+            this.txtAdminRecherche.TabIndex = 1;
+            // 
+            // cbAdminRecherche
+            // 
+            this.cbAdminRecherche.FormattingEnabled = true;
+            this.cbAdminRecherche.Location = new System.Drawing.Point(11, 80);
+            this.cbAdminRecherche.Name = "cbAdminRecherche";
+            this.cbAdminRecherche.Size = new System.Drawing.Size(121, 21);
+            this.cbAdminRecherche.TabIndex = 0;
+            // 
+            // AdminResultats
+            // 
+            this.AdminResultats.Controls.Add(this.lbAdminResultats);
+            this.AdminResultats.Location = new System.Drawing.Point(264, 19);
+            this.AdminResultats.Name = "AdminResultats";
+            this.AdminResultats.Size = new System.Drawing.Size(443, 235);
+            this.AdminResultats.TabIndex = 7;
+            this.AdminResultats.TabStop = false;
+            this.AdminResultats.Text = "Résultats";
+            // 
+            // lbAdminResultats
+            // 
+            this.lbAdminResultats.FormattingEnabled = true;
+            this.lbAdminResultats.Location = new System.Drawing.Point(7, 17);
+            this.lbAdminResultats.Name = "lbAdminResultats";
+            this.lbAdminResultats.Size = new System.Drawing.Size(430, 212);
+            this.lbAdminResultats.TabIndex = 0;
+            // 
             // AdminInfo
             // 
             this.AdminInfo.Controls.Add(this.controleAdmin1);
-            this.AdminInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdminInfo.Location = new System.Drawing.Point(8, 272);
             this.AdminInfo.Name = "AdminInfo";
             this.AdminInfo.Size = new System.Drawing.Size(712, 275);
@@ -274,13 +351,13 @@
             // 
             // controleAdmin1
             // 
-            this.controleAdmin1.Location = new System.Drawing.Point(7, 26);
+            this.controleAdmin1.Location = new System.Drawing.Point(7, 21);
             this.controleAdmin1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.controleAdmin1.Name = "controleAdmin1";
-            this.controleAdmin1.Size = new System.Drawing.Size(698, 241);
+            this.controleAdmin1.Size = new System.Drawing.Size(415, 153);
             this.controleAdmin1.TabIndex = 0;
-            this.controleAdmin1.ClickBtnSaveOrUpdate += new System.EventHandler<ControlCoordonées.EventAdmin>(btnAdminSaveOrUpdate_Click);
-            this.controleAdmin1.ClickBtnDelete += new System.EventHandler<ControlCoordonées.EventAdmin>(btnAdminDelete_Click);
+            this.controleAdmin1.ClickBtnSaveOrUpdate += new System.EventHandler<ControlCoordonées.EventAdmin>(this.btnAdminSaveOrUpdate_Click);
+            this.controleAdmin1.ClickBtnDelete += new System.EventHandler<ControlCoordonées.EventAdmin>(this.btnAdminDelete_Click);
             // 
             // FormMain
             // 
@@ -300,6 +377,9 @@
             this.tabProfesseur.ResumeLayout(false);
             this.tabEtudiant.ResumeLayout(false);
             this.tabAdministration.ResumeLayout(false);
+            this.AdminRecherche.ResumeLayout(false);
+            this.AdminRecherche.PerformLayout();
+            this.AdminResultats.ResumeLayout(false);
             this.AdminInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -327,5 +407,12 @@
         private System.Windows.Forms.GroupBox AdminRecherche;
         private System.Windows.Forms.GroupBox AdminInfo;
         private ControlCoordonées.ControleAdmin controleAdmin1;
+        private System.Windows.Forms.Button btnAdminRechercher;
+        private System.Windows.Forms.Button btnAdminNouveau;
+        private System.Windows.Forms.Label lblTypeRecherche;
+        private System.Windows.Forms.TextBox txtAdminRecherche;
+        private System.Windows.Forms.ComboBox cbAdminRecherche;
+        private System.Windows.Forms.GroupBox AdminResultats;
+        private System.Windows.Forms.ListBox lbAdminResultats;
     }
 }
