@@ -8,47 +8,34 @@ namespace Backend.Services.Implementations
 {
     public class ServiceProfesseurHoraire : Service, IServiceProfesseurHoraire
     {
-        public ServiceProfesseurHoraire() : base()
-        {
+        public ServiceProfesseurHoraire(EntityContainer context) : base(context){
             // constructeur
         }
 
         public ProfesseurHoraire Add(ProfesseurHoraire ph)
         {
             ProfesseurHoraire professeurHoraire;
-            using (var context = EntityContainer.getInstance())
-            {
                 professeurHoraire = context.ProfesseurHoraireSet.Add(ph);
                 context.SaveChanges();
                 return professeurHoraire;
-            }
         }
 
         public ProfesseurHoraire Get(int id)
         {
-            using (var context = EntityContainer.getInstance())
-            {
                 return context.ProfesseurHoraireSet.First(x => x.Id == id);
-            }
         }
 
         public void Update(ProfesseurHoraire ph)
         {
-            using (var context = EntityContainer.getInstance())
-            {
                 context.Entry(ph).State = System.Data.EntityState.Modified;
                 context.SaveChanges();
-            }
         }
 
         public void Delete(int id)
         {
-            using (var context = EntityContainer.getInstance())
-            {
                 ProfesseurHoraire professeurHoraire = context.ProfesseurHoraireSet.Find(id);
                 context.ProfesseurHoraireSet.Remove(professeurHoraire);
                 context.SaveChanges();
-            }
         }
     }
 }

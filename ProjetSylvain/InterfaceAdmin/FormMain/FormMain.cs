@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Backend;
+using Backend.Interfaces.Implementations;
 
 namespace InterfaceAdmin
 {
@@ -103,6 +104,51 @@ namespace InterfaceAdmin
             this.cbProfesseurRecherche.Items.Add(RECHERCHE_PAR_NOM);
             this.cbProfesseurRecherche.Items.Add(RECHERCHE_PAR_PRENOM);
         }
+
+		private void btnProfesseurRechercher_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnProfesseurNouveau_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnEtudiantRechercher_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnEtudiantNouveau_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnAdminRechercher_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnAdminNouveau_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void lbAdminResultats_SelectedValueChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btnAdminSaveOrUpdate_Click(object sender, ControlCoordonées.EventAdmin e)
+		{
+
+		}
+
+		private void btnAdminDelete_Click(object sender, ControlCoordonées.EventAdmin e)
+		{
+
+		}
 	}
 
     //HACK: Tabless TabControl http://stackoverflow.com/a/6954785

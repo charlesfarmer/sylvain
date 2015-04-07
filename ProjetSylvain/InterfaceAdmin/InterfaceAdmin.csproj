@@ -34,10 +34,10 @@
   <ItemGroup>
     <Reference Include="Backend, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Backend\bin\Debug\Backend.dll</HintPath>
+      <HintPath>..\Backend\obj\Debug\Backend.dll</HintPath>
     </Reference>
     <Reference Include="ControlesGraphiques">
-      <HintPath>..\ControlesGraphiques\bin\Debug\ControlesGraphiques.dll</HintPath>
+      <HintPath>..\ControlesGraphiques\obj\Debug\ControlesGraphiques.dll</HintPath>
     </Reference>
     <Reference Include="ObjectDumper">
       <HintPath>..\packages\ObjectDumper.1.0.0.12\lib\net35-Client\ObjectDumper.dll</HintPath>
@@ -53,10 +53,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="TestBackend, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\TestBackend\bin\Debug\TestBackend.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormLogin.cs">
