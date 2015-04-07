@@ -119,8 +119,8 @@
     <Compile Include="Services\Implementations\ServiceLogin.cs" />
     <Compile Include="Services\Implementations\ServiceJour.cs" />
     <Compile Include="Services\Implementations\ServiceInscription.cs" />
-    <Compile Include="Services\Implementations\ServiceHeure.cs" />
     <Compile Include="Services\Implementations\ServiceEtudiant.cs" />
+    <Compile Include="Services\Implementations\ServiceHeure.cs" />
     <Compile Include="Services\Implementations\ServiceCoursHoraire.cs" />
     <Compile Include="Services\Implementations\ServiceCours.cs" />
     <Compile Include="Services\Implementations\ServiceCoordonnees.cs" />

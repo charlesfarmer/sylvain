@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Backend.Services.Interfaces
 {
-    interface IServicePaiement : IService
+    public interface IServicePaiement : IService
     {
         Paiement Get(int id);
         Paiement Add(Paiement paiement);

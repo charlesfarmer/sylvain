@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Backend.Services.Interfaces
 {
-    interface IServiceHeure : IService
+    public interface IServiceHeure : IService
     {
         Heure Get(int id);
         Heure Add(Heure heure);

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Backend.Services.Interfaces
 {
-    interface IServiceJour : IService
+    public interface IServiceJour : IService
     {
         Jour Get(int id);
         Jour Add(Jour jour);

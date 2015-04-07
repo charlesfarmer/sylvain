@@ -6,36 +6,36 @@ using Backend.Services.Interfaces;
 
 namespace Backend.Services.Implementations
 {
-    public class ServiceHeure : Service, IServiceHeure
+    public class ServiceEtudiant : Service, IServiceEtudiant
     {
-		public ServiceHeure(EntityContainer context) : base(context)
+		public ServiceEtudiant(EntityContainer context) : base(context)
         {
             // constructeur
         }
 
-        public Heure Add(Heure h)
+        public Etudiant Add(Etudiant e)
         {
-            Heure heure;
-                heure = context.HeureSet.Add(h);
+            Etudiant etudiant;
+                etudiant = context.EtudiantSet.Add(e);
                 context.SaveChanges();
-                return heure;
+                return etudiant;
         }
 
-        public Heure Get(int id)
+        public Etudiant Get(int id)
         {
-                return context.HeureSet.First(x => x.Id == id);
+                return context.EtudiantSet.First(x => x.Id == id);
         }
 
-        public void Update(Heure h)
+        public void Update(Etudiant e)
         {
-                context.Entry(h).State = System.Data.EntityState.Modified;
+                context.Entry(e).State = System.Data.EntityState.Modified;
                 context.SaveChanges();
         }
 
         public void Delete(int id)
         {
-                Heure heure = context.HeureSet.Find(id);
-                context.HeureSet.Remove(heure);
+                Etudiant etudiant = context.EtudiantSet.Find(id);
+                context.EtudiantSet.Remove(etudiant);
                 context.SaveChanges();
         }
     }
