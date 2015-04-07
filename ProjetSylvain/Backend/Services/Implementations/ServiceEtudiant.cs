@@ -8,35 +8,47 @@ namespace Backend.Services.Implementations
 {
     public class ServiceEtudiant : Service, IServiceEtudiant
     {
-		public ServiceEtudiant(EntityContainer context) : base(context)
+		public ServiceEtudiant() : base()
         {
             // constructeur
         }
 
         public Etudiant Add(Etudiant e)
         {
-            Etudiant etudiant;
+            using (var context = EntityContainer.getInstance())
+            {
+                Etudiant etudiant;
                 etudiant = context.EtudiantSet.Add(e);
                 context.SaveChanges();
                 return etudiant;
+            }
         }
 
         public Etudiant Get(int id)
         {
+            using (var context = EntityContainer.getInstance())
+            {
                 return context.EtudiantSet.First(x => x.Id == id);
+            }
         }
 
         public void Update(Etudiant e)
         {
+            using (var context = EntityContainer.getInstance())
+            {
                 context.Entry(e).State = System.Data.EntityState.Modified;
                 context.SaveChanges();
+            }
         }
 
         public void Delete(int id)
         {
+            using (var context = EntityContainer.getInstance())
+            {
                 Etudiant etudiant = context.EtudiantSet.Find(id);
                 context.EtudiantSet.Remove(etudiant);
                 context.SaveChanges();
+            }
         }
     }
 }

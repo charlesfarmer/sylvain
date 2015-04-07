@@ -14,5 +14,7 @@ namespace Backend.Services.Interfaces
 
         // Business logic
         bool ValidateAdminLogin(Login login);
+
+        Login FindByCodeAndPass(string code, string pass, bool hasToBeEtudiant);
     }
 }

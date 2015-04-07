@@ -8,11 +8,10 @@ namespace Backend.Services.Implementations
 {
     public class Service : IService
     {
-		protected EntityContainer context;
 
-        public Service(EntityContainer Context)
+        public Service()
         {
-			context = Context;
+
         }
     }
 }

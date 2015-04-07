@@ -20,10 +20,7 @@ namespace Backend.Interfaces.Implementations
 		{
 			get
 			{
-				using (var context = EntityContainer.getInstance())
-				{
-					return new ServiceJour(context);
-				}
+				return new ServiceJour();
 			}
 		}
 
@@ -31,10 +28,7 @@ namespace Backend.Interfaces.Implementations
 		{
 			get
 			{
-				using (var context = EntityContainer.getInstance())
-				{
-					return new ServiceEtudiant(context);
-				}
+				return new ServiceEtudiant();
 			}
 		}
 
@@ -42,10 +36,7 @@ namespace Backend.Interfaces.Implementations
 		{
 			get
 			{
-				using (var context = EntityContainer.getInstance())
-				{
-					return new ServiceHeure(context);
-				}
+				return new ServiceHeure();
 			}
 		}
 
@@ -53,10 +44,7 @@ namespace Backend.Interfaces.Implementations
 		{
 			get
 			{
-				using (var context = EntityContainer.getInstance())
-				{
-					return new ServiceInscription(context);
-				}
+				return new ServiceInscription();
 			}
 		}
 
@@ -64,10 +52,7 @@ namespace Backend.Interfaces.Implementations
 		{
 			get
 			{
-				using (var context = EntityContainer.getInstance())
-				{
-					return new ServiceLogin(context);
-				}
+				return new ServiceLogin();
 			}
 		}
 
@@ -75,10 +60,7 @@ namespace Backend.Interfaces.Implementations
 		{
 			get
 			{
-				using (var context = EntityContainer.getInstance())
-				{
-					return new ServiceProfesseur(context);
-				}
+				return new ServiceProfesseur();
 			}
 		}
 
@@ -86,10 +68,7 @@ namespace Backend.Interfaces.Implementations
 		{
 			get
 			{
-				using (var context = EntityContainer.getInstance())
-				{
-					return new ServicePaiement(context);
-				}
+				return new ServicePaiement();
 			}
 		}
 
@@ -97,10 +76,7 @@ namespace Backend.Interfaces.Implementations
 		{
 			get
 			{
-				using (var context = EntityContainer.getInstance())
-				{
-					return new ServiceCoordonnees(context);
-				}
+				return new ServiceCoordonnees();
 			}
 		}
 
@@ -108,10 +84,7 @@ namespace Backend.Interfaces.Implementations
 		{
 			get
 			{
-				using (var context = EntityContainer.getInstance())
-				{
-					return new ServiceCours(context);
-				}
+				return new ServiceCours();
 			}
 		}
 		
@@ -119,10 +92,7 @@ namespace Backend.Interfaces.Implementations
 		{
 			get
 			{
-				using (var context = EntityContainer.getInstance())
-				{
-					return new ServiceCoursHoraire(context);
-				}
+				return new ServiceCoursHoraire();
 			}
 		}
 		
@@ -130,10 +100,7 @@ namespace Backend.Interfaces.Implementations
 		{
 			get
 			{
-				using (var context = EntityContainer.getInstance())
-				{
-					return new ServiceProfesseurHoraire(context);
-				}
+				return new ServiceProfesseurHoraire();
 			}
 		}
 		
@@ -141,10 +108,7 @@ namespace Backend.Interfaces.Implementations
 		{
 			get
 			{
-				using (var context = EntityContainer.getInstance())
-				{
-					return new ServiceSujet(context);
-				}
+				return new ServiceSujet();
 			}
 		}
 		#endregion
