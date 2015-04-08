@@ -11,5 +11,6 @@ namespace Backend.Services.Interfaces
         Professeur Add(Professeur professeur);
         void Update(Professeur professeur);
         void Delete(int id);
+		List<Professeur> FindByCritere(String typeDeRecherche, String texteATrouver);
     }
 }

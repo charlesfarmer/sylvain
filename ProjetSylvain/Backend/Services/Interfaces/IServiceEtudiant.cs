@@ -11,5 +11,6 @@ namespace Backend.Services.Interfaces
         Etudiant Add(Etudiant etudiant);
         void Update(Etudiant etudiant);
         void Delete(int id);
+		List<Etudiant> FindByCritere(String typeDeRecherche, String texteATrouver);
     }
 }

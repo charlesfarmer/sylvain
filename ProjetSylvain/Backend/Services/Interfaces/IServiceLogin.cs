@@ -11,6 +11,7 @@ namespace Backend.Services.Interfaces
         Login Add(Login login);
         void Update(Login login);
         void Delete(int id);
+		List<Login> FindByCritere(String typeDeRecherche, String texteATrouver);
 
         // Business logic
         bool ValidateAdminLogin(Login login);

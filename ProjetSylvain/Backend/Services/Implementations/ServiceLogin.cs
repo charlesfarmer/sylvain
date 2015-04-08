@@ -87,5 +87,23 @@ namespace Backend.Services.Implementations
 
             }
         }
+
+		// Rechere les Admin. par critere
+		public List<Login> FindByCritere(String typeDeRecherche, String texteATrouver)
+		{
+			using (var context = EntityContainer.getInstance())
+			{
+
+				switch (typeDeRecherche)
+				{
+
+					case "ID": return context.LoginSet.Where(x => x.Id == Int32.Parse(texteATrouver)).ToList();
+
+					default: return new List<Login>();
+
+				}
+
+			}
+		}
     }
 }

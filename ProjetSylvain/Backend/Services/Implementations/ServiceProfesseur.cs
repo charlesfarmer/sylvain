@@ -50,5 +50,26 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
+
+		// Rechere les Prof. par critere
+		public List<Professeur> FindByCritere(String typeDeRecherche, String texteATrouver) 
+		{
+			using (var context = EntityContainer.getInstance())
+			{
+
+				switch(typeDeRecherche){
+
+					case "ID": return context.ProfesseurSet.Where(x => x.Id == Int32.Parse(texteATrouver)).ToList();
+
+					case "Nom": return context.ProfesseurSet.Where(x => x.Coordonnees.Nom == texteATrouver).ToList();
+						
+					case "Prenom": return context.ProfesseurSet.Where(x => x.Coordonnees.Prenom == texteATrouver).ToList();
+
+					default: return new List<Professeur>();
+
+				}
+				
+			}
+		}
     }
 }

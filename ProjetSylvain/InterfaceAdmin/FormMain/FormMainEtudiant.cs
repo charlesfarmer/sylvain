@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Backend.Interfaces.Implementations;
 
 
 namespace InterfaceAdmin
@@ -33,9 +34,9 @@ namespace InterfaceAdmin
             string typeDeRecherche = this.cbEtudiantRecherche.SelectedItem.ToString();
             string texteATrouver = this.txtEtudiantRecherche.Text.ToLowerInvariant();
 
-            // call à la BD pour trouver des elements
-
             List<Etudiant> etudiants = new List<Etudiant>();
+
+			etudiants = Facade.ServiceEtudiant.FindByCritere(typeDeRecherche, texteATrouver);
 
             if (!etudiants.Any())
             {
