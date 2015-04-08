@@ -99,6 +99,8 @@ namespace Backend.Services.Implementations
 
 					case "ID": return context.LoginSet.Where(x => x.Id == Int32.Parse(texteATrouver)).ToList();
 
+					case "Identifiant": return context.LoginSet.Where(x => x.Code == texteATrouver).ToList();
+
 					default: return new List<Login>();
 
 				}

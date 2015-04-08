@@ -22,6 +22,41 @@ namespace ControlCoordonées
         #region events
         public event EventHandler<EventAdmin> ClickBtnSaveOrUpdate;
         public event EventHandler<EventAdmin> ClickBtnDelete;
+		public string ID
+		{
+			get
+			{
+				return txtId.Text;
+			}
+			set
+			{
+				txtId.Text = value;
+			}
+		}
+
+		public string Identification
+		{
+			get
+			{
+				return txtIdentifiant.Text;
+			}
+			set
+			{
+				txtIdentifiant.Text = value;
+			}
+		}
+
+		public string Password
+		{
+			get
+			{
+				return txtPassword.Text;
+			}
+			set
+			{
+				txtPassword.Text = value;
+			}
+		}
         #endregion
         #region event handlers
         private void btnClear_Click(object sender, EventArgs e)

@@ -94,6 +94,7 @@ namespace InterfaceAdmin
         void FillComboBoxes()
         {
             this.cbAdminRecherche.Items.Add(RECHERCHE_PAR_ID);
+			this.cbAdminRecherche.Items.Add(RECHERCHE_PAR_IDENTIFIANT);
 
             this.cbEtudiantRecherche.Items.Add(RECHERCHE_PAR_ID);
             this.cbEtudiantRecherche.Items.Add(RECHERCHE_PAR_NOM);

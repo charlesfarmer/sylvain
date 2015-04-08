@@ -65,10 +65,18 @@ namespace InterfaceAdmin
         {
             this.lbAdminResultats.SelectedItem.ToString();
             
-            // GET un admin de la bd à partir d'un id
             Login login = new Login();
             this.controleAdmin1.Data(login);
+			Facade.ServiceLogin.Get(login.Id);
+			setInfoAdmin(login);
         }
+
+		private void setInfoAdmin(Login login)
+		{
+			this.controleAdmin1.ID = login.Id.ToString();
+			this.controleAdmin1.Identification = login.Code;
+			this.controleAdmin1.Password = login.Mot_de_Passe;
+		}
 
         private void btnAdminSaveOrUpdate_Click(object sender, EventAdmin e)
         {
@@ -86,19 +94,20 @@ namespace InterfaceAdmin
                 return;
             }
 
-            // TODO: vérifier que le code d'identifiant n'existe pas déjà à l'ajout
-
-            if (WarningSaving() == DialogResult.OK)
-            {
-                if (login.Id < 0)
-                {
-                    // call à la BD pour un add
-                }
-                else
-                {
-                    // call à la BD pour un update
-                }
-            }
+			if (Facade.ServiceLogin.Get(login.Id) != null)
+			{
+				if (WarningSaving() == DialogResult.OK)
+				{
+					if (login.Id < 0)
+					{
+						Facade.ServiceLogin.Add(login);
+					}
+					else
+					{
+						Facade.ServiceLogin.Update(login);
+					}
+				}
+			}
         }
 
         private void btnAdminDelete_Click(object sender, EventAdmin e)

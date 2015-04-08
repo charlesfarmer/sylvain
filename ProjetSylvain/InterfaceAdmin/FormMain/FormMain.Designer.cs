@@ -324,7 +324,7 @@
 			this.btnEtudiantRechercher.Location = new System.Drawing.Point(9, 172);
 			this.btnEtudiantRechercher.Name = "btnEtudiantRechercher";
 			this.btnEtudiantRechercher.Size = new System.Drawing.Size(82, 31);
-			this.btnEtudiantRechercher.TabIndex = 12;
+			this.btnEtudiantRechercher.TabIndex = 11;
 			this.btnEtudiantRechercher.Text = "Chercher";
 			this.btnEtudiantRechercher.UseVisualStyleBackColor = true;
 			this.btnEtudiantRechercher.Click += new System.EventHandler(this.btnEtudiantRechercher_Click);
@@ -334,7 +334,7 @@
 			this.btnEtudiantNouveau.Location = new System.Drawing.Point(106, 172);
 			this.btnEtudiantNouveau.Name = "btnEtudiantNouveau";
 			this.btnEtudiantNouveau.Size = new System.Drawing.Size(82, 31);
-			this.btnEtudiantNouveau.TabIndex = 11;
+			this.btnEtudiantNouveau.TabIndex = 12;
 			this.btnEtudiantNouveau.Text = "Nouveau";
 			this.btnEtudiantNouveau.UseVisualStyleBackColor = true;
 			this.btnEtudiantNouveau.Click += new System.EventHandler(this.btnEtudiantNouveau_Click);
@@ -424,7 +424,7 @@
 			this.btnAdminRechercher.Location = new System.Drawing.Point(9, 172);
 			this.btnAdminRechercher.Name = "btnAdminRechercher";
 			this.btnAdminRechercher.Size = new System.Drawing.Size(82, 31);
-			this.btnAdminRechercher.TabIndex = 12;
+			this.btnAdminRechercher.TabIndex = 11;
 			this.btnAdminRechercher.Text = "Chercher";
 			this.btnAdminRechercher.UseVisualStyleBackColor = true;
 			this.btnAdminRechercher.Click += new System.EventHandler(this.btnAdminRechercher_Click);
@@ -434,7 +434,7 @@
 			this.btnAdminNouveau.Location = new System.Drawing.Point(106, 172);
 			this.btnAdminNouveau.Name = "btnAdminNouveau";
 			this.btnAdminNouveau.Size = new System.Drawing.Size(82, 31);
-			this.btnAdminNouveau.TabIndex = 11;
+			this.btnAdminNouveau.TabIndex = 12;
 			this.btnAdminNouveau.Text = "Nouveau";
 			this.btnAdminNouveau.UseVisualStyleBackColor = true;
 			this.btnAdminNouveau.Click += new System.EventHandler(this.btnAdminNouveau_Click);
