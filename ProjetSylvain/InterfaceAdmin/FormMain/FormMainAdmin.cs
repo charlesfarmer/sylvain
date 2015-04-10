@@ -15,6 +15,7 @@ namespace InterfaceAdmin
 {
     public partial class FormMain : Form
     {
+		// Methode pour rechercher les administrateurs lorsqu'on click sure le button rechercher
         private void btnAdminRechercher_Click(object sender, EventArgs e)
         {
             if (this.cbAdminRecherche.SelectedIndex < 0)
@@ -53,14 +54,14 @@ namespace InterfaceAdmin
                 this.lbAdminResultats.Items.Add(FormatACertainObjectIntoAPrettyStringForDisplay(l));
             }
         }
-
+		// Clear les champs pour entrer de nouvelle info
         private void btnAdminNouveau_Click(object sender, EventArgs e)
         {
             this.cbAdminRecherche.SelectedIndex = -1;
             this.txtAdminRecherche.Clear();
             this.lbAdminResultats.Items.Clear();
         }
-
+		// rentre les info selectionner dans controleAdmin en appellent : setInfoAdmin();
         private void lbAdminResultats_SelectedValueChanged(object sender, EventArgs e)
         {
             this.lbAdminResultats.SelectedItem.ToString();
@@ -70,14 +71,14 @@ namespace InterfaceAdmin
 			Facade.ServiceLogin.Get(login.Id);
 			setInfoAdmin(login);
         }
-
+		// ... set les info de l'admin 
 		private void setInfoAdmin(Login login)
 		{
 			this.controleAdmin1.ID = login.Id.ToString();
 			this.controleAdmin1.Identification = login.Code;
 			this.controleAdmin1.Password = login.Mot_de_Passe;
 		}
-
+		// sauvegarde les info rentrer apres une verification
         private void btnAdminSaveOrUpdate_Click(object sender, EventAdmin e)
         {
             Login login = new Login()
@@ -109,7 +110,7 @@ namespace InterfaceAdmin
 				}
 			}
         }
-
+		// delete l'admin
         private void btnAdminDelete_Click(object sender, EventAdmin e)
         {
             if (WarningDeleting() == DialogResult.OK)

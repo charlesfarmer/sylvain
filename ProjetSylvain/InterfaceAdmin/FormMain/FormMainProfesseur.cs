@@ -15,6 +15,7 @@ namespace InterfaceAdmin
 {
     public partial class FormMain : Form
     {
+		// Methode pour rechercher les Prof. lorsqu'on click sure le button rechercher
         private void btnProfesseurRechercher_Click(object sender, EventArgs e)
         {
             if (this.cbProfesseurRecherche.SelectedIndex < 0)
@@ -53,7 +54,7 @@ namespace InterfaceAdmin
                 this.lbProfesseurResultats.Items.Add(FormatACertainObjectIntoAPrettyStringForDisplay(professeur));
             }
         }
-
+		// Clear les champs pour entrer de nouvelle info
         private void btnProfesseurNouveau_Click(object sender, EventArgs e)
         {
             this.cbProfesseurRecherche.SelectedIndex = -1;

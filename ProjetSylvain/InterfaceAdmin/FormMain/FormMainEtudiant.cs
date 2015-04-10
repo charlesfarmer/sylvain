@@ -15,6 +15,7 @@ namespace InterfaceAdmin
 {
     public partial class FormMain : Form
     {
+		// Methode pour rechercher les Etudiants lorsqu'on click sure le button rechercher
         private void btnEtudiantRechercher_Click(object sender, EventArgs e)
         {
             if (this.cbEtudiantRecherche.SelectedIndex < 0)
@@ -53,7 +54,7 @@ namespace InterfaceAdmin
                 this.lbEtudiantResultats.Items.Add(FormatACertainObjectIntoAPrettyStringForDisplay(etudiant));
             }
         }
-
+		// Clear les champs pour entrer de nouvelle info
         private void btnEtudiantNouveau_Click(object sender, EventArgs e)
         {
             this.cbEtudiantRecherche.SelectedIndex = -1;

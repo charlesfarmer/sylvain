@@ -39,6 +39,13 @@
     <Reference Include="ControlesGraphiques">
       <HintPath>..\ControlesGraphiques\obj\Debug\ControlesGraphiques.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Backend\bin\Debug\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="ObjectDumper">
       <HintPath>..\packages\ObjectDumper.1.0.0.12\lib\net35-Client\ObjectDumper.dll</HintPath>
     </Reference>

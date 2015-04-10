@@ -13,6 +13,7 @@ namespace InterfaceAdmin
 {
 	public partial class FormMain : Form
 	{
+		// varialble
         const string RECHERCHE_PAR_ID = "ID";
         const string RECHERCHE_PAR_IDENTIFIANT = "Identifiant";
         const string RECHERCHE_PAR_NOM = "Nom";
@@ -21,52 +22,53 @@ namespace InterfaceAdmin
         const string onSaveOrUpdateMessage = "Êtes-vous certain de vouloir sauvegarder?";
         const string onDeleteMessage = "Êtes-vous certain de vouloir supprimer cet enregistrement?";
 
+		// Constucteur
 		public FormMain()
 		{
 			InitializeComponent();
             FillComboBoxes();
 		}
-
+		// Button pour changer de tab
 		private void btnProfesseur_Click(object sender, EventArgs e)
 		{
 			this.tablessControl1.SelectTab("tabProfesseur");
 		}
-
+		// Button pour changer de tab
 		private void btnEtudiant_Click(object sender, EventArgs e)
 		{
 			this.tablessControl1.SelectTab("tabEtudiant");
 		}
-
+		// Button pour changer de tab
 		private void btnCours_Click(object sender, EventArgs e)
 		{
 			this.tablessControl1.SelectTab("tabCours");
 		}
-
+		// Button pour changer de tab
 		private void btnAdministration_Click(object sender, EventArgs e)
 		{
 			this.tablessControl1.SelectTab("tabAdministration");
 		}
-
+		// Button pour quitter
 		private void btnQuitter_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
 		}
-
+		// Message d'alert
         void WarningMessage(string message)
         {
             MessageBox.Show(message);
         }
-
+		// message par default pour sauvegarder
         DialogResult WarningSaving()
         {
             return MessageBox.Show(onSaveOrUpdateMessage, "Sauvegarder?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
         }
-
+		// message par default pour delete
         DialogResult WarningDeleting()
         {
             return MessageBox.Show(onDeleteMessage, "Supprimer?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
         }
-
+		// toString générique
         string FormatACertainObjectIntoAPrettyStringForDisplay(Object o)
         {
             string LoginFormat = "{0} {1}";
@@ -90,7 +92,7 @@ namespace InterfaceAdmin
 
             return "Objet inconnu";
         }
-
+		// contenue des combos box
         void FillComboBoxes()
         {
             this.cbAdminRecherche.Items.Add(RECHERCHE_PAR_ID);
