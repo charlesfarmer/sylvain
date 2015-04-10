@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Backend.Services.Interfaces
 {
+	// Interface pour IServiceJour
     public interface IServiceJour : IService
     {
         Jour Get(int id);

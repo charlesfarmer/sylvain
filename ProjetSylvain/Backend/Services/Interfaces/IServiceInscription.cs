@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Backend.Services.Interfaces
 {
+	// Interface pour IServiceInscription
     public interface IServiceInscription : IService
     {
         Inscription Get(int id);

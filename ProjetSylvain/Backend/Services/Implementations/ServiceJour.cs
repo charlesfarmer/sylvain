@@ -12,7 +12,7 @@ namespace Backend.Services.Implementations
         {
             // constructeur
         }
-
+		// Utiliser pour add un jour
         public Jour Add(Jour j)
         {
             using (var context = EntityContainer.getInstance())
@@ -23,7 +23,7 @@ namespace Backend.Services.Implementations
                 return jour;
             }
         }
-
+		// Utiliser pour get un jour
         public Jour Get(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -31,7 +31,7 @@ namespace Backend.Services.Implementations
                 return context.JourSet.First(x => x.Id == id);
             }
         }
-
+		// Utiliser pour update un jour
         public void Update(Jour j)
         {
             using (var context = EntityContainer.getInstance())
@@ -40,7 +40,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// Utiliser pour delete un jour
         public void Delete(int id)
         {
             using (var context = EntityContainer.getInstance())

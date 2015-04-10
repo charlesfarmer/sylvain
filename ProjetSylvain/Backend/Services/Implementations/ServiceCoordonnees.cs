@@ -13,7 +13,7 @@ namespace Backend.Services.Implementations
         {
             // constructeur
         }
-
+		// Utiliser pour add une coordonnee
         public Coordonnees Add(Coordonnees c)
         {
             using (var context = EntityContainer.getInstance())
@@ -24,7 +24,7 @@ namespace Backend.Services.Implementations
                 return coordonnees;
             }
         }
-
+		// Utiliser pour get une coordonnee
         public Coordonnees Get(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -32,7 +32,7 @@ namespace Backend.Services.Implementations
                 return context.CoordonneesSet.First(x => x.Id == id);
             }
         }
-
+		// Utiliser pour update une coordonnee
         public void Update(Coordonnees c)
         {
             using (var context = EntityContainer.getInstance())
@@ -41,7 +41,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// Utiliser pour delete une coordonnee
         public void Delete(int id)
         {
             using (var context = EntityContainer.getInstance())

@@ -12,7 +12,7 @@ namespace Backend.Services.Implementations
         {
             // constructeur
         }
-
+		// Utiliser pour add un Paiement
         public Paiement Add(Paiement p)
         {
             using (var context = EntityContainer.getInstance())
@@ -23,7 +23,7 @@ namespace Backend.Services.Implementations
                 return paiement;
             }
         }
-
+		// Utiliser pour get un Paiement
         public Paiement Get(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -31,7 +31,7 @@ namespace Backend.Services.Implementations
                 return context.PaiementSet.First(x => x.Id == id);
             }
         }
-
+		// Utiliser pour update un Paiement
         public void Update(Paiement p)
         {
             using (var context = EntityContainer.getInstance())
@@ -40,7 +40,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// Utiliser pour delete un Paiement
         public void Delete(int id)
         {
             using (var context = EntityContainer.getInstance())

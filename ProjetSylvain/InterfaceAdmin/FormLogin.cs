@@ -15,12 +15,13 @@ namespace InterfaceAdmin
 {
     public partial class FormLogin : Form
     {
+		// Variable de class
         const string warningMessageIdentifiant = "Ruh roh\n\nYou missing rusername!";
         const string warningMessagePassword = "Ruh roh\n\nYou missing passrurd!";
         const string warningMessageLoginFailed = "SCOOBY DOOO";
 
         Random Random = new Random();
-
+		// Constructeur
         public FormLogin()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace InterfaceAdmin
             #endregion
         }
         #region event handlers
+		// Code pour validate le ID & PW des utilisateurs
         public void validateCredentials(object sender, EventConnexion e)
         {
             string u = e.Identifiant;
@@ -65,7 +67,7 @@ namespace InterfaceAdmin
             }
         }
         #endregion
-
+		// call un message dependament de l'erreur
         void WarningMessage(string message)
         {
             MessageBox.Show(message);

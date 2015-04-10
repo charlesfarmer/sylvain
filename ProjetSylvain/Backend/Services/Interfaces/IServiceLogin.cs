@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Backend.Services.Interfaces
 {
+	// Interface pour IServiceLogin
     public interface IServiceLogin : IService
     {
         Login Get(int id);

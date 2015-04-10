@@ -12,7 +12,7 @@ namespace Backend.Services.Implementations
         {
             // constructeur
         }
-
+		// Utiliser pour add un sujet
         public Sujet Add(Sujet s)
         {
             using (var context = EntityContainer.getInstance())
@@ -23,7 +23,7 @@ namespace Backend.Services.Implementations
                 return sujet;
             }
         }
-
+		// Utiliser pour get un sujet
         public Sujet Get(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -31,7 +31,7 @@ namespace Backend.Services.Implementations
                 return context.SujetSet.First(x => x.Id == id);
             }
         }
-
+		// Utiliser pour update un sujet
         public void Update(Sujet s)
         {
             using (var context = EntityContainer.getInstance())
@@ -40,7 +40,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// Utiliser pour delete un sujet
         public void Delete(int id)
         {
             using (var context = EntityContainer.getInstance())

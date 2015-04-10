@@ -12,7 +12,7 @@ namespace Backend.Services.Implementations
         {
             // constructeur
         }
-
+		// Utiliser pour add un login
         public Login Add(Login l)
         {
             using (var context = EntityContainer.getInstance())
@@ -23,7 +23,7 @@ namespace Backend.Services.Implementations
                 return login;
             }
         }
-
+		// Utiliser pour get un login
         public Login Get(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -39,7 +39,7 @@ namespace Backend.Services.Implementations
                 }
             }
         }
-
+		// Utiliser pour update un login
         public void Update(Login l)
         {
             using (var context = EntityContainer.getInstance())
@@ -48,7 +48,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// Utiliser pour delete un login
         public void Delete(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -58,7 +58,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// Utiliser pour valider le login d'un admin
         public bool ValidateAdminLogin(Login l)
         {
             using (var context = EntityContainer.getInstance())
@@ -71,7 +71,7 @@ namespace Backend.Services.Implementations
             }
         }
 
-
+		// Utiliser pour rechercher un admin avec le bon code / pw
         public Login FindByCodeAndPass(string code, string pass, bool hasToBeEtudiant)
         {
             using (var context = EntityContainer.getInstance())

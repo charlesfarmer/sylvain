@@ -12,7 +12,7 @@ namespace Backend.Services.Implementations
         {
             // constructeur
         }
-
+		// Utiliser pour add un cours
         public Cours Add(Cours c)
         {
             using (var context = EntityContainer.getInstance())
@@ -23,7 +23,7 @@ namespace Backend.Services.Implementations
                 return cours;
             }
         }
-
+		// Utiliser pour get un cours
         public Cours Get(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -31,7 +31,7 @@ namespace Backend.Services.Implementations
                 return context.CoursSet.Include("Inscription.Paiement").Include("Inscription.Etudiant.Coordonnees").Include("Inscription.Etudiant.Login").Include("Sujet").First(x => x.Id == id);
             }
         }
-
+		// Utiliser pour update un cours
         public void Update(Cours c)
         {
             using (var context = EntityContainer.getInstance())
@@ -40,7 +40,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// Utiliser pour delete un cours
         public void Delete(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -50,7 +50,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// revoie une <list>Cours valide pour s'inscrire 
         public List<Cours> GetAllAvailableForSubscription()
         {
             using (var context = EntityContainer.getInstance())

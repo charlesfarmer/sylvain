@@ -12,7 +12,7 @@ namespace Backend.Services.Implementations
         {
             // constructeur
         }
-
+		// Utiliser pour add un Professeur
         public Professeur Add(Professeur p)
         {
             using (var context = EntityContainer.getInstance())
@@ -23,7 +23,7 @@ namespace Backend.Services.Implementations
                 return professeur;
             }
         }
-
+		// Utiliser pour get un Professeur
         public Professeur Get(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -31,7 +31,7 @@ namespace Backend.Services.Implementations
                 return context.ProfesseurSet.First(x => x.Id == id);
             }
         }
-
+		// Utiliser pour update un Professeur
         public void Update(Professeur p)
         {
             using (var context = EntityContainer.getInstance())
@@ -40,7 +40,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// Utiliser pour delete un Professeur
         public void Delete(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -51,7 +51,7 @@ namespace Backend.Services.Implementations
             }
         }
 
-		// Rechere les Prof. par critere
+		// Rechere les Prof. par critere ( ID,Nom,Prenom )
 		public List<Professeur> FindByCritere(String typeDeRecherche, String texteATrouver) 
 		{
 			using (var context = EntityContainer.getInstance())

@@ -12,7 +12,7 @@ namespace Backend.Services.Implementations
         {
             // constructeur
         }
-
+		// Utiliser pour add un CoursHoraire
         public CoursHoraire Add(CoursHoraire c)
         {
             using (var context = EntityContainer.getInstance())
@@ -23,7 +23,7 @@ namespace Backend.Services.Implementations
                 return coursHoraire;
             }
         }
-
+		// Utiliser pour get un CoursHoraire
         public CoursHoraire Get(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -31,7 +31,7 @@ namespace Backend.Services.Implementations
                 return context.CoursHoraireSet.First(x => x.Id == id);
             }
         }
-
+		// Utiliser pour update un CoursHoraire
         public void Update(CoursHoraire c)
         {
             using (var context = EntityContainer.getInstance())
@@ -40,7 +40,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// Utiliser pour delete un CoursHoraire
         public void Delete(int id)
         {
             using (var context = EntityContainer.getInstance())

@@ -16,6 +16,7 @@ namespace Backend.Interfaces.Implementations
 		
 
 		#region methode 
+		// Utilise les Interface des Services
 		public static IServiceJour ServiceJour
 		{
 			get

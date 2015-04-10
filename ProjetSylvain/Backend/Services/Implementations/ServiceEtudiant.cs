@@ -12,7 +12,7 @@ namespace Backend.Services.Implementations
         {
             // constructeur
         }
-
+		// Utiliser pour add un étudiant
         public Etudiant Add(Etudiant e)
         {
             using (var context = EntityContainer.getInstance())
@@ -23,7 +23,7 @@ namespace Backend.Services.Implementations
                 return etudiant;
             }
         }
-
+		// Utiliser pour get un étudiant
         public Etudiant Get(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -31,7 +31,7 @@ namespace Backend.Services.Implementations
                 return context.EtudiantSet.First(x => x.Id == id);
             }
         }
-
+		// Utiliser pour update un étudiant
         public void Update(Etudiant e)
         {
             using (var context = EntityContainer.getInstance())
@@ -40,7 +40,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// Utiliser pour delete un étudiant
         public void Delete(int id)
         {
             using (var context = EntityContainer.getInstance())

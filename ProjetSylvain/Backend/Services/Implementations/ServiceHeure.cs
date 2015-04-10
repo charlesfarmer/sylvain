@@ -12,7 +12,7 @@ namespace Backend.Services.Implementations
         {
             // constructeur
         }
-
+		// Utiliser pour add un heure
         public Heure Add(Heure h)
         {
             using (var context = EntityContainer.getInstance())
@@ -23,7 +23,7 @@ namespace Backend.Services.Implementations
                 return heure;
             }
         }
-
+		// Utiliser pour get un heure
         public Heure Get(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -31,7 +31,7 @@ namespace Backend.Services.Implementations
                 return context.HeureSet.First(x => x.Id == id);
             }
         }
-
+		// Utiliser pour update un heure
         public void Update(Heure h)
         {
             using (var context = EntityContainer.getInstance())
@@ -40,7 +40,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// Utiliser pour delete un heure
         public void Delete(int id)
         {
             using (var context = EntityContainer.getInstance())

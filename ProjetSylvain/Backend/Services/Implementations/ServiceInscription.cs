@@ -12,7 +12,7 @@ namespace Backend.Services.Implementations
         {
             // constructeur
         }
-
+		// Utiliser pour add un inscription
         public Inscription Add(Inscription i)
         {
             using (var context = EntityContainer.getInstance())
@@ -23,7 +23,7 @@ namespace Backend.Services.Implementations
                 return inscription;
             }
         }
-
+		// Utiliser pour get un inscription
         public Inscription Get(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -31,7 +31,7 @@ namespace Backend.Services.Implementations
                 return context.InscriptionSet.First(x => x.Id == id);
             }
         }
-
+		// Utiliser pour update un inscription
         public void Update(Inscription i)
         {
             using (var context = EntityContainer.getInstance())
@@ -40,7 +40,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// Utiliser pour delete un inscription
         public void Delete(int id)
         {
             using (var context = EntityContainer.getInstance())

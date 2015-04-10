@@ -11,7 +11,7 @@ namespace Backend.Services.Implementations
         public ServiceProfesseurHoraire() : base(){
             // constructeur
         }
-
+		// Utiliser pour add un ProfesseurHoraire
         public ProfesseurHoraire Add(ProfesseurHoraire ph)
         {
             using (var context = EntityContainer.getInstance())
@@ -22,7 +22,7 @@ namespace Backend.Services.Implementations
                 return professeurHoraire;
             }
         }
-
+		// Utiliser pour get un ProfesseurHoraire
         public ProfesseurHoraire Get(int id)
         {
             using (var context = EntityContainer.getInstance())
@@ -30,7 +30,7 @@ namespace Backend.Services.Implementations
                 return context.ProfesseurHoraireSet.First(x => x.Id == id);
             }
         }
-
+		// Utiliser pour update un ProfesseurHoraire
         public void Update(ProfesseurHoraire ph)
         {
             using (var context = EntityContainer.getInstance())
@@ -39,7 +39,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-
+		// Utiliser pour delete un ProfesseurHoraire
         public void Delete(int id)
         {
             using (var context = EntityContainer.getInstance())
