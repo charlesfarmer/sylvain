@@ -11,5 +11,7 @@ namespace Backend.Services.Interfaces
         Cours Add(Cours cours);
         void Update(Cours cours);
         void Delete(int id);
+        List<Cours> GetAllAvailableForSubscription();
+
     }
 }

@@ -1,22 +1,23 @@
-﻿<%@ Page Title="Profil" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="InterfaceClient.Contact" %>
+﻿<%@ Page Title="Profil" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Profil.aspx.cs" Inherits="InterfaceClient.Contact" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
         <h1><%: Title %>.</h1>
         <h2>Visionnez vos informations personnelles.</h2>
     </hgroup>
-
+    <% var etu = (Session["login"] as Backend.Login).Etudiant; %>
     <section class="contact">
+        
         <header>
             <h3>Nom</h3>
         </header>
         <p>
             <span class="label">Prénom:</span>
-            <span>Istouch</span>
+            <%=etu.Coordonnees.Prenom %>
         </p>
         <p>
             <span class="label">Nom de famille:</span>
-            <span>Lapoch</span>
+            <%=etu.Coordonnees.Nom %>
         </p>
     </section>
 
@@ -26,11 +27,11 @@
         </header>
         <p>
             <span class="label">Téléphone:</span>
-            <span>(514) 444-1919</span>
+            <%=etu.Coordonnees.Telephone %>
         </p>
         <p>
             <span class="label">Adresse:</span>
-            <span>12345π rue De La Rue, Vienne, Brésil</span>
+            <%=etu.Coordonnees.Adresse %>
         </p>
     </section>
 </asp:Content>

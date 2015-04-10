@@ -144,7 +144,7 @@
     <Property Name="Ouvert" Type="bit" Nullable="false" />
     <Property Name="Cout" Type="decimal" Nullable="false" Precision="18" Scale="6" />
     <Property Name="DateLimite" Type="datetime" Nullable="false" />
-    <Property Name="Professeur_Id" Type="int" Nullable="false" />
+    <Property Name="Professeur_Id" Type="int" Nullable="true" />
     <Property Name="Sujet_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="CoordonneesSet">
@@ -239,7 +239,7 @@
   </Association>
   <Association Name="CoursProfesseur">
     <End Role="Cours" Type="ProjetSylvain.Store.CoursSet" Multiplicity="*" />
-    <End Role="Professeur" Type="ProjetSylvain.Store.ProfesseurSet" Multiplicity="1" />
+    <End Role="Professeur" Type="ProjetSylvain.Store.ProfesseurSet" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Professeur">
         <PropertyRef Name="Id" />
@@ -609,7 +609,7 @@
         </Association>
         <Association Name="CoursProfesseur">
           <End Type="ProjetSylvain.Cours" Role="Cours" Multiplicity="*" />
-          <End Type="ProjetSylvain.Professeur" Role="Professeur" Multiplicity="1" />
+          <End Type="ProjetSylvain.Professeur" Role="Professeur" Multiplicity="0..1" />
         </Association>
         <Association Name="CoursSujet">
           <End Type="ProjetSylvain.Cours" Role="Cours" Multiplicity="*" />
@@ -799,6 +799,7 @@
       <EndProperty Name="Cours">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
+      <Condition ColumnName="Professeur_Id" IsNull="false" />
     </AssociationSetMapping>
     <AssociationSetMapping Name="CoursSujet" TypeName="ProjetSylvain.CoursSujet" StoreEntitySet="CoursSet">
       <EndProperty Name="Sujet">
@@ -908,7 +909,7 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <edmx:Diagram DiagramId="73e7bd91989e4892ad6f7aeb1bb06309" Name="Diagram1" ZoomLevel="44">
+      <edmx:Diagram DiagramId="73e7bd91989e4892ad6f7aeb1bb06309" Name="Diagram1" ZoomLevel="65">
         <edmx:EntityTypeShape EntityType="ProjetSylvain.Etudiant" Width="1.5" PointX="2.75" PointY="5" IsExpanded="true" />
         <edmx:EntityTypeShape EntityType="ProjetSylvain.Login" Width="1.5" PointX="0.5" PointY="5" IsExpanded="true" />
         <edmx:EntityTypeShape EntityType="ProjetSylvain.Paiement" Width="1.5" PointX="5.125" PointY="7.625" IsExpanded="true" />

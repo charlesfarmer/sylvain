@@ -78,7 +78,7 @@ namespace Backend.Services.Implementations
             {
                 if (hasToBeEtudiant)
                 {
-                    return context.LoginSet.FirstOrDefault(x => x.Code == code && x.Mot_de_Passe == pass && x.Etudiant != null);
+                    return context.LoginSet.Include("Etudiant.Coordonnees").FirstOrDefault(x => x.Code == code && x.Mot_de_Passe == pass && x.Etudiant != null);
                 }
                 else
                 {
@@ -99,7 +99,7 @@ namespace Backend.Services.Implementations
 
 					case "ID": return context.LoginSet.Where(x => x.Id == Int32.Parse(texteATrouver)).ToList();
 
-					case "Identifiant": return context.LoginSet.Where(x => x.Code == texteATrouver).ToList();
+					case "Identifiant": return context.LoginSet.Where(x => x.Code.ToLowerInvariant().Contains(texteATrouver.ToLowerInvariant())).ToList();
 
 					default: return new List<Login>();
 

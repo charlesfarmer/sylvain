@@ -19,44 +19,53 @@
             <tr>
                 <td style="vertical-align:top">
                     <h3>Cours disponibles:</h3>
+
                     <ol class="round">
+                        <%foreach(var cours in listeCours.Where(x=>x.Inscription.All(y=>y.Etudiant.Id!=etudiantCourant.Id) && x.Ouvert)){ %>
                         <li>
-                            <h5>Natation sous-marine</h5>
-                            Horaire: Mardi, 21h-23h
+                            <h5><%=cours.Sujet.Nom %></h5>
+                            <%string h = "";
+                              
+                              foreach (var jour in cours.Horaire.Where(x=>x.Actif).Select(x => x.Jour).Distinct())
+                              {
+                                  h += jour.NomLong + ", ";
+                                  var heures = cours.Horaire.Where(x => x.Jour.Id == jour.Id && x.Actif).Select(x => x.Heure).Distinct();
+                                  h += heures.Min(x => x.Num) + "h-" + (heures.Max(x => x.Num) + 1) + "h ; ";
+                              }
+                            %>
+                            Horaire: <%=h %>
                             <br />
-                            Date limite d'inscription: 3 Avril 2015
+                            Date limite d'inscription: <%=cours.DateLimite.ToShortDateString() %>
                             <br />
-                            <a>S'inscrire…</a>
+                            <a href="Paiement.aspx?type=1&coursId=<%=cours.Id %>">S'inscrire...</a>
+                            
                         </li>
-                        <li>
-                            <h5>Histoire de l'Estonie</h5>
-                            Horaire: Samedi, 14h-16h
-                            <br />
-                            Date limite d'inscription: 14 Avril 2015
-                            <br />
-                            <a>S'inscrire…</a>
-                        </li>
-                        <li>
-                            <h5>Développement... de photos!</h5>
-                            Horaire: Dimanche, 9h-12h
-                            <br />
-                            Date limite d'inscription: 8 Mai 2015
-                            <br />
-                            <a>S'inscrire…</a>
-                        </li>
+                        <%} %>
                     </ol>
                 </td>
                 <td style="vertical-align:top">
                     <h3>Cours auxquels vous êtes inscrit:</h3>
                     <ol class="round">
+                        <%foreach(var cours in listeCours.Where(x=>x.Inscription.Any(y=>y.Etudiant.Id==etudiantCourant.Id))){ %>
                         <li>
-                            <h5>Physique quantique avancée</h5>
-                            Horaire: Jeudi, 18h-22h
+                            <h5><%=cours.Sujet.Nom %></h5>
+                            <%string h = "";
+                              
+                              foreach (var jour in cours.Horaire.Where(x=>x.Actif).Select(x => x.Jour).Distinct())
+                              {
+                                  h += jour.NomLong + ", ";
+                                  var heures = cours.Horaire.Where(x => x.Jour.Id == jour.Id && x.Actif).Select(x => x.Heure).Distinct();
+                                  h += heures.Min(x => x.Num) + "h-" + (heures.Max(x => x.Num) + 1) + "h ; ";
+                              }
+                            %>
+                            Horaire: <%=h %>
                             <br />
-                            Solde à payer: 560.99$
+                            <%var totalpaye = cours.Inscription.Single(x=>x.Etudiant.Id==etudiantCourant.Id).Paiement.Where(x=>!x.Rembourse).Sum(x=>x.Montant); %>
+                            Solde à payer: <%=Math.Round((cours.Cout - totalpaye),3) %>$ <%if (totalpaye<cours.Cout){%><a href="Paiement.aspx?type=2&coursId=<%=cours.Id %>">-> Payer</a> <%}%>
                             <br />
-                            <a>Annuler l'inscription…</a>
+                            <a href="Paiement.aspx?type=3&coursId=<%=cours.Id %>">Annuler l'inscription...</a>
                         </li>
+                        <%} %>
                     </ol>
                 </td>
             </tr>

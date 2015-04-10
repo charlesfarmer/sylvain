@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace InterfaceClient
-{
-    public partial class Contact
-    {
+namespace InterfaceClient {
+    
+    
+    public partial class Contact {
     }
 }

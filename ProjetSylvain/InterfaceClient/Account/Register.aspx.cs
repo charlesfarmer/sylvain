@@ -13,19 +13,19 @@ namespace InterfaceClient.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            RegisterUser.ContinueDestinationPageUrl = Request.QueryString["ReturnUrl"];
+            
         }
 
-        protected void RegisterUser_CreatedUser(object sender, EventArgs e)
+        protected void RegisterUser(object sender, EventArgs e)
         {
-            FormsAuthentication.SetAuthCookie(RegisterUser.UserName, createPersistentCookie: false);
-
-            string continueUrl = RegisterUser.ContinueDestinationPageUrl;
-            if (!OpenAuth.IsLocalUrl(continueUrl))
+            if (Page.IsValid)
             {
-                continueUrl = "~/";
+                Backend.Login loginObj;
+                Backend.Etudiant etudiantObj;
+
+                
             }
-            Response.Redirect(continueUrl);
+            
         }
     }
 }

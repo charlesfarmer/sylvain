@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/28/2015 22:46:46
--- Generated from EDMX file: H:\session6_H2015\420-114 - Adaptation technologique\sylvain\ProjetSylvain\Backend\EntitySchema.edmx
+-- Date Created: 04/09/2015 13:57:51
+-- Generated from EDMX file: C:\Users\Felix\Sylvaine\ProjetSylvain\Backend\EntitySchema.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [master];
+USE [sylvain];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -27,13 +27,13 @@ IF OBJECT_ID(N'[dbo].[FK_InscriptionEtudiant]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[InscriptionSet] DROP CONSTRAINT [FK_InscriptionEtudiant];
 GO
 IF OBJECT_ID(N'[dbo].[FK_CoursProfesseur]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ProfesseurSet] DROP CONSTRAINT [FK_CoursProfesseur];
+    ALTER TABLE [dbo].[CoursSet] DROP CONSTRAINT [FK_CoursProfesseur];
 GO
 IF OBJECT_ID(N'[dbo].[FK_CoursSujet]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[CoursSet] DROP CONSTRAINT [FK_CoursSujet];
 GO
 IF OBJECT_ID(N'[dbo].[FK_CoordonneesProfesseur]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[CoordonneesSet] DROP CONSTRAINT [FK_CoordonneesProfesseur];
+    ALTER TABLE [dbo].[ProfesseurSet] DROP CONSTRAINT [FK_CoordonneesProfesseur];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ProfesseurSujet_Professeur]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ProfesseurSujet] DROP CONSTRAINT [FK_ProfesseurSujet_Professeur];
@@ -171,7 +171,7 @@ CREATE TABLE [dbo].[CoursSet] (
     [Ouvert] bit  NOT NULL,
     [Cout] decimal(18,6)  NOT NULL,
     [DateLimite] datetime  NOT NULL,
-    [Professeur_Id] int  NOT NULL,
+    [Professeur_Id] int  NULL,
     [Sujet_Id] int  NOT NULL
 );
 GO
