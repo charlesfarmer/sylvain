@@ -12,5 +12,6 @@ namespace Backend.Services.Interfaces
         Inscription Add(Inscription inscription);
         void Update(Inscription inscription);
         void Delete(int id);
+        Inscription AddNewInscription(bool annule, int etudiantId, int coursId);
     }
 }

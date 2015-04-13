@@ -50,5 +50,27 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
+
+        public Paiement AddNewPaiement(decimal montant, Boolean rembourse, DateTime timeStamp, int inscriptionId)
+        {
+            using (var context = EntityContainer.getInstance())
+            {
+                Paiement p = new Paiement();
+                p.Montant = montant;
+                p.Rembourse = rembourse;
+                p.TimeStamp = timeStamp;
+                p.Inscription = context.InscriptionSet.Single(x => x.Id == inscriptionId);
+
+                if (p.Inscription.Annule)
+                {
+                    p.Inscription.Annule = false;
+                    context.Entry(p.Inscription).State = System.Data.EntityState.Modified;
+                }
+                Paiement pReturn;
+                pReturn = context.PaiementSet.Add(p);
+                context.SaveChanges();
+                return pReturn;
+            }
+        }
     }
 }

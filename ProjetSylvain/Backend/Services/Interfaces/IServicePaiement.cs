@@ -12,5 +12,6 @@ namespace Backend.Services.Interfaces
         Paiement Add(Paiement paiement);
         void Update(Paiement paiement);
         void Delete(int id);
+        Paiement AddNewPaiement(decimal montant, Boolean rembourse, DateTime timeStamp, int inscriptionId);
     }
 }

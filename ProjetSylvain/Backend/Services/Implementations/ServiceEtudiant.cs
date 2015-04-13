@@ -72,5 +72,19 @@ namespace Backend.Services.Implementations
 
 			}
 		}
+        public Etudiant AddNewEtudiant(int coordonneesId, int loginId)
+        {
+            using (var context = EntityContainer.getInstance())
+            {
+                Etudiant e = new Etudiant();
+                e.Coordonnees = context.CoordonneesSet.Single(x => x.Id == coordonneesId);
+                e.Login = context.LoginSet.Single(x => x.Id == loginId);
+
+                Etudiant eReturn;
+                eReturn = context.EtudiantSet.Add(e);
+                context.SaveChanges();
+                return eReturn;
+            }
+        }
     }
 }

@@ -88,6 +88,14 @@ namespace Backend.Services.Implementations
             }
         }
 
+        public Login FindByCode(string code)
+        {
+            using (var context = EntityContainer.getInstance())
+            {
+                return context.LoginSet.Include("Etudiant.Coordonnees").FirstOrDefault(x => x.Code == code);
+            }
+        }
+
 		// Rechere les Admin. par critere
 		public List<Login> FindByCritere(String typeDeRecherche, String texteATrouver)
 		{

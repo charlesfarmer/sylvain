@@ -21,7 +21,8 @@
                     <h3>Cours disponibles:</h3>
 
                     <ol class="round">
-                        <%foreach(var cours in listeCours.Where(x=>x.Inscription.All(y=>y.Etudiant.Id!=etudiantCourant.Id) && x.Ouvert)){ %>
+                        <%foreach (var cours in listeCours.Where(x => x.Inscription.All(y => y.Etudiant.Id != etudiantCourant.Id || (y.Etudiant.Id == etudiantCourant.Id && y.Annule)) && x.Ouvert))
+                          { %>
                         <li>
                             <h5><%=cours.Sujet.Nom %></h5>
                             <%string h = "";
@@ -46,7 +47,7 @@
                 <td style="vertical-align:top">
                     <h3>Cours auxquels vous êtes inscrit:</h3>
                     <ol class="round">
-                        <%foreach(var cours in listeCours.Where(x=>x.Inscription.Any(y=>y.Etudiant.Id==etudiantCourant.Id))){ %>
+                        <%foreach(var cours in listeCours.Where(x=>x.Inscription.Any(y=>y.Etudiant.Id==etudiantCourant.Id && !y.Annule))){ %>
                         <li>
                             <h5><%=cours.Sujet.Nom %></h5>
                             <%string h = "";

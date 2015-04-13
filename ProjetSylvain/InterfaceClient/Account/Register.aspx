@@ -8,7 +8,7 @@
 
 
     <p class="message-info">
-        Votre mot de passe doit être au moins 8 caractères de long, avoir au moins une majuscule, une majuscule, un chiffre, un caractère spécial, et doit contenir votre année de naissance en hexadécimal.
+        Votre mot de passe doit être au moins 8 caractères de long, avoir au moins une majuscule, une minuscule, un chiffre, un caractère spécial, et doit contenir votre année de naissance en hexadécimal. L'inclusion du mot "PapaPrune" est non-obligatoire mais reste un atout.
     </p>
 
     <p class="validation-summary-errors">
@@ -23,6 +23,18 @@
                 <asp:TextBox runat="server" ID="UserName" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName"
                     CssClass="field-validation-error" ErrorMessage="Un code est requis." />
+            </li>
+            <li>
+                <asp:Label runat="server" AssociatedControlID="Prenom">Prénom</asp:Label>
+                <asp:TextBox runat="server" ID="Prenom" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="Prenom"
+                    CssClass="field-validation-error" ErrorMessage="Un prénom est requis." />
+            </li>
+             <li>
+                <asp:Label runat="server" AssociatedControlID="Nom">Nom de famille</asp:Label>
+                <asp:TextBox runat="server" ID="Nom" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="Nom"
+                    CssClass="field-validation-error" ErrorMessage="Un nom de famille est requis." />
             </li>
             <li>
                 <asp:Label runat="server" AssociatedControlID="Tel">Téléphone</asp:Label>

@@ -50,5 +50,20 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
+
+        public Inscription AddNewInscription(bool annule, int etudiantId, int coursId)
+        {
+            using (var context = EntityContainer.getInstance()){
+                Inscription i = new Inscription();
+                i.Annule = false;
+                i.Etudiant = context.EtudiantSet.Single(x => x.Id == etudiantId);
+                i.Cours = context.CoursSet.Single(x => x.Id == coursId);
+
+                Inscription iReturn;
+                iReturn = context.InscriptionSet.Add(i);
+                context.SaveChanges();
+                return iReturn;
+            }
+        }
     }
 }
