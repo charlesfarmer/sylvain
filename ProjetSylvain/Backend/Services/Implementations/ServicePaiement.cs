@@ -55,13 +55,14 @@ namespace Backend.Services.Implementations
         {
             using (var context = EntityContainer.getInstance())
             {
+                // Création des infos de paiement
                 Paiement p = new Paiement();
                 p.Montant = montant;
                 p.Rembourse = rembourse;
                 p.TimeStamp = timeStamp;
                 p.Inscription = context.InscriptionSet.Single(x => x.Id == inscriptionId);
 
-                if (p.Inscription.Annule)
+                if (p.Inscription.Annule)// Si l'inscription associée avait été annulée, on se doit de la réactiver.
                 {
                     p.Inscription.Annule = false;
                     context.Entry(p.Inscription).State = System.Data.EntityState.Modified;

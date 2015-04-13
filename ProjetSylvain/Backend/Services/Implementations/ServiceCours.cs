@@ -50,7 +50,7 @@ namespace Backend.Services.Implementations
                 context.SaveChanges();
             }
         }
-		// revoie une <list>Cours valide pour s'inscrire 
+		// revoie une List<Cours> valide pour s'inscrire 
         public List<Cours> GetAllAvailableForSubscription()
         {
             using (var context = EntityContainer.getInstance())

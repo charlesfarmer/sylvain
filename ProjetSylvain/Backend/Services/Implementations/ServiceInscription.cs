@@ -54,6 +54,7 @@ namespace Backend.Services.Implementations
         public Inscription AddNewInscription(bool annule, int etudiantId, int coursId)
         {
             using (var context = EntityContainer.getInstance()){
+                // Générer les infos de l'inscription à partir des paramètres envoyés.
                 Inscription i = new Inscription();
                 i.Annule = false;
                 i.Etudiant = context.EtudiantSet.Single(x => x.Id == etudiantId);

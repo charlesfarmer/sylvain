@@ -34,6 +34,7 @@ namespace Backend.Services.Implementations
                 }
                 catch (InvalidOperationException e)
                 {
+                    e.ToString();
                     // something like Logger.log(e.StackTrace.ToString())
                     return null;
                 }
@@ -76,7 +77,7 @@ namespace Backend.Services.Implementations
         {
             using (var context = EntityContainer.getInstance())
             {
-                if (hasToBeEtudiant)
+                if (hasToBeEtudiant)// Si on veut obligatoirement que ça soit un étudiant, il faut que l'étudiant ne soit pas null
                 {
                     return context.LoginSet.Include("Etudiant.Coordonnees").FirstOrDefault(x => x.Code == code && x.Mot_de_Passe == pass && x.Etudiant != null);
                 }

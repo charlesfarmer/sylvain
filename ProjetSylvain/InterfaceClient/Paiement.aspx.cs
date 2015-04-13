@@ -76,47 +76,15 @@ namespace InterfaceClient
 
             if (type == "1")
             {
-                Inscription i = Facade.ServiceInscription.AddNewInscription(false, etu.Id, cours.Id);
-                Facade.ServicePaiement.AddNewPaiement(prix, false, DateTime.Now, i.Id);
-                Response.Redirect("~/Default.aspx");
-                return;
-
-                i = new Inscription();
-                i.Annule = false;
-                i.Etudiant = etu;
-                i.Cours = cours;
-                i = Facade.ServiceInscription.Add(i);
-
-                Paiement p = new Paiement();
-                p.Montant = prix;
-                p.Rembourse = false;
-                p.TimeStamp = DateTime.Now;
-                p.Inscription = i;
-                Facade.ServicePaiement.Add(p);
-
+                Inscription i = Facade.ServiceInscription.AddNewInscription(false, etu.Id, cours.Id);// Création de l'objet inscription dans le backend
+                Facade.ServicePaiement.AddNewPaiement(prix, false, DateTime.Now, i.Id);// Création de l'objet paiement dans le backend
+                
                 Response.Redirect("~/Default.aspx");
             }
             else if (type == "2")
             {
+                // Création de l'objet Paiement dans le Backend
                 Facade.ServicePaiement.AddNewPaiement(prix, false, DateTime.Now, cours.Inscription.Single(x => x.Etudiant.Id == etu.Id).Id);
-
-
-                Response.Redirect("~/Default.aspx");
-                return;
-
-                Inscription i = cours.Inscription.Single(x => x.Etudiant.Id == etu.Id); 
-                if (i.Annule)// Si c'est un cas d'une réinscription après une annulation d'inscription, on ne fait que réactiver celle-ci.
-                {
-                    i.Annule = false;
-                }
-                Paiement p = new Paiement();
-                p.Montant = prix;
-                p.Rembourse = false;
-                p.TimeStamp = DateTime.Now;
-                p = Facade.ServicePaiement.Add(p);
-
-                i.Paiement.Add(p);
-                Facade.ServiceInscription.Update(i);
 
                 Response.Redirect("~/Default.aspx");
             }
