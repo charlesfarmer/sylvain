@@ -18,6 +18,7 @@ namespace Backend
         public EntityContainer()
             : base("name=EntityContainer")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -162,6 +162,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EntitySchema-test.edmx.sql" />
     <Content Include="EntitySchema.edmx.sql" />
   </ItemGroup>
   <ItemGroup>

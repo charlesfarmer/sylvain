@@ -73,18 +73,17 @@ namespace InterfaceAdmin
         {
             string LoginFormat = "{0} {1}";
             string CoordonneesFormat = "{0} {1} {2}";
-
-            if (typeof(Login) == o.GetType())
+            if (o.GetType().IsSubclassOf(typeof(Login)))
             {
                 Login l = (Login) o;
                 return String.Format(LoginFormat, l.Id, l.Code);
             }
-            else if (typeof(Etudiant) == o.GetType())
+            else if (o.GetType().IsSubclassOf(typeof(Etudiant)))
             {
                 Etudiant e = (Etudiant) o;
                 return String.Format(CoordonneesFormat, e.Coordonnees.Id, e.Coordonnees.Prenom, e.Coordonnees.Nom);
             }
-            else if (typeof(Professeur) == o.GetType())
+            else if (o.GetType().IsSubclassOf(typeof(Professeur)))
             {
                 Professeur p = (Professeur) o;
                 return String.Format(CoordonneesFormat, p.Coordonnees.Id, p.Coordonnees.Prenom, p.Coordonnees.Nom);
@@ -92,7 +91,7 @@ namespace InterfaceAdmin
 
             return "Objet inconnu";
         }
-		// contenue des combos box
+		// Contenu des combo box's
         void FillComboBoxes()
         {
             this.cbAdminRecherche.Items.Add(RECHERCHE_PAR_ID);

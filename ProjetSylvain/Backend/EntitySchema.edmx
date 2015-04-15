@@ -397,7 +397,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProjetSylvain" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityContainer Name="EntityContainer" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EntityContainer" annotation:LazyLoadingEnabled="false">
           <EntitySet Name="EtudiantSet" EntityType="ProjetSylvain.Etudiant" />
           <EntitySet Name="LoginSet" EntityType="ProjetSylvain.Login" />
           <EntitySet Name="PaiementSet" EntityType="ProjetSylvain.Paiement" />

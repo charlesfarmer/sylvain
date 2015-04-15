@@ -10,15 +10,16 @@ using Backend;
 using Backend.Services.Interfaces;
 using Backend.Services.Implementations;
 using ControlCoordonées;
+using Backend.Interfaces.Implementations;
 
 namespace InterfaceAdmin
 {
     public partial class FormLogin : Form
     {
 		// Variable de class
-        const string warningMessageIdentifiant = "Ruh roh\n\nYou missing rusername!";
-        const string warningMessagePassword = "Ruh roh\n\nYou missing passrurd!";
-        const string warningMessageLoginFailed = "SCOOBY DOOO";
+        const string warningMessageIdentifiant = "Vous devez entrer un identifiant!";
+        const string warningMessagePassword = "Vous devez entrer un mot de passe!";
+        const string warningMessageLoginFailed = "L'identifiant ou le mot de passe est invalide.";
 
         Random Random = new Random();
 		// Constructeur
@@ -49,13 +50,7 @@ namespace InterfaceAdmin
                 return;
             }
 
-            Login login = new Login
-            {
-                Code = u,
-                Mot_de_Passe = p
-            };
-
-            if (Random.Next(0, 2) % 2 == 0) // TODO: 👽 ayy 👽👽 lmao 👽
+            if (Facade.ServiceLogin.FindByCodeAndPass(u, p, false) != null && Facade.ServiceLogin.FindByCodeAndPass(u, p, false).IsAdmin)
             {
                 this.DialogResult = DialogResult.Yes;
                 Close();
@@ -67,7 +62,7 @@ namespace InterfaceAdmin
             }
         }
         #endregion
-		// call un message dependament de l'erreur
+		// call un message dépendemment de l'erreur
         void WarningMessage(string message)
         {
             MessageBox.Show(message);

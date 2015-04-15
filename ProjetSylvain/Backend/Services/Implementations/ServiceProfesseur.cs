@@ -56,14 +56,15 @@ namespace Backend.Services.Implementations
 		{
 			using (var context = EntityContainer.getInstance())
 			{
-
+                int texteATrouverint;
+                Int32.TryParse(texteATrouver, out texteATrouverint);
 				switch(typeDeRecherche){
 
-					case "ID": return context.ProfesseurSet.Where(x => x.Id == Int32.Parse(texteATrouver)).ToList();
+					case "ID": return context.ProfesseurSet.Include("Coordonnees").Where(x => x.Id == texteATrouverint).ToList();
 
-					case "Nom": return context.ProfesseurSet.Where(x => x.Coordonnees.Nom == texteATrouver).ToList();
+					case "Nom": return context.ProfesseurSet.Include("Coordonnees").Where(x => x.Coordonnees.Nom == texteATrouver).ToList();
 						
-					case "Prenom": return context.ProfesseurSet.Where(x => x.Coordonnees.Prenom == texteATrouver).ToList();
+					case "Prenom": return context.ProfesseurSet.Include("Coordonnees").Where(x => x.Coordonnees.Prenom == texteATrouver).ToList();
 
 					default: return new List<Professeur>();
 
