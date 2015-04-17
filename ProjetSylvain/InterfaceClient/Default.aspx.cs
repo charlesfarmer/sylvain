@@ -15,8 +15,12 @@ namespace InterfaceClient
         protected Etudiant etudiantCourant;
         protected void Page_Load(object sender, EventArgs e)
         {
-            listeCours = Facade.ServiceCours.GetAllAvailableForSubscription();
-            etudiantCourant = (Session["login"] as Backend.Login).Etudiant;
+            if (!IsPostBack)
+            {
+                listeCours = Facade.ServiceCours.GetAllAvailableForSubscription();
+                etudiantCourant = (Session["login"] as Backend.Login).Etudiant;
+            }
+            
         }
     }
 }
